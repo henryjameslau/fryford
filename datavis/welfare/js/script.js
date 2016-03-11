@@ -19,6 +19,7 @@ if (Modernizr.inlinesvg)
 //		}
 
 
+drawsliderOnce = 0;
 
 function handleOrientation() {
 	
@@ -53,6 +54,9 @@ function handleOrientation() {
 	$(window).resize(handleOrientation);
 	
 	function drawSlider() {
+		
+		if(drawsliderOnce == 0){
+		
 		
 		console.log("I'm trying");
 		
@@ -110,7 +114,8 @@ function handleOrientation() {
 				w = columns.eq(i).width()-10 - (i==0?1:0);
 				ranges.push(w);
 				total+=w;
-			}		 
+			}
+					 
 			for(i=0; i<columns.length; i++){	
 			
 				ranges[i] = 100*(ranges[i]/total);
@@ -157,7 +162,9 @@ function handleOrientation() {
 
 	}
 
-
+		drawsliderOnce = 1;
+	}
+	
 	}
 	) 
 	
