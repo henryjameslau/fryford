@@ -29,24 +29,24 @@ function handleOrientation() {
 	console.log(window.innerHeight)
 	console.log(window.innerWidth)
 	
-	if(window.innerHeight > window.innerWidth){
-		console.log("1")
+		if(window.parent.innerHeight > window.parent.innerWidth){
+			console.log("1")
+			
+			if(width<=400){
+					$("#main").hide(); 
+					$("#rotate").show();
+				} else { 
+					$("#main").show();
+					drawSlider();
+					$("#rotate").hide();
+				}
 		
-		if(width<=400){
-				$("#main").hide(); 
-				$("#rotate").show();
-			} else { 
+		} else {
 				$("#main").show();
 				drawSlider();
 				$("#rotate").hide();
-			}
-	
-		} else {
-			$("#main").show();
-			drawSlider();
-			$("#rotate").hide();
 		}
-		
+			
 	} 
 	
 	handleOrientation();
