@@ -23,29 +23,41 @@ if (Modernizr.inlinesvg)
 function handleOrientation() {
 	
 	width = $(".container-fluid").width();
+	
 	console.log(width);
+	console.log(window.innerHeight)
+	console.log(window.innerWidth)
 	
 	if(window.innerHeight > window.innerWidth){
+		console.log("1")
+		
 		if(width<=400){
 				$("#main").hide(); 
 				$("#rotate").show();
 			} else { 
 				$("#main").show();
+				drawSlider();
 				$("#rotate").hide();
 			}
 	
-	} else {
-		$("#main").show();
-		$("#rotate").hide();
-	}
+		} else {
+			$("#main").show();
+			drawSlider();
+			$("#rotate").hide();
+		}
+		
+	} 
 	
-}
 	handleOrientation();
+	
 	$(window).resize(handleOrientation);
+	
+	function drawSlider() {
+		
+		console.log("I'm trying");
+		
 		//main script
 		Totalspent = 257562;
-		
-		//
 		
 		ActualSplit = [107966,40760,3473,26569,44358,34437];
 		
@@ -84,20 +96,8 @@ function handleOrientation() {
 			$("#textnx" + i).append("<span>£" + Math.round(startshare/100).toLocaleString() + "bn</span><br>" + Math.round(startshareper) + "%");
 
 		};
-		
-		
-	function revealresult() {
-		$("#revealslide").show();
-		$(".textResult").show();
-		$("#submitbutton").addClass("hidden");
-		$('#slider').attr("disabled",'disabled');
-		$('#slider').css("pointer-events","none");
-		$(".JCLRgrip").addClass("hidden");
-			if (pymChild) {
-		        pymChild.sendHeight();
-		    }
-
-	}
+	
+	
 
 	$(function(){	
 
@@ -139,6 +139,23 @@ function handleOrientation() {
 			});
 	
 	});	
+
+
+}
+		
+		
+	function revealresult() {
+		$("#revealslide").show();
+		$(".textResult").show();
+		$("#submitbutton").addClass("hidden");
+		$('#slider').attr("disabled",'disabled');
+		$('#slider').css("pointer-events","none");
+		$(".JCLRgrip").addClass("hidden");
+			if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+
+	}
 
 
 	}
