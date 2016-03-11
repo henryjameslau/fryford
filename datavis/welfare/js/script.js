@@ -58,7 +58,7 @@ function handleOrientation() {
 		if(drawsliderOnce == 0){
 		
 		
-		console.log("I'm trying");
+		console.log("I've started to draw and I'm not supposed to");
 		
 		//main script
 		Totalspent = 257562;
