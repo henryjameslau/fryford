@@ -29,7 +29,7 @@ function handleOrientation() {
 	console.log(window.innerHeight)
 	console.log(window.innerWidth)
 	
-		if(window.parent.innerHeight > window.parent.innerWidth){
+		if(window.innerHeight > window.innerWidth){
 			console.log("1")
 			
 			if(width<=400){
