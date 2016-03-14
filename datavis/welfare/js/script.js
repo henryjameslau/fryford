@@ -29,9 +29,7 @@ function handleOrientation() {
 	console.log(window.innerHeight)
 	console.log(window.innerWidth)
 	
-		if(window.innerHeight > window.innerWidth){
-			console.log("1")
-			
+
 			if(width<=400){
 					$("#main").hide(); 
 					$("#rotate").show();
@@ -40,12 +38,6 @@ function handleOrientation() {
 					drawSlider();
 					$("#rotate").hide();
 				}
-		
-		} else {
-				$("#main").show();
-				drawSlider();
-				$("#rotate").hide();
-		}
 			
 	} 
 	
