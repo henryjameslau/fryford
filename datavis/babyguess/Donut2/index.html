@@ -112,7 +112,7 @@
 		g.append("path")
 			.attr("d", arc)
 			.attr("id" , "donut")
-			.style("fill", function(d) {console.log(d.data.name); return color(d.data.name); });
+			.style("fill", function(d) {return color(d.data.name); });
 	
 		g.append("text") 
 			.attr("transform", function(d,i) {
@@ -286,7 +286,7 @@ function createLegend(){
 							
 								
 							//prevY =BBox.width 	
-								console.log(i+": previous x position "+prevX);	
+								
 								d3.select(".legend" + (i))
 										.attr("y",function(d){ 
 													if((prevX+BBox.width +50)>parseInt(graphic.style("width")) ){
