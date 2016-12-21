@@ -1,0 +1,50 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+
+            "legendStyle": "rect",
+			
+            "legendLabels":[ "Male" , "Female"],
+        
+			"sourceText":[""],
+            "sourceURL":[""],
+        
+            "annotationChart": [],
+            "annotationBullet": [],
+			
+            "annotationXY":[
+                [0,0],
+                [-50,50]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+
+            "colour_palette":[ 
+                "#a4d0cf", 
+                "#e4a0a1"
+            ],
+        
+            "circles" : true,    
+            "annotationCXCY":[
+                [0,0],
+                [-50,50]
+            ]          
+    },
+    "optional" : {
+            "margin_sm": [10, 50, 35, 40],
+            "margin_md": [10, 50, 35, 40],
+            "margin_lg": [10, 50, 35, 40],
+        
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 610
+    }
+}
+
+

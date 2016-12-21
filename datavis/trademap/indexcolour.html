@@ -212,7 +212,7 @@ time, mark, audio, video
 	  
 	 .mapArcsLow	{
 		fill:none;
-		stroke:#53bcca;
+		/*stroke:#53bcca;*/
 		stroke-width:0.1%; 
 		stroke-linecap:round; 
 		opacity:0.3;
@@ -222,7 +222,7 @@ time, mark, audio, video
 	  .mapArcsHigh	{
 		fill:none;
 		opacity:1;
-		stroke:#ca6153;
+		/*stroke:#ca6153;*/s
 		stroke-width:0.3%;
 		stroke-linecap:round;
 		stroke-dasharray: 5,3;
@@ -2831,6 +2831,16 @@ function interpolatedProjection(a, b) {
 	}
 
 	function spider(arraynm){
+	
+	console.log(arraynm);	
+	console.log(arraynm[0][0]);
+		
+	colours = d3.scale.linear()
+					.domain([0,arraynm[0][0]])
+					.range(["#ff0000","#0000ff"]);
+	
+	
+	
 		if(dvc.storyover=true)	{
 			makeChart(arraynm);		
 		}
@@ -2842,6 +2852,9 @@ function interpolatedProjection(a, b) {
 	} else {
 		
 		arraynm2 = arraynm.slice();
+		
+		console.log(colours(arraynm2[145][0]));
+		
 		arraynm2.reverse();
 	}
 	
@@ -2881,6 +2894,7 @@ function interpolatedProjection(a, b) {
 					{return "mapArcsLowN"}
 			}
 			 }) 
+		.attr("stroke", function(d,i) {return colours(arraynm2[i][0])})
 		.attr("d",dvc.path)
 		.attr("pointer-events", "none");
 	
@@ -2895,6 +2909,7 @@ function interpolatedProjection(a, b) {
 		{if(arraynm2[i][0] >= dvc.jmtothemax || arraynm2[i][0] <= (dvc.jmtothemax*-1))
 			{return "mapArcsHigh"}
 			else {return "mapArcsLow"} }) 
+		.attr("stroke", function(d,i) {console.log(colours(arraynm2[i][0])); return colours(arraynm2[i][0])})
 		.attr("d",dvc.path)
 		.attr("pointer-events", "none");
 	
