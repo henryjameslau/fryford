@@ -131,7 +131,9 @@
 
     <script>
 	
-	 pymChild = new pym.Child();
+	 //use pym to create iframed chart dependent on specified variables
+          pymChild = new pym.Child({ renderCallback: drawGraphic});
+
 
     // Bootstrap slider style
       $("#ex8").slider({
@@ -309,8 +311,6 @@
 	calcScore(guess_value,dvc.essential.setValue[question]);
 
 
-          //use pym to create iframed chart dependent on specified variables
-          pymChild = new pym.Child({ renderCallback: drawGraphic});
       }
 
 
