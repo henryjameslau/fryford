@@ -295,7 +295,7 @@
 	  	.select(".tooltip-inner")
 		.html(guess_value);
 		
-	  d3.selectAll(".tooltip-min").transition().duration(500).style("opacity",1);	
+	  d3.selectAll(".tooltip-min").style("opacity",1);	
 	  d3.selectAll(".tooltip-main").transition().delay(1000).duration(500).style("opacity",1);
 
 		
@@ -726,10 +726,7 @@
 			.attr("target", "_blank")
 			.html(dvc.essential.sourceText);
             
-      	//use pym to calculate chart dimensions 
-        if (pymChild) {
-            pymChild.sendHeight();
-        }
+
     } //end drawGraphic()
 
 	// next button function
