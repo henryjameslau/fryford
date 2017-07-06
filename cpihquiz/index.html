@@ -245,25 +245,12 @@
 	 
 	 guess_marginleft = $(".tooltip-main").css('margin-left');
 
-	console.log(guess_marginleft);
-	 
 	 guess_value = $('#ex8').data('slider').getValue();
 	 
 	  
 	 // Sets correct value for the answers
           	
 	 $("#ex8").slider('setValue', dvc.essential.setValue[question], true);
-	 
-	 console.log(dvc.essential.setValue[question]);
-
-   // d3.select(".tooltip-min")
-   //    .style("left", guess_left)
-   //    .style("top","10px")
-   //    .style("margin-left",guess_marginleft)
-   //    .style("display","block")
-   //    .classed("top", true)
-   //    .classed("bottom",true);
-
 
 
 	// Hides the tooltip temporarily
@@ -355,7 +342,7 @@
 	
     function drawGraphic(width) {
       
-       var threshold_md = 788;
+       var threshold_md = 590;
        var threshold_sm = dvc.optional.mobileBreakpoint; 
       
         //set variables for chart dimensions dependent on width of #graphic
@@ -516,16 +503,6 @@
 						//mobile annotations
 						dvc.essential.annotationBullet.forEach(function(d,i) {
 						
-//							d3.select("#keypoints").append("svg")
-//								.attr("width","20px")
-//								.attr("height","20px")
-//								.attr("class","circles")
-//								.append("circle")
-//								.attr("class", "annocirc" + (i))
-//								.attr("r", "2")
-//								.attr('cy',"12px")
-//								.attr("cx", "10px");
-							
 							d3.select("#keypoints").append("p").text(dvc.essential.annotationBullet[question][i]);
 						
 						})// end foreach

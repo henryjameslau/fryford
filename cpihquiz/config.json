@@ -180,11 +180,11 @@
             "margin_md": [20, 15, 60, 26],
             "margin_lg": [20, 15, 60, 26],
         
-            "aspectRatio_sm" : [16,13],
-            "aspectRatio_md" : [16,12],
-            "aspectRatio_lg" : [16,10],
+            "aspectRatio_sm" : [16,9],
+            "aspectRatio_md" : [16,11],
+            "aspectRatio_lg" : [16,11],
         
-            "mobileBreakpoint" : 610, 
+            "mobileBreakpoint" : 590, 
             "vertical_line" : true,
             "annotateLineX1_Y1_X2_Y2":[ ],
 
