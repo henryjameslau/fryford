@@ -200,6 +200,7 @@
 
     #next-button {
       margin-top: 10px;
+	  overflow:hidden;
 
     }
 
@@ -237,6 +238,7 @@
       margin: auto;
       position: relative;
       max-width: 800px;
+	  overflow:hidden;
     }
 
     a:link {
