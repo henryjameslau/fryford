@@ -774,11 +774,13 @@
 			$("#answer-button").show();
 			$("#answer-button").show();
 			$("#next-button").hide();
+			
+				if (pymChild) {
+					pymChild.sendHeight();
+				}	
 		}) //end load csv
 	 	
-		if (pymChild) {
-            pymChild.sendHeight();
-        }	
+		
 		
 		
     } // end next()
