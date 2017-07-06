@@ -131,9 +131,9 @@
 
     <script>
 	
-	 //use pym to create iframed chart dependent on specified variables
-          pymChild = new pym.Child();
-
+	function initialise() {
+	
+	 pymChild = new pym.Child();
 
     // Bootstrap slider style
       $("#ex8").slider({
@@ -220,8 +220,10 @@
 			});
 
       });
+	  
+	} //end initialise
 
-    // Moves handle to set value
+
 
   function move() {
 	
@@ -311,6 +313,8 @@
 	calcScore(guess_value,dvc.essential.setValue[question]);
 
 
+          //use pym to create iframed chart dependent on specified variables
+          drawGraphic();
       }
 
 
@@ -844,6 +848,8 @@
         //load chart data
         d3.csv(dvc.essential.graphic_data_url[question], type, function(error, data) {
           graphic_data = data;
+		  
+		  pymChild = new pym.Child({ renderCallback: initialise });
                     
         });
       })
