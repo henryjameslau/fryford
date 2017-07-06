@@ -279,7 +279,7 @@
       });
 	  
 	  // Show tooltip on reveal
-	   d3.select(".tooltip-main").attr("opacity",1);
+	   d3.select(".tooltip-main").transition().duration(500).delay(500).attr("opacity",1);
 	 
 	  
 	  // Set guess tooltip
