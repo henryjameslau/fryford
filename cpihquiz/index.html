@@ -729,7 +729,11 @@
 			.attr("href", dvc.essential.sourceURL)
 			.attr("target", "_blank")
 			.html(dvc.essential.sourceText);
-            
+          
+		 if (pymChild) {
+            pymChild.sendHeight();
+        } 
+		    
 
     } //end drawGraphic()
 
