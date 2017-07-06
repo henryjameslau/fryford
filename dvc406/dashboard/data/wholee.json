@@ -1,0 +1,20 @@
+{"code":"wholee",
+ "filepth":"",
+ "description":{
+        "title":"Whole economy net wealth per head",
+        "unit":"£",
+        "text":"Value of financial and non-financial assets in the UK. Provides an indication of the sustainability of current levels of production and corresponding income flows"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years": {
+            "catLabels":[
+                "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015"                
+            ],
+            "dataValues":[
+                110354, 105411, 115088, 115941, 113882, 120182, 128935, 135498
+            ]
+    }
+} 
+

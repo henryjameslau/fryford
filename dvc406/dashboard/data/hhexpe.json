@@ -1,0 +1,20 @@
+{"code":"hhexpe",
+ "filepth":"",
+ "description":{
+        "title":"Real household expenditure per head",
+        "unit":"£",
+        "text":"Household spending on goods and services"
+    },
+    "months":[],
+    "days":[],
+    "quarters":{
+            "catLabels":[
+                "2008 Jan", "2008 Apr", "2008 Jun", "2008 Oct", "2009 Jan", "2009 Apr", "2009 Jun", "2009 Oct", "2010 Jan", "2010 Apr", "2010 Jun", "2010 Oct", "2011 Jan", "2011 Apr", "2011 Jun", "2011 Oct", "2012 Jan", "2012 Apr", "2012 Jun", "2012 Oct", "2013 Jan", "2013 Apr", "2013 Jun", "2013 Oct", "2014 Jan", "2014 Apr", "2014 Jun", "2014 Oct", "2015 Jan", "2015 Apr", "2015 Jun", "2015 Oct", "2016 Jan", "2016 Apr", "2016 Jun", "2016 Oct", "2017 Jan"
+            ],
+            "dataValues":[
+                4479, 4435, 4364, 4257, 4236, 4177, 4189, 4197, 4161, 4226, 4214, 4174, 4153, 4113, 4115, 4146, 4160, 4175, 4182, 4212, 4202, 4206, 4231, 4253, 4252, 4261, 4312, 4297, 4320, 4332, 4373, 4382, 4405, 4431, 4457, 4480, 4489
+            ]
+    },
+    "years": []
+} 
+

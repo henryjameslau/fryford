@@ -1,0 +1,21 @@
+{"code":"hhdisp",
+ "filepth":"",
+ "description":{
+        "title":"Household disposable income",
+        "unit":"£",
+        "text":"Money households have to spend on consumption, or to save and invest, after taxes, National Insurance, pension contributions and interest have been paid"
+    },
+    "months":[],
+    "days":[],
+    "quarters":{
+            "catLabels":[
+                "2008 Jan", "2008 Apr", "2008 Jun", "2008 Oct", "2009 Jan", "2009 Apr", "2009 Jun", "2009 Oct", "2010 Jan", "2010 Apr", "2010 Jun", "2010 Oct", "2011 Jan", "2011 Apr", "2011 Jun", "2011 Oct", "2012 Jan", "2012 Apr", "2012 Jun", "2012 Oct", "2013 Jan", "2013 Apr", "2013 Jun", "2013 Oct", "2014 Jan", "2014 Apr", "2014 Jun", "2014 Oct", "2015 Jan", "2015 Apr", "2015 Jun", "2015 Oct", "2016 Jan", "2016 Apr", "2016 Jun", "2016 Oct", "2017 Jan"
+                
+            ],
+            "dataValues":[
+                4391, 4446, 4382, 4396, 4358, 4531, 4500, 4523, 4506, 4450, 4504, 4452, 4386, 4365, 4350, 4325, 4356, 4456, 4450, 4450, 4348, 4419, 4440, 4419, 4390, 4451, 4430, 4522, 4506, 4568, 4626, 4642, 4627, 4642, 4622, 4603, 4535
+            ]
+    },
+    "years": []
+} 
+

@@ -1,0 +1,19 @@
+{"code":"dispin",
+ "filepth":"",
+ "description":{
+        "title":"Net national disposible income per head",
+        "unit":"£",
+        "text":"Income available to all residents in the UK, which differs from GDP per head mainly due to adjustments for international flows of income - such as inward-income earned by UK investors on assets oversees, and outward-income foriegn investors earned on assets in the UK"
+    },
+    "months":[],
+    "days":[],
+    "quarters":{
+            "catLabels":[
+                "2008 Jan", "2008 Apr", "2008 Jun", "2008 Oct", "2009 Jan", "2009 Apr", "2009 Jun", "2009 Oct", "2010 Jan", "2010 Apr", "2010 Jun", "2010 Oct", "2011 Jan", "2011 Apr", "2011 Jun", "2011 Oct", "2012 Jan", "2012 Apr", "2012 Jun", "2012 Oct", "2013 Jan", "2013 Apr", "2013 Jun", "2013 Oct", "2014 Jan", "2014 Apr", "2014 Jun", "2014 Oct", "2015 Jan", "2015 Apr", "2015 Jun", "2015 Oct", "2016 Jan", "2016 Apr", "2016 Jun", "2016 Oct", "2017 Jan"
+            ],
+            "dataValues":[                6063,5933,5834,5675,5455,5520,5675,5687,5676,5736,5716,5719,5660,5778,5689,5780,5665,5675,5710,5669,5730,5769,5736,5727,5801,5871,5896,5877,5973,6011,6035,5851,5935,6021,6071,6196,6190
+            ]
+    },
+    "years": []
+} 
+

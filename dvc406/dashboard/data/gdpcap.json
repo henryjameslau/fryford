@@ -1,0 +1,21 @@
+{"code":"gdpcap",
+"filepth":"",
+"description":{
+       "title":"Gross Domestic Product per head",
+       "unit":"£",
+        "text": "The value of goods and services produced in the UK, adjusted for changes in population"
+    },
+   "months":[],
+   "days":[],
+   "quarters":{
+           "catLabels":[
+               "2008 Jan", "2008 Apr", "2008 Jun", "2008 Oct", "2009 Jan", "2009 Apr", "2009 Jun", "2009 Oct", "2010 Jan", "2010 Apr", "2010 Jun", "2010 Oct", "2011 Jan", "2011 Apr", "2011 Jun", "2011 Oct", "2012 Jan", "2012 Apr", "2012 Jun", "2012 Oct", "2013 Jan", "2013 Apr", "2013 Jun", "2013 Oct", "2014 Jan", "2014 Apr", "2014 Jun", "2014 Oct", "2015 Jan", "2015 Apr", "2015 Jun", "2015 Oct", "2016 Jan", "2016 Apr", "2016 Jun", "2016 Oct", "2017 Jan"
+                
+            ],
+           "dataValues":[
+                7030, 6970,6840,6673,6553,6527,6518,6532,6555,6608,6631,6625,6648,6638,6656,6661,6680,6663,6729,6702,6734,6759,6797,6817,6862,6912,6955,6999,7002,7022,7029,7065,7063,7093,7116,7151,7154
+            ]
+    },
+   "years": []
+} 
+
