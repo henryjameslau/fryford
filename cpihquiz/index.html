@@ -261,7 +261,7 @@
 
 	// Hides the tooltip temporarily
 	
-	  $(".tooltip-main").hide();
+	  d3.select(".tooltip-main").attr("opacity",0);
 
     d3.select(".tooltip-main")
       .style("top","82px").style("margin-left","-37.5px");
@@ -279,7 +279,7 @@
       });
 	  
 	  // Show tooltip on reveal
-	  $(".tooltip-main").delay(1500).show(0);
+	   d3.select(".tooltip-main").attr("opacity",1);
 	 
 	  
 	  // Set guess tooltip
