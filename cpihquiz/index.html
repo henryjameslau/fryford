@@ -721,6 +721,8 @@
 	// next button function
 	function next() {
 		
+		
+		
 		d3.select(".slider").style("pointer-events","auto");
 		
 		d3.select(".tooltip-min").style("opacity",0)
@@ -735,7 +737,9 @@
 
 
 		question++
-
+		
+		//update question number
+		d3.select("#number").text(question+1);
 
 		d3.selectAll(".question").classed("hide", true);
 		d3.select("#question"+question).classed("hide", false);
