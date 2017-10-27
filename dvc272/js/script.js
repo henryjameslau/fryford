@@ -11,12 +11,7 @@ if (Modernizr.inlinesvg)
 	//Load main script/data
 	$(document).ready(function()
 	{	
-		
-//		if (window.innerHeight > window.innerWidth) {
-//			alert("hello");
-//			$(".container-fluid").hide();
-//			
-//		}
+
 
 
 drawsliderOnce = 0;
@@ -25,11 +20,6 @@ function handleOrientation() {
 	
 	width = $(".container-fluid").width();
 	
-	console.log(width);
-	console.log(window.innerHeight)
-	console.log(window.innerWidth)
-	
-
 			if(width<=400){
 					$("#main").hide(); 
 					$("#rotate").show();
@@ -49,22 +39,13 @@ function handleOrientation() {
 		
 		if(drawsliderOnce == 0){
 		
-		
-		console.log("I've started to draw and I'm not supposed to");
-		
 		//main script
 		Totalspent = 264295;
 		
 		ActualSplit = [111341,43545,2227,25390,46438,35354];
 		
 		classes = ["first","second","third","fourth","fifth","sixth"];
-		
-//Pensions	83,527	87,306	93,699	100,939	104,442	41.6
-//Incapacity, disability and injury benefits	30,626	32,372	33,916	36,416	37,537	14.9
-//Unemployment benefits	5,533	5,231	5,633	5,939	4,945	2.0
-//Housing benefits	22,812	24,399	25,366	26,360	26,386	10.5
-//family benefits, income support and tax credits	21,943	21,282	20,308	18,484	16,134	6.4
-//Personal social services and other benefits	58,560	59,807	61,075	62,336	61,828	24.6
+	
 		
 		$("#revealslide").hide();
 		$(".textResult").hide();
