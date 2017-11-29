@@ -1213,7 +1213,7 @@
 						.attr("class","vertLines")
 						.attr("id","LELine")
 						.attr('y1', y(0) )
-						.attr('y2', y(85))
+						.attr('y2', y(75))
 						.attr('x1', x(dvc.LE) )
 						.attr('x2', x(dvc.LE) )
 						.style("pointer-events" , "none");
