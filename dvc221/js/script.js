@@ -89,8 +89,7 @@
 				
 			}); // end window.resize function
 				 
-				console.log(d3.selectAll(".radio-neutral-icon"));					
-											
+				
 			// function called when a gender button is selected
 			d3.selectAll(".form-group-icon")
 				.on('click', function(){
@@ -107,7 +106,6 @@
 //						d3.select("#btn-primary1").style("color" , "white" ).style("background-color" , "#274796" );
 //						d3.select("#btn-primary2").style("color"  , "black" ).style("background-color" , "#e7e7e7" ).style("border-color" , "#cccccc" );
 						
-						console.log(dvc.selectedGender);
 					}// end if ...
 					
 					
@@ -122,7 +120,6 @@
 //						d3.select("#btn-primary2").style("color" , "white" ).style("background-color" , "#274796" );
 //						d3.select("#btn-primary1").style("color"  , "black" ).style("background-color" , "#e7e7e7" ).style("border-color" , "#cccccc" );
 						
-						console.log(dvc.selectedGender);
 					}// end else ...
 					
 					
@@ -132,8 +129,7 @@
 						d3.select("#compareBtn").attr("class","btn-primary large");
 						d3.select("#submitButton").attr("cursor","default")
 					}
-								
-//					console.log("dvc.selectedGender: " + dvc.selectedGender);
+					
 								
 				}); // end gender button function 
 												
@@ -891,9 +887,6 @@
 						var graphic_aspect_width = 16;
 						var graphic_aspect_height = 9;
 						var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom + 40;	
-						
-						console.log(height);			
-						
 						
 					}// end else ... 
 					
