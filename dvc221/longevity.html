@@ -2497,9 +2497,9 @@ width: 100%;
 		
 		whatsapp = d3.select(".left")
 			.append("a")
-			.attr("href","whatsapp://send")
-			.attr("data-text","What's your life expectancy")
-			.attr("data-href",window.location.href)
+			.attr("href","whatsapp://send?text=What's your life expectancy " + window.location.href)
+			//.attr("data-text","What's your life expectancy")
+			//.attr("data-href",window.location.href)
 			.attr("cursor","pointer")
 			.append("svg")
 			.attr("class","socialicon")
