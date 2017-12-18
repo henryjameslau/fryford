@@ -1,0 +1,28 @@
+{"ons":{
+"datanames": ["hlem0", "hlef0", "hlem65", "hlef65"],
+"varlabel": ["Males - HLE at birth", "Females - HLE at birth", "Males - HLE at age 65", "Females - HLE at age 65"],
+"varcolour": [
+	["#d6e0ee","#96b1d4","#5782bb","#365886"],
+	["#fef0d9","#fdcc8a","#fc8d59","#d7301f"],
+    ["#d6e0ee","#96b1d4","#5782bb","#365886"],
+	["#fef0d9","#fdcc8a","#fc8d59","#d7301f"]
+],
+"varname": ["Healthy life Exp Male","Healthy life Exp Female", "Healthy life Exp Male 65","Healthy life Exp Female 65"],
+"varload": "Healthy life Exp Male",
+"varunit": ["HLE (Years)","HLE (Years)","HLE (Years)","HLE (Years)"],
+"varprefix": ["","","",""],
+"breaks": ["jenks","jenks","jenks","jenks"],
+"yAxisScale":[[50,75], [50,75], [0,16], [0,16]],
+"yAxisLabel": "years",
+"dropXtick": 4,
+"averagelabel": "Eng",
+"centre": [53.6,-3],
+"zoom": 5.8,
+"sourceLabel": "Annual Population Survey, Office for National Statistics",
+"sourceURL": "https://www.ons.gov.uk/releases/healthstatelifeexpectanciesuk2014to2016",
+"nonStdScale": ["09","10","11","12","13","14"],
+"chartLabels": ["09-11","10-12","11-13","12-14","13-15","14-16"],
+"timelineLabelsMB": ["","10-12","","12-14","","14-16"],
+"timelineLabelsDT": ["09-11","10-12","11-13","12-14","13-15","14-16"],
+"circles": "false"  
+}}

@@ -1207,7 +1207,8 @@
 						.attr('x2', x(dvc.myCurrentAge) )
 						.style("pointer-events" , "none");	
 										
-						
+					console.log(bodyWidth);
+					if(bodyWidth <= 400) {	
 					// draw vertical LE line ...
 					svgDocP.append("line")
 						.attr("class","vertLines")
@@ -1217,6 +1218,17 @@
 						.attr('x1', x(dvc.LE) )
 						.attr('x2', x(dvc.LE) )
 						.style("pointer-events" , "none");
+					} else {
+						
+					svgDocP.append("line")
+						.attr("class","vertLines")
+						.attr("id","LELine")
+						.attr('y1', y(0) )
+						.attr('y2', y(85))
+						.attr('x1', x(dvc.LE) )
+						.attr('x2', x(dvc.LE) )
+						.style("pointer-events" , "none");	
+					}
 										
 						
 					// draw LE text ...

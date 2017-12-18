@@ -1,0 +1,639 @@
+"Healthy life expectancy (HLE) at birth and age 65 by sex and upper tier local authorities (UTLAs), England, between 2009 to 2011 and 2014 to 2016",,,,,,,,,
+,,,,,,,,,Years
+Area codes,Area names,Sex,Age group,2009-11,2010-12,2011-13,2012-14,2013-15,2014-2016
+E06000001,Hartlepool,Female,At age 65,8.0,7.2,7.7,7.7,7.9,7.8
+E06000001,Hartlepool,Female,At birth,59.2,57.9,56.8,57.2,55.2,57.4
+E06000001,Hartlepool,Male,At age 65,7.3,7.1,7.6,8.0,7.8,8.0
+E06000001,Hartlepool,Male,At birth,56.8,56.8,56.3,55.8,57.0,57.7
+E06000002,Middlesbrough,Female,At age 65,9.7,9.7,9.1,10.2,10.2,10.1
+E06000002,Middlesbrough,Female,At birth,59.3,59.3,59.5,61.2,59.8,58.8
+E06000002,Middlesbrough,Male,At age 65,7.6,7.0,7.3,7.6,8.8,8.8
+E06000002,Middlesbrough,Male,At birth,58.0,57.7,57.6,57.9,58.8,57.8
+E06000003,Redcar and Cleveland,Female,At age 65,10.6,10.2,9.4,10.7,12.0,11.6
+E06000003,Redcar and Cleveland,Female,At birth,60.5,60.2,59.6,60.3,61.5,60.5
+E06000003,Redcar and Cleveland,Male,At age 65,8.9,8.0,8.4,9.4,9.2,8.6
+E06000003,Redcar and Cleveland,Male,At birth,59.2,58.4,58.7,60.2,59.1,58.8
+E06000004,Stockton-on-Tees,Female,At age 65,9.5,9.3,9.8,9.3,9.9,10.7
+E06000004,Stockton-on-Tees,Female,At birth,61.9,61.0,62.5,62.0,62.3,62.3
+E06000004,Stockton-on-Tees,Male,At age 65,9.3,8.8,9.5,10.0,10.8,10.2
+E06000004,Stockton-on-Tees,Male,At birth,61.5,60.3,61.5,61.1,61.0,59.5
+E06000005,Darlington,Female,At age 65,10.9,11.8,11.5,11.2,9.9,10.9
+E06000005,Darlington,Female,At birth,62.5,63.1,63.0,61.8,61.3,63.4
+E06000005,Darlington,Male,At age 65,9.8,10.0,10.5,10.7,10.4,9.8
+E06000005,Darlington,Male,At birth,64.1,64.0,63.5,62.2,61.8,61.0
+E06000006,Halton,Female,At age 65,9.4,9.6,9.2,8.2,8.3,7.9
+E06000006,Halton,Female,At birth,60.1,60.3,60.1,59.8,59.6,59.7
+E06000006,Halton,Male,At age 65,8.7,8.6,8.3,8.0,8.1,8.3
+E06000006,Halton,Male,At birth,59.4,59.6,58.6,59.6,60.0,60.0
+E06000007,Warrington,Female,At age 65,8.8,8.5,9.1,9.8,11.5,10.8
+E06000007,Warrington,Female,At birth,61.0,61.7,61.8,62.6,64.0,63.6
+E06000007,Warrington,Male,At age 65,8.7,8.7,9.1,10.4,10.8,10.6
+E06000007,Warrington,Male,At birth,60.5,60.5,62.2,62.6,65.4,64.0
+E06000008,Blackburn with Darwen,Female,At age 65,8.7,9.1,8.6,9.4,10.0,10.0
+E06000008,Blackburn with Darwen,Female,At birth,59.5,59.9,59.2,60.0,60.3,60.0
+E06000008,Blackburn with Darwen,Male,At age 65,7.0,6.7,8.4,8.4,8.5,8.0
+E06000008,Blackburn with Darwen,Male,At birth,56.6,56.4,57.9,58.0,58.0,57.3
+E06000009,Blackpool,Female,At age 65,9.8,9.2,9.4,9.2,9.3,9.4
+E06000009,Blackpool,Female,At birth,57.4,58.4,58.2,58.7,59.0,58.0
+E06000009,Blackpool,Male,At age 65,6.4,6.7,6.9,7.3,7.8,7.9
+E06000009,Blackpool,Male,At birth,55.0,54.4,54.7,55.1,56.4,55.1
+E06000010,"Kingston upon Hull, City of",Female,At age 65,8.2,7.8,8.3,8.3,9.8,9.7
+E06000010,"Kingston upon Hull, City of",Female,At birth,56.8,55.3,56.1,55.0,55.4,56.0
+E06000010,"Kingston upon Hull, City of",Male,At age 65,7.8,7.9,7.2,7.9,7.2,8.0
+E06000010,"Kingston upon Hull, City of",Male,At birth,57.9,58.0,56.9,56.6,56.3,56.5
+E06000011,East Riding of Yorkshire,Female,At age 65,11.1,10.3,10.9,10.9,11.0,11.3
+E06000011,East Riding of Yorkshire,Female,At birth,66.7,65.4,66.1,65.6,65.8,65.5
+E06000011,East Riding of Yorkshire,Male,At age 65,10.4,10.0,10.8,10.8,9.7,9.4
+E06000011,East Riding of Yorkshire,Male,At birth,64.5,64.7,65.7,65.0,62.9,61.9
+E06000012,North East Lincolnshire,Female,At age 65,9.0,9.1,9.4,8.2,8.8,9.1
+E06000012,North East Lincolnshire,Female,At birth,63.3,63.0,62.2,60.1,58.0,57.5
+E06000012,North East Lincolnshire,Male,At age 65,9.8,10.0,11.4,11.2,10.4,10.7
+E06000012,North East Lincolnshire,Male,At birth,62.0,61.9,64.1,62.6,60.8,59.9
+E06000013,North Lincolnshire,Female,At age 65,8.8,9.6,10.0,10.8,10.7,10.4
+E06000013,North Lincolnshire,Female,At birth,61.6,63.2,62.5,64.8,64.4,63.1
+E06000013,North Lincolnshire,Male,At age 65,8.7,8.7,9.1,8.4,9.2,8.5
+E06000013,North Lincolnshire,Male,At birth,61.3,61.9,62.4,60.2,62.1,59.5
+E06000014,York,Female,At age 65,11.9,12.4,12.6,11.8,11.8,12.0
+E06000014,York,Female,At birth,66.6,67.5,67.1,66.2,65.7,65.9
+E06000014,York,Male,At age 65,9.9,10.4,10.1,11.7,12.1,12.3
+E06000014,York,Male,At birth,62.3,63.4,62.6,65.1,65.9,66.3
+E06000015,Derby ,Female,At age 65,11.1,9.5,9.9,10.3,10.8,8.6
+E06000015,Derby ,Female,At birth,61.6,59.9,58.7,58.9,59.6,58.4
+E06000015,Derby ,Male,At age 65,10.9,10.3,9.8,9.4,9.3,9.4
+E06000015,Derby ,Male,At birth,63.3,61.8,61.1,61.0,60.9,60.2
+E06000016,Leicester,Female,At age 65,8.6,7.7,8.5,7.4,9.2,8.1
+E06000016,Leicester,Female,At birth,57.8,57.1,57.8,57.0,60.0,59.4
+E06000016,Leicester,Male,At age 65,6.8,7.8,7.5,9.2,9.0,8.8
+E06000016,Leicester,Male,At birth,56.2,57.7,56.8,58.8,59.1,60.4
+E06000017,Rutland ,Female,At age 65,13.4,12.7,11.7,11.3,13.3,15.3
+E06000017,Rutland ,Female,At birth,70.8,70.8,70.7,68.9,70.6,70.2
+E06000017,Rutland ,Male,At age 65,9.6,8.7,8.0,11.4,12.5,11.8
+E06000017,Rutland ,Male,At birth,65.7,64.4,64.9,68.8,71.1,68.8
+E06000018,Nottingham,Female,At age 65,9.7,9.5,9.1,7.5,7.7,7.1
+E06000018,Nottingham,Female,At birth,59.6,58.9,59.9,58.6,57.2,55.1
+E06000018,Nottingham,Male,At age 65,8.3,7.6,8.2,7.8,7.4,7.5
+E06000018,Nottingham,Male,At birth,58.4,58.6,58.5,57.3,56.7,57.4
+E06000019,"Herefordshire, County of",Female,At age 65,12.6,12.9,11.8,11.8,12.9,13.1
+E06000019,"Herefordshire, County of",Female,At birth,68.3,68.7,67.1,66.4,68.2,66.5
+E06000019,"Herefordshire, County of",Male,At age 65,11.3,11.6,10.9,11.3,12.2,12.0
+E06000019,"Herefordshire, County of",Male,At birth,66.0,66.7,66.7,66.9,67.9,67.4
+E06000020,Telford and Wrekin,Female,At age 65,9.5,9.4,9.2,9.1,8.7,10.1
+E06000020,Telford and Wrekin,Female,At birth,59.0,58.4,57.3,58.1,58.5,60.7
+E06000020,Telford and Wrekin,Male,At age 65,9.5,10.0,9.9,9.9,9.1,9.5
+E06000020,Telford and Wrekin,Male,At birth,59.8,60.0,60.1,59.8,59.5,62.0
+E06000021,Stoke-on-Trent,Female,At age 65,8.9,9.0,9.6,9.7,10.3,10.8
+E06000021,Stoke-on-Trent,Female,At birth,59.2,58.7,59.1,59.0,59.6,58.1
+E06000021,Stoke-on-Trent,Male,At age 65,8.7,9.2,9.7,9.4,10.0,9.9
+E06000021,Stoke-on-Trent,Male,At birth,59.4,59.8,60.8,60.7,60.2,58.7
+E06000022,Bath and North East Somerset,Female,At age 65,14.1,13.9,13.7,14.0,13.5,12.5
+E06000022,Bath and North East Somerset,Female,At birth,67.5,68.3,68.0,67.8,66.7,65.3
+E06000022,Bath and North East Somerset,Male,At age 65,11.8,11.8,12.7,12.5,12.4,10.4
+E06000022,Bath and North East Somerset,Male,At birth,65.5,65.1,66.3,66.5,65.0,62.5
+E06000023,"Bristol, City of",Female,At age 65,9.6,9.7,10.3,10.1,11.7,11.9
+E06000023,"Bristol, City of",Female,At birth,63.1,62.1,63.0,63.7,64.5,62.9
+E06000023,"Bristol, City of",Male,At age 65,8.5,7.9,8.3,8.6,8.5,8.3
+E06000023,"Bristol, City of",Male,At birth,63.1,62.0,62.2,62.4,59.7,58.9
+E06000024,North Somerset,Female,At age 65,10.8,11.2,12.1,13.6,13.3,13.0
+E06000024,North Somerset,Female,At birth,63.7,63.5,62.7,65.3,66.3,67.4
+E06000024,North Somerset,Male,At age 65,12.0,12.1,11.8,12.2,12.2,13.2
+E06000024,North Somerset,Male,At birth,66.0,65.6,66.2,66.6,66.1,66.2
+E06000025,South Gloucestershire,Female,At age 65,12.9,11.6,10.4,10.9,11.4,12.3
+E06000025,South Gloucestershire,Female,At birth,69.6,66.7,65.9,67.3,65.5,65.2
+E06000025,South Gloucestershire,Male,At age 65,11.4,11.7,11.9,12.5,12.2,11.6
+E06000025,South Gloucestershire,Male,At birth,67.6,67.4,67.7,67.6,66.0,65.5
+E06000026,Plymouth,Female,At age 65,9.3,9.2,9.7,8.9,10.2,11.5
+E06000026,Plymouth,Female,At birth,60.0,59.9,59.1,58.7,60.0,57.8
+E06000026,Plymouth,Male,At age 65,9.9,9.8,9.0,8.7,9.0,9.5
+E06000026,Plymouth,Male,At birth,61.2,60.9,58.5,59.2,59.2,60.7
+E06000027,Torbay,Female,At age 65,11.5,11.0,10.7,10.5,11.0,10.6
+E06000027,Torbay,Female,At birth,64.3,64.4,63.7,63.0,62.9,61.8
+E06000027,Torbay,Male,At age 65,11.2,11.4,10.4,10.8,11.0,10.7
+E06000027,Torbay,Male,At birth,63.5,64.1,62.8,63.2,63.1,62.8
+E06000028,Bournemouth,Female,At age 65,10.3,9.7,11.0,9.3,10.3,12.1
+E06000028,Bournemouth,Female,At birth,63.6,62.6,63.8,63.4,65.7,65.9
+E06000028,Bournemouth,Male,At age 65,10.4,11.0,11.0,10.0,10.2,11.5
+E06000028,Bournemouth,Male,At birth,63.2,63.6,63.3,62.3,62.6,63.7
+E06000029,Poole,Female,At age 65,12.8,12.5,11.3,12.1,12.4,11.9
+E06000029,Poole,Female,At birth,66.6,66.0,65.9,67.1,67.4,67.0
+E06000029,Poole,Male,At age 65,11.5,11.8,11.4,12.6,12.2,10.7
+E06000029,Poole,Male,At birth,65.3,65.0,64.9,66.3,66.2,64.2
+E06000030,Swindon,Female,At age 65,10.6,11.7,11.8,11.6,11.2,10.2
+E06000030,Swindon,Female,At birth,64.4,64.3,63.3,62.5,61.6,61.0
+E06000030,Swindon,Male,At age 65,10.9,11.1,12.4,12.5,12.2,12.2
+E06000030,Swindon,Male,At birth,64.1,63.6,64.2,64.3,64.1,64.4
+E06000031,Peterborough,Female,At age 65,10.3,9.8,10.2,10.5,11.3,11.2
+E06000031,Peterborough,Female,At birth,60.2,59.9,59.4,59.9,62.4,62.2
+E06000031,Peterborough,Male,At age 65,9.6,9.3,9.6,9.5,9.3,10.4
+E06000031,Peterborough,Male,At birth,61.6,60.4,60.7,61.2,61.8,63.6
+E06000032,Luton,Female,At age 65,8.1,8.2,8.1,8.1,8.8,9.1
+E06000032,Luton,Female,At birth,59.8,60.3,59.2,59.8,61.3,61.5
+E06000032,Luton,Male,At age 65,8.6,8.4,8.2,8.6,10.0,9.9
+E06000032,Luton,Male,At birth,60.0,59.3,58.9,60.3,62.1,61.6
+E06000033,Southend-on-Sea,Female,At age 65,12.9,12.4,11.8,12.6,13.1,12.7
+E06000033,Southend-on-Sea,Female,At birth,65.5,65.3,64.2,65.4,65.9,64.9
+E06000033,Southend-on-Sea,Male,At age 65,11.1,10.6,10.4,10.9,11.0,10.3
+E06000033,Southend-on-Sea,Male,At birth,63.5,64.1,62.4,61.8,61.5,60.7
+E06000034,Thurrock,Female,At age 65,10.6,10.5,11.0,10.7,10.4,9.1
+E06000034,Thurrock,Female,At birth,63.5,63.3,64.5,63.8,63.8,60.7
+E06000034,Thurrock,Male,At age 65,9.7,10.3,10.4,11.6,10.1,9.7
+E06000034,Thurrock,Male,At birth,64.0,64.2,65.2,65.7,63.9,64.0
+E06000035,Medway,Female,At age 65,10.0,10.0,9.6,10.9,10.3,9.6
+E06000035,Medway,Female,At birth,63.1,63.0,61.4,61.9,59.7,59.7
+E06000035,Medway,Male,At age 65,9.3,8.9,9.4,9.6,10.4,11.1
+E06000035,Medway,Male,At birth,63.1,61.8,62.7,62.2,61.8,62.2
+E06000036,Bracknell Forest,Female,At age 65,12.4,12.6,12.0,12.7,13.6,14.9
+E06000036,Bracknell Forest,Female,At birth,67.6,67.9,66.3,67.9,69.3,70.2
+E06000036,Bracknell Forest,Male,At age 65,11.1,10.2,11.5,12.1,12.9,13.0
+E06000036,Bracknell Forest,Male,At birth,66.6,66.3,68.0,68.4,68.4,68.3
+E06000037,West Berkshire,Female,At age 65,12.6,12.2,12.1,12.3,13.7,14.6
+E06000037,West Berkshire,Female,At birth,68.1,68.5,68.0,68.8,69.8,70.1
+E06000037,West Berkshire,Male,At age 65,12.5,12.1,12.3,13.4,12.1,12.0
+E06000037,West Berkshire,Male,At birth,67.8,68.0,68.7,69.7,68.7,66.4
+E06000038,Reading,Female,At age 65,11.1,11.7,9.9,9.5,12.0,12.3
+E06000038,Reading,Female,At birth,66.0,66.4,65.2,64.1,65.6,64.6
+E06000038,Reading,Male,At age 65,9.3,9.2,11.4,12.4,12.6,12.6
+E06000038,Reading,Male,At birth,64.7,64.5,66.5,66.6,66.4,67.0
+E06000039,Slough,Female,At age 65,8.1,8.6,7.6,7.2,6.1,7.9
+E06000039,Slough,Female,At birth,60.8,61.6,58.9,57.2,57.7,59.5
+E06000039,Slough,Male,At age 65,9.9,8.9,9.0,9.1,7.8,7.5
+E06000039,Slough,Male,At birth,61.2,61.1,60.1,60.8,60.3,59.6
+E06000040,Windsor and Maidenhead,Female,At age 65,12.8,13.7,14.4,12.9,12.7,13.3
+E06000040,Windsor and Maidenhead,Female,At birth,69.3,69.6,71.1,70.2,69.9,70.8
+E06000040,Windsor and Maidenhead,Male,At age 65,11.1,11.5,11.0,11.6,12.5,12.7
+E06000040,Windsor and Maidenhead,Male,At birth,67.5,68.0,68.1,69.1,69.3,69.7
+E06000041,Wokingham,Female,At age 65,13.1,12.8,12.6,13.6,13.4,14.3
+E06000041,Wokingham,Female,At birth,69.4,69.9,69.8,70.9,70.8,71.1
+E06000041,Wokingham,Male,At age 65,11.8,11.3,13.1,13.2,14.1,13.0
+E06000041,Wokingham,Male,At birth,68.4,68.5,70.5,70.5,70.6,69.7
+E06000042,Milton Keynes,Female,At age 65,10.5,10.9,11.1,10.8,10.4,11.8
+E06000042,Milton Keynes,Female,At birth,64.9,65.2,65.1,65.0,64.5,66.4
+E06000042,Milton Keynes,Male,At age 65,9.3,8.4,10.0,10.0,11.4,11.8
+E06000042,Milton Keynes,Male,At birth,61.0,61.4,62.7,63.0,64.1,66.1
+E06000043,Brighton and Hove,Female,At age 65,11.1,12.0,10.1,10.8,11.1,10.9
+E06000043,Brighton and Hove,Female,At birth,64.1,66.1,63.4,62.3,61.3,62.2
+E06000043,Brighton and Hove,Male,At age 65,10.7,11.8,11.4,11.3,11.0,10.7
+E06000043,Brighton and Hove,Male,At birth,63.9,64.7,63.7,63.0,62.4,61.6
+E06000044,Portsmouth,Female,At age 65,10.3,10.2,11.0,10.9,9.9,10.1
+E06000044,Portsmouth,Female,At birth,62.1,61.4,63.3,62.5,61.3,61.0
+E06000044,Portsmouth,Male,At age 65,9.9,10.2,11.0,10.1,10.9,9.7
+E06000044,Portsmouth,Male,At birth,62.1,63.0,64.2,62.1,61.5,61.3
+E06000045,Southampton,Female,At age 65,11.4,11.5,10.6,10.8,10.2,10.4
+E06000045,Southampton,Female,At birth,64.4,64.1,62.2,62.5,63.2,63.1
+E06000045,Southampton,Male,At age 65,10.0,10.0,10.1,9.6,9.1,9.1
+E06000045,Southampton,Male,At birth,60.6,61.1,60.2,61.3,60.9,61.9
+E06000046,Isle of Wight,Female,At age 65,10.7,10.7,10.9,11.1,11.7,12.4
+E06000046,Isle of Wight,Female,At birth,63.2,63.6,63.2,62.5,63.0,64.2
+E06000046,Isle of Wight,Male,At age 65,10.4,9.5,10.2,10.7,11.5,11.3
+E06000046,Isle of Wight,Male,At birth,61.5,62.4,63.7,64.1,63.2,62.1
+E06000047,County Durham,Female,At age 65,8.6,9.5,9.3,8.7,7.3,9.1
+E06000047,County Durham,Female,At birth,60.1,59.8,59.8,57.7,57.0,59.0
+E06000047,County Durham,Male,At age 65,8.0,8.0,7.7,8.2,8.4,8.3
+E06000047,County Durham,Male,At birth,59.5,59.1,58.4,59.4,58.0,59.1
+E06000049,Cheshire East,Female,At age 65,11.2,11.9,11.6,10.0,9.6,13.6
+E06000049,Cheshire East,Female,At birth,66.6,67.6,67.5,66.4,64.7,66.7
+E06000049,Cheshire East,Male,At age 65,10.6,9.7,13.3,12.8,11.3,12.0
+E06000049,Cheshire East,Male,At birth,65.2,64.2,67.6,67.5,65.5,64.7
+E06000050,Cheshire West and Chester,Female,At age 65,10.9,10.0,11.9,13.6,13.5,12.5
+E06000050,Cheshire West and Chester,Female,At birth,64.4,62.8,63.0,66.1,66.7,65.5
+E06000050,Cheshire West and Chester,Male,At age 65,9.9,10.3,10.8,10.2,12.4,12.6
+E06000050,Cheshire West and Chester,Male,At birth,63.0,65.0,64.3,63.3,65.4,66.2
+E06000051,Shropshire,Female,At age 65,11.3,12.0,11.9,12.5,11.6,12.4
+E06000051,Shropshire,Female,At birth,66.7,66.4,66.2,66.2,65.7,67.6
+E06000051,Shropshire,Male,At age 65,10.8,10.3,10.1,10.6,10.2,11.7
+E06000051,Shropshire,Male,At birth,65.3,64.5,64.4,64.7,64.7,65.4
+E06000052,Cornwall,Female,At age 65,12.1,12.2,10.2,11.7,11.6,11.6
+E06000052,Cornwall,Female,At birth,64.6,64.5,63.9,65.6,64.3,62.4
+E06000052,Cornwall,Male,At age 65,10.9,11.6,11.4,11.5,12.1,12.2
+E06000052,Cornwall,Male,At birth,62.9,63.9,63.7,63.4,64.6,64.3
+E06000054,Wiltshire,Female,At age 65,12.5,12.2,12.5,12.4,12.2,12.4
+E06000054,Wiltshire,Female,At birth,67.9,68.3,66.5,66.8,66.8,67.1
+E06000054,Wiltshire,Male,At age 65,11.6,12.6,13.7,12.8,11.7,12.7
+E06000054,Wiltshire,Male,At birth,66.5,67.4,68.9,67.4,64.8,65.2
+E06000055,Bedford,Female,At age 65,12.2,11.1,11.2,9.6,10.2,12.1
+E06000055,Bedford,Female,At birth,67.7,67.0,66.5,66.0,62.5,64.4
+E06000055,Bedford,Male,At age 65,12.0,11.3,11.8,11.6,9.8,11.2
+E06000055,Bedford,Male,At birth,67.9,67.5,67.5,67.4,65.6,63.8
+E06000056,Central Bedfordshire,Female,At age 65,11.4,11.8,11.1,12.7,11.2,12.4
+E06000056,Central Bedfordshire,Female,At birth,64.7,65.8,65.0,65.4,63.1,64.4
+E06000056,Central Bedfordshire,Male,At age 65,10.6,10.0,9.8,8.6,10.8,11.4
+E06000056,Central Bedfordshire,Male,At birth,65.8,65.6,63.2,63.1,64.7,67.5
+E06000057,Northumberland,Female,At age 65,9.2,10.1,10.8,10.2,11.6,11.8
+E06000057,Northumberland,Female,At birth,62.4,63.2,64.1,63.8,64.2,65.0
+E06000057,Northumberland,Male,At age 65,10.5,10.1,9.8,9.8,11.1,11.6
+E06000057,Northumberland,Male,At birth,62.7,63.2,62.9,62.4,63.9,63.2
+E08000001,Bolton,Female,At age 65,11.1,11.4,9.8,11.0,11.1,10.5
+E08000001,Bolton,Female,At birth,62.4,62.2,61.6,61.7,59.8,58.9
+E08000001,Bolton,Male,At age 65,10.4,10.2,10.7,10.1,10.6,10.2
+E08000001,Bolton,Male,At birth,61.4,60.4,61.7,61.7,62.4,61.2
+E08000002,Bury,Female,At age 65,9.9,10.2,10.4,10.0,12.0,11.6
+E08000002,Bury,Female,At birth,62.7,62.3,61.9,60.4,62.1,62.2
+E08000002,Bury,Male,At age 65,9.0,8.6,8.4,9.2,7.9,8.4
+E08000002,Bury,Male,At birth,60.9,60.9,61.6,61.5,60.6,58.5
+E08000003,Manchester,Female,At age 65,7.4,7.1,6.5,6.9,6.8,6.6
+E08000003,Manchester,Female,At birth,55.5,55.6,55.8,54.2,55.6,54.6
+E08000003,Manchester,Male,At age 65,7.0,7.7,7.6,6.2,6.4,5.8
+E08000003,Manchester,Male,At birth,55.3,56.6,58.4,56.2,55.6,54.3
+E08000004,Oldham ,Female,At age 65,9.3,9.0,7.6,7.4,8.3,10.7
+E08000004,Oldham ,Female,At birth,60.1,60.0,58.6,58.1,58.6,60.7
+E08000004,Oldham ,Male,At age 65,9.3,9.9,8.4,10.0,9.2,9.1
+E08000004,Oldham ,Male,At birth,60.2,62.1,60.0,60.8,60.3,59.1
+E08000005,Rochdale,Female,At age 65,9.2,9.2,9.2,9.5,9.7,10.8
+E08000005,Rochdale,Female,At birth,58.9,58.2,59.5,58.0,58.9,58.7
+E08000005,Rochdale,Male,At age 65,8.6,7.8,8.5,9.1,9.9,8.3
+E08000005,Rochdale,Male,At birth,59.8,59.5,59.3,59.9,59.2,57.8
+E08000006,Salford,Female,At age 65,7.9,7.8,7.8,7.5,8.3,9.3
+E08000006,Salford,Female,At birth,58.2,58.5,59.1,58.1,59.4,59.8
+E08000006,Salford,Male,At age 65,7.3,7.3,7.4,7.8,9.2,9.4
+E08000006,Salford,Male,At birth,56.8,57.5,57.6,56.5,58.3,58.2
+E08000007,Stockport,Female,At age 65,10.7,12.6,13.0,12.6,12.5,12.9
+E08000007,Stockport,Female,At birth,64.4,66.1,66.5,66.1,65.9,66.1
+E08000007,Stockport,Male,At age 65,10.7,12.4,11.5,11.8,11.8,11.6
+E08000007,Stockport,Male,At birth,65.5,67.4,65.4,65.9,65.0,63.5
+E08000008,Tameside,Female,At age 65,8.8,9.4,9.5,9.5,9.4,9.5
+E08000008,Tameside,Female,At birth,57.4,57.4,58.2,58.7,58.8,58.3
+E08000008,Tameside,Male,At age 65,8.6,9.0,8.8,8.7,7.8,8.9
+E08000008,Tameside,Male,At birth,57.9,58.2,58.6,58.5,56.4,57.7
+E08000009,Trafford,Female,At age 65,10.3,9.8,10.8,11.1,12.6,13.5
+E08000009,Trafford,Female,At birth,63.3,62.3,62.7,64.6,65.1,66.2
+E08000009,Trafford,Male,At age 65,9.9,9.5,10.9,10.5,10.5,10.1
+E08000009,Trafford,Male,At birth,64.5,64.4,65.5,65.1,62.9,62.7
+E08000010,Wigan,Female,At age 65,8.5,8.5,9.1,8.9,8.5,9.4
+E08000010,Wigan,Female,At birth,60.0,60.1,62.2,61.2,61.1,62.0
+E08000010,Wigan,Male,At age 65,7.8,8.3,9.1,7.6,7.6,8.5
+E08000010,Wigan,Male,At birth,58.9,59.4,60.9,59.5,59.3,61.0
+E08000011,Knowsley ,Female,At age 65,8.8,8.1,8.3,7.1,7.7,8.0
+E08000011,Knowsley ,Female,At birth,58.1,58.0,58.2,58.3,59.0,58.8
+E08000011,Knowsley ,Male,At age 65,7.2,7.9,7.9,7.8,8.0,7.7
+E08000011,Knowsley ,Male,At birth,55.6,57.3,57.8,58.7,59.1,59.2
+E08000012,Liverpool,Female,At age 65,8.3,8.7,9.4,8.8,8.1,8.5
+E08000012,Liverpool,Female,At birth,58.6,59.4,60.0,59.3,57.7,58.2
+E08000012,Liverpool,Male,At age 65,7.3,7.2,7.5,8.2,7.9,8.1
+E08000012,Liverpool,Male,At birth,58.2,59.0,57.2,57.7,57.4,57.6
+E08000013,St. Helens,Female,At age 65,8.9,9.1,10.0,10.5,10.0,8.5
+E08000013,St. Helens,Female,At birth,61.4,61.7,62.1,61.7,60.8,59.4
+E08000013,St. Helens,Male,At age 65,8.3,9.2,9.5,10.3,9.4,9.4
+E08000013,St. Helens,Male,At birth,60.9,61.4,62.3,60.2,59.4,58.5
+E08000014,Sefton,Female,At age 65,9.5,10.2,10.7,10.2,9.9,10.3
+E08000014,Sefton,Female,At birth,63.0,63.6,63.2,63.2,63.0,62.0
+E08000014,Sefton,Male,At age 65,9.5,9.6,10.1,9.5,9.2,9.9
+E08000014,Sefton,Male,At birth,62.5,62.2,60.8,60.0,61.2,60.7
+E08000015,Wirral,Female,At age 65,10.1,10.2,9.9,9.7,10.8,10.5
+E08000015,Wirral,Female,At birth,62.8,62.8,62.5,60.8,61.7,60.3
+E08000015,Wirral,Male,At age 65,9.6,9.1,9.5,9.7,9.6,9.4
+E08000015,Wirral,Male,At birth,61.3,60.6,60.1,60.4,61.1,61.4
+E08000016,Barnsley,Female,At age 65,8.6,8.3,7.7,8.9,9.2,8.9
+E08000016,Barnsley,Female,At birth,57.7,56.8,56.2,56.5,57.4,59.8
+E08000016,Barnsley,Male,At age 65,8.0,8.0,7.5,8.1,7.8,8.8
+E08000016,Barnsley,Male,At birth,57.5,57.3,56.0,57.7,57.0,58.6
+E08000017,Doncaster,Female,At age 65,9.6,9.1,8.8,8.7,9.5,10.4
+E08000017,Doncaster,Female,At birth,59.4,59.0,58.0,59.2,61.0,61.9
+E08000017,Doncaster,Male,At age 65,8.9,9.1,8.8,9.1,9.8,9.4
+E08000017,Doncaster,Male,At birth,58.2,57.8,58.4,57.5,59.7,59.6
+E08000018,Rotherham ,Female,At age 65,9.0,9.2,8.7,8.5,8.3,8.3
+E08000018,Rotherham ,Female,At birth,60.1,60.4,59.4,58.5,58.0,55.7
+E08000018,Rotherham ,Male,At age 65,7.2,7.2,7.6,8.6,9.2,9.2
+E08000018,Rotherham ,Male,At birth,58.1,58.3,57.4,58.8,58.7,59.8
+E08000019,Sheffield,Female,At age 65,8.3,9.2,9.0,9.3,8.8,8.4
+E08000019,Sheffield,Female,At birth,61.5,61.8,59.5,60.8,59.9,57.5
+E08000019,Sheffield,Male,At age 65,8.8,8.5,8.7,8.9,8.7,8.9
+E08000019,Sheffield,Male,At birth,59.3,60.2,60.4,60.6,59.0,60.4
+E08000021,Newcastle upon Tyne,Female,At age 65,9.6,10.0,9.6,9.6,11.1,10.3
+E08000021,Newcastle upon Tyne,Female,At birth,60.9,61.3,60.6,59.7,61.1,60.0
+E08000021,Newcastle upon Tyne,Male,At age 65,8.5,8.3,7.2,8.1,7.6,7.6
+E08000021,Newcastle upon Tyne,Male,At birth,60.5,60.0,57.8,58.7,59.0,59.2
+E08000022,North Tyneside,Female,At age 65,9.8,10.0,10.0,10.9,9.9,10.3
+E08000022,North Tyneside,Female,At birth,61.0,60.2,60.4,62.5,62.3,62.1
+E08000022,North Tyneside,Male,At age 65,8.1,7.9,7.7,7.5,9.0,9.3
+E08000022,North Tyneside,Male,At birth,60.2,60.0,59.9,60.1,60.9,61.9
+E08000023,South Tyneside,Female,At age 65,8.9,8.3,8.5,8.4,8.4,8.8
+E08000023,South Tyneside,Female,At birth,59.2,58.9,58.2,58.8,57.9,58.0
+E08000023,South Tyneside,Male,At age 65,7.7,7.4,8.4,8.3,7.0,6.9
+E08000023,South Tyneside,Male,At birth,57.9,58.2,58.2,58.6,56.8,57.3
+E08000024,Sunderland,Female,At age 65,7.9,8.2,8.0,8.0,9.0,8.7
+E08000024,Sunderland,Female,At birth,57.7,58.4,57.9,58.6,60.1,59.3
+E08000024,Sunderland,Male,At age 65,7.5,8.1,8.1,8.2,8.2,8.0
+E08000024,Sunderland,Male,At birth,57.1,57.8,58.6,58.6,58.8,58.8
+E08000025,Birmingham,Female,At age 65,8.1,8.5,9.5,9.0,9.5,9.2
+E08000025,Birmingham,Female,At birth,59.3,59.2,60.6,58.7,59.4,59.3
+E08000025,Birmingham,Male,At age 65,9.4,9.1,9.7,8.5,8.3,8.3
+E08000025,Birmingham,Male,At birth,58.7,58.1,58.4,57.8,58.4,59.7
+E08000026,Coventry,Female,At age 65,9.4,9.2,9.1,10.2,9.5,10.0
+E08000026,Coventry,Female,At birth,62.7,63.4,63.1,63.4,63.8,62.9
+E08000026,Coventry,Male,At age 65,8.7,8.9,8.9,7.7,9.2,9.8
+E08000026,Coventry,Male,At birth,60.7,61.1,62.3,61.3,62.9,62.2
+E08000027,Dudley ,Female,At age 65,9.9,11.1,9.5,10.1,10.1,9.6
+E08000027,Dudley ,Female,At birth,63.4,65.1,63.5,63.0,62.7,61.9
+E08000027,Dudley ,Male,At age 65,10.2,10.0,9.8,9.6,9.3,8.4
+E08000027,Dudley ,Male,At birth,62.1,62.5,62.1,62.5,60.7,59.9
+E08000028,Sandwell ,Female,At age 65,7.1,6.9,7.5,6.8,8.2,8.0
+E08000028,Sandwell ,Female,At birth,57.6,58.2,58.1,57.8,59.7,59.5
+E08000028,Sandwell ,Male,At age 65,7.0,7.0,8.1,8.7,7.1,7.2
+E08000028,Sandwell ,Male,At birth,57.7,58.3,59.4,59.0,57.7,57.1
+E08000029,Solihull,Female,At age 65,11.8,11.8,10.8,12.0,12.7,11.9
+E08000029,Solihull,Female,At birth,66.6,66.2,65.8,67.6,67.9,66.0
+E08000029,Solihull,Male,At age 65,10.7,9.8,10.7,9.6,10.3,10.9
+E08000029,Solihull,Male,At birth,65.9,65.0,65.3,63.4,63.8,64.6
+E08000030,Walsall,Female,At age 65,9.9,10.1,9.9,11.7,10.1,9.2
+E08000030,Walsall,Female,At birth,61.3,61.4,60.3,60.4,59.0,57.2
+E08000030,Walsall,Male,At age 65,9.2,9.6,9.6,8.8,8.0,8.2
+E08000030,Walsall,Male,At birth,59.0,59.6,59.8,59.1,58.1,57.7
+E08000031,Wolverhampton,Female,At age 65,7.9,7.7,7.4,7.1,7.0,6.8
+E08000031,Wolverhampton,Female,At birth,58.3,57.9,59.1,58.4,59.5,58.6
+E08000031,Wolverhampton,Male,At age 65,7.7,7.6,7.5,8.0,6.7,6.8
+E08000031,Wolverhampton,Male,At birth,59.3,58.1,56.6,57.2,56.4,56.6
+E08000032,Bradford ,Female,At age 65,9.7,10.5,9.2,9.5,9.9,9.7
+E08000032,Bradford ,Female,At birth,60.2,60.3,59.4,61.0,60.5,61.1
+E08000032,Bradford ,Male,At age 65,9.9,10.1,10.7,9.9,10.8,10.6
+E08000032,Bradford ,Male,At birth,60.9,61.6,62.2,61.8,62.9,61.8
+E08000033,Calderdale,Female,At age 65,11.6,10.5,11.0,10.6,12.0,11.2
+E08000033,Calderdale,Female,At birth,64.4,63.2,62.4,62.3,65.7,63.7
+E08000033,Calderdale,Male,At age 65,9.0,8.0,8.9,9.4,9.2,9.8
+E08000033,Calderdale,Male,At birth,62.0,60.2,61.1,62.5,63.4,63.5
+E08000034,Kirklees ,Female,At age 65,9.1,9.6,12.4,11.5,11.2,9.5
+E08000034,Kirklees ,Female,At birth,60.1,59.8,63.8,62.6,62.4,59.4
+E08000034,Kirklees ,Male,At age 65,8.6,8.4,10.3,10.2,9.2,8.9
+E08000034,Kirklees ,Male,At birth,60.5,60.0,61.9,62.0,60.8,61.6
+E08000035,Leeds ,Female,At age 65,9.8,9.9,9.5,11.1,11.1,10.4
+E08000035,Leeds ,Female,At birth,61.6,60.9,61.8,62.1,62.1,63.0
+E08000035,Leeds ,Male,At age 65,8.8,9.2,9.4,9.4,9.5,9.0
+E08000035,Leeds ,Male,At birth,60.6,60.7,60.7,60.3,61.2,60.3
+E08000036,Wakefield,Female,At age 65,8.6,9.4,8.8,10.1,10.0,9.7
+E08000036,Wakefield,Female,At birth,61.1,62.4,61.5,61.5,60.5,60.3
+E08000036,Wakefield,Male,At age 65,8.2,8.4,7.5,7.9,7.5,7.7
+E08000036,Wakefield,Male,At birth,58.5,59.3,58.0,58.8,58.6,57.4
+E08000037,Gateshead,Female,At age 65,8.2,8.7,8.3,8.8,8.2,9.2
+E08000037,Gateshead,Female,At birth,59.5,60.3,59.4,59.4,59.1,60.6
+E08000037,Gateshead,Male,At age 65,7.6,8.1,7.9,8.6,7.9,9.0
+E08000037,Gateshead,Male,At birth,57.7,57.9,57.3,58.2,57.0,59.1
+E09000002,Barking and Dagenham,Female,At age 65,6.9,8.0,6.8,6.6,8.7,8.8
+E09000002,Barking and Dagenham,Female,At birth,57.9,58.1,56.7,53.6,58.5,60.7
+E09000002,Barking and Dagenham,Male,At age 65,6.1,6.5,8.4,8.6,8.1,6.6
+E09000002,Barking and Dagenham,Male,At birth,59.0,58.6,61.1,59.2,59.8,58.2
+E09000003,Barnet,Female,At age 65,10.6,11.8,10.7,13.0,12.3,13.2
+E09000003,Barnet,Female,At birth,67.4,69.4,68.5,68.5,69.1,67.1
+E09000003,Barnet,Male,At age 65,10.6,11.6,11.3,11.4,11.5,9.1
+E09000003,Barnet,Male,At birth,65.9,68.4,68.3,67.2,68.5,64.5
+E09000004,Bexley,Female,At age 65,11.0,11.3,10.8,10.5,8.2,9.8
+E09000004,Bexley,Female,At birth,66.8,66.7,67.0,65.4,64.2,65.8
+E09000004,Bexley,Male,At age 65,11.6,11.7,11.3,10.1,11.0,10.7
+E09000004,Bexley,Male,At birth,65.2,65.1,65.6,64.9,66.1,65.8
+E09000005,Brent ,Female,At age 65,11.7,11.3,9.5,11.0,11.3,11.6
+E09000005,Brent ,Female,At birth,64.1,64.2,63.3,66.3,65.3,66.6
+E09000005,Brent ,Male,At age 65,11.2,8.3,8.3,10.3,10.8,10.5
+E09000005,Brent ,Male,At birth,64.7,62.2,62.8,64.0,64.2,64.9
+E09000006,Bromley,Female,At age 65,13.0,12.1,12.6,11.6,14.7,14.4
+E09000006,Bromley,Female,At birth,68.6,67.6,67.3,65.4,69.5,69.6
+E09000006,Bromley,Male,At age 65,11.3,12.0,12.4,11.5,12.3,11.3
+E09000006,Bromley,Male,At birth,65.4,66.8,67.1,67.6,68.5,66.8
+E09000007,Camden,Female,At age 65,12.6,10.7,13.0,13.4,12.2,9.8
+E09000007,Camden,Female,At birth,64.6,62.4,63.6,65.1,65.1,65.2
+E09000007,Camden,Male,At age 65,8.1,10.1,7.8,10.9,10.7,12.2
+E09000007,Camden,Male,At birth,61.1,63.2,60.8,64.1,63.7,64.3
+E09000008,Croydon,Female,At age 65,11.5,12.7,10.6,10.9,10.9,11.2
+E09000008,Croydon,Female,At birth,65.7,66.2,63.5,64.2,63.8,62.8
+E09000008,Croydon,Male,At age 65,10.5,10.9,9.5,9.7,9.5,9.3
+E09000008,Croydon,Male,At birth,62.5,63.7,63.0,63.3,63.1,62.0
+E09000009,Ealing,Female,At age 65,9.0,7.5,8.3,9.0,8.5,7.2
+E09000009,Ealing,Female,At birth,59.7,58.8,59.8,61.7,61.1,60.9
+E09000009,Ealing,Male,At age 65,7.3,8.0,8.9,10.0,10.9,10.1
+E09000009,Ealing,Male,At birth,61.4,61.6,63.4,64.0,64.1,62.7
+E09000010,Enfield,Female,At age 65,9.8,8.5,9.4,10.9,10.4,9.3
+E09000010,Enfield,Female,At birth,64.3,63.2,64.5,66.8,66.0,63.8
+E09000010,Enfield,Male,At age 65,8.8,10.4,9.6,12.6,13.4,10.3
+E09000010,Enfield,Male,At birth,62.3,64.6,63.7,68.3,68.4,64.2
+E09000011,Greenwich,Female,At age 65,10.2,9.7,10.0,10.2,9.2,8.1
+E09000011,Greenwich,Female,At birth,63.4,63.3,64.5,64.5,61.6,58.5
+E09000011,Greenwich,Male,At age 65,8.1,8.0,9.6,8.3,8.0,7.8
+E09000011,Greenwich,Male,At birth,61.7,62.3,61.2,60.5,61.3,60.7
+E09000012,Hackney ,Female,At age 65,8.6,9.1,9.4,8.2,7.2,7.4
+E09000012,Hackney ,Female,At birth,59.5,58.2,58.1,58.0,58.7,61.3
+E09000012,Hackney ,Male,At age 65,9.7,10.4,9.9,9.4,7.4,7.8
+E09000012,Hackney ,Male,At birth,58.9,59.7,58.9,58.1,57.7,59.1
+E09000013,Hammersmith and Fulham ,Female,At age 65,10.3,10.9,9.6,9.0,8.5,11.0
+E09000013,Hammersmith and Fulham ,Female,At birth,65.1,65.9,63.7,61.6,60.6,64.6
+E09000013,Hammersmith and Fulham ,Male,At age 65,10.1,9.5,8.4,8.8,10.0,9.5
+E09000013,Hammersmith and Fulham ,Male,At birth,62.3,61.7,60.7,61.7,62.5,63.7
+E09000014,Haringey,Female,At age 65,7.6,7.5,9.3,10.0,9.5,10.5
+E09000014,Haringey,Female,At birth,59.7,59.7,59.2,60.5,60.5,63.3
+E09000014,Haringey,Male,At age 65,9.5,8.6,11.4,11.4,10.9,10.9
+E09000014,Haringey,Male,At birth,60.6,59.9,64.2,64.2,65.0,65.1
+E09000015,Harrow,Female,At age 65,11.7,11.6,12.0,11.7,11.4,10.7
+E09000015,Harrow,Female,At birth,66.4,66.7,68.2,68.5,70.0,66.6
+E09000015,Harrow,Male,At age 65,9.4,10.6,10.8,13.1,13.1,9.3
+E09000015,Harrow,Male,At birth,63.7,63.8,65.4,68.5,69.2,66.6
+E09000016,Havering,Female,At age 65,10.8,12.0,13.2,11.4,10.9,11.3
+E09000016,Havering,Female,At birth,65.0,67.4,66.2,66.1,64.8,64.1
+E09000016,Havering,Male,At age 65,11.0,10.7,11.2,12.1,11.8,11.3
+E09000016,Havering,Male,At birth,63.9,64.9,63.5,64.2,65.8,65.7
+E09000017,Hillingdon,Female,At age 65,11.4,10.1,10.5,8.9,8.9,11.2
+E09000017,Hillingdon,Female,At birth,66.7,65.4,63.9,63.0,62.4,64.3
+E09000017,Hillingdon,Male,At age 65,10.3,10.0,10.1,11.2,13.0,11.2
+E09000017,Hillingdon,Male,At birth,64.1,63.8,63.3,65.3,66.9,64.4
+E09000018,Hounslow,Female,At age 65,9.7,10.0,7.1,6.9,9.3,9.5
+E09000018,Hounslow,Female,At birth,63.7,64.2,61.9,60.3,61.8,61.7
+E09000018,Hounslow,Male,At age 65,7.7,8.9,8.5,8.5,8.0,9.3
+E09000018,Hounslow,Male,At birth,60.1,61.7,63.2,63.8,63.0,62.7
+E09000019,Islington,Female,At age 65,8.1,8.4,6.8,7.7,9.2,11.1
+E09000019,Islington,Female,At birth,58.2,60.3,58.0,60.7,61.6,62.9
+E09000019,Islington,Male,At age 65,5.5,4.6,6.1,7.3,8.9,7.8
+E09000019,Islington,Male,At birth,56.8,55.7,57.6,60.4,60.7,60.8
+E09000020,Kensington and Chelsea,Female,At age 65,12.1,12.5,12.4,13.6,12.7,13.7
+E09000020,Kensington and Chelsea,Female,At birth,66.9,66.9,68.0,69.3,67.4,66.9
+E09000020,Kensington and Chelsea,Male,At age 65,11.3,11.6,11.7,13.2,12.1,10.8
+E09000020,Kensington and Chelsea,Male,At birth,66.6,66.6,67.1,68.7,67.4,66.4
+E09000021,Kingston upon Thames,Female,At age 65,8.7,9.7,11.0,10.7,12.4,14.1
+E09000021,Kingston upon Thames,Female,At birth,64.9,66.1,67.6,68.6,68.6,69.7
+E09000021,Kingston upon Thames,Male,At age 65,10.2,10.5,10.8,11.9,13.7,16.0
+E09000021,Kingston upon Thames,Male,At birth,63.2,64.1,64.2,66.6,67.9,69.0
+E09000022,Lambeth ,Female,At age 65,9.2,7.7,9.0,11.2,12.7,13.1
+E09000022,Lambeth ,Female,At birth,62.6,61.5,63.0,63.9,63.0,63.4
+E09000022,Lambeth ,Male,At age 65,7.4,6.9,11.2,10.1,8.4,7.8
+E09000022,Lambeth ,Male,At birth,60.7,62.2,65.2,59.3,59.4,58.4
+E09000023,Lewisham ,Female,At age 65,9.2,9.4,10.7,8.1,10.1,9.6
+E09000023,Lewisham ,Female,At birth,60.9,60.4,65.0,62.0,62.1,63.8
+E09000023,Lewisham ,Male,At age 65,9.1,10.3,11.8,8.7,8.9,10.5
+E09000023,Lewisham ,Male,At birth,60.6,62.8,67.1,63.1,60.9,63.0
+E09000024,Merton,Female,At age 65,10.2,11.3,9.9,10.8,12.8,11.6
+E09000024,Merton,Female,At birth,65.7,66.5,65.1,65.4,66.2,66.7
+E09000024,Merton,Male,At age 65,9.4,8.2,8.7,9.2,9.4,9.0
+E09000024,Merton,Male,At birth,64.2,61.4,63.7,62.8,63.2,63.2
+E09000025,Newham ,Female,At age 65,5.6,6.5,7.6,11.7,8.7,8.7
+E09000025,Newham ,Female,At birth,55.7,56.6,58.5,62.5,60.5,60.6
+E09000025,Newham ,Male,At age 65,6.5,7.9,7.3,5.5,6.8,12.4
+E09000025,Newham ,Male,At birth,59.4,59.2,60.0,58.5,60.5,65.4
+E09000026,Redbridge,Female,At age 65,8.8,8.7,9.1,10.1,10.0,8.8
+E09000026,Redbridge,Female,At birth,62.6,62.3,62.5,62.7,63.1,63.2
+E09000026,Redbridge,Male,At age 65,10.2,9.8,8.5,9.3,9.3,9.8
+E09000026,Redbridge,Male,At birth,65.2,65.1,61.8,61.6,62.8,62.9
+E09000027,Richmond upon Thames,Female,At age 65,12.6,12.7,11.7,14.3,14.1,13.1
+E09000027,Richmond upon Thames,Female,At birth,70.0,68.6,68.7,71.1,71.1,70.0
+E09000027,Richmond upon Thames,Male,At age 65,12.1,12.9,11.9,12.7,13.1,12.7
+E09000027,Richmond upon Thames,Male,At birth,68.8,69.1,68.7,69.2,68.7,69.9
+E09000028,Southwark,Female,At age 65,6.6,9.0,8.2,6.7,8.1,9.6
+E09000028,Southwark,Female,At birth,59.5,61.9,59.9,57.0,60.1,62.6
+E09000028,Southwark,Male,At age 65,7.0,7.8,8.0,8.7,8.2,7.8
+E09000028,Southwark,Male,At birth,60.5,59.6,59.3,58.4,61.2,61.2
+E09000029,Sutton,Female,At age 65,12.8,10.8,11.1,11.3,13.0,11.9
+E09000029,Sutton,Female,At birth,67.2,65.1,65.5,64.5,66.8,66.2
+E09000029,Sutton,Male,At age 65,9.6,10.4,11.6,11.3,9.9,10.3
+E09000029,Sutton,Male,At birth,63.1,65.4,65.8,65.6,63.2,64.0
+E09000030,Tower Hamlets,Female,At age 65,6.0,6.1,6.2,5.9,2.5,6.1
+E09000030,Tower Hamlets,Female,At birth,55.2,55.9,56.0,56.6,52.4,55.6
+E09000030,Tower Hamlets,Male,At age 65,6.8,5.2,5.4,4.8,4.6,11.9
+E09000030,Tower Hamlets,Male,At birth,55.4,52.9,54.1,53.8,54.0,61.3
+E09000031,Waltham Forest,Female,At age 65,9.8,8.2,8.0,8.5,7.3,10.0
+E09000031,Waltham Forest,Female,At birth,60.4,57.1,59.8,60.5,60.2,66.3
+E09000031,Waltham Forest,Male,At age 65,8.1,8.4,8.1,8.2,6.5,7.8
+E09000031,Waltham Forest,Male,At birth,61.8,62.2,60.6,61.1,59.6,62.4
+E09000032,Wandsworth,Female,At age 65,12.9,11.6,11.5,10.4,12.5,11.8
+E09000032,Wandsworth,Female,At birth,65.8,64.0,65.3,65.2,67.5,62.3
+E09000032,Wandsworth,Male,At age 65,10.7,9.5,10.1,10.5,7.8,8.4
+E09000032,Wandsworth,Male,At birth,62.6,63.5,63.1,65.1,62.6,61.4
+E09000033,Westminster,Female,At age 65,10.9,11.6,10.8,11.0,11.5,13.0
+E09000033,Westminster,Female,At birth,64.6,64.0,62.2,63.7,65.5,66.9
+E09000033,Westminster,Male,At age 65,14.8,14.7,13.0,12.5,10.9,9.6
+E09000033,Westminster,Male,At birth,66.9,68.1,65.7,66.7,64.5,62.0
+E10000002,Buckinghamshire,Female,At age 65,12.9,12.7,13.2,13.2,14.1,14.6
+E10000002,Buckinghamshire,Female,At birth,68.6,68.6,69.1,67.7,70.1,70.3
+E10000002,Buckinghamshire,Male,At age 65,12.2,11.8,11.3,12.1,12.4,12.5
+E10000002,Buckinghamshire,Male,At birth,67.7,68.4,67.3,68.6,69.6,69.4
+E10000003,Cambridgeshire,Female,At age 65,12.3,12.0,11.7,13.1,12.7,11.6
+E10000003,Cambridgeshire,Female,At birth,68.0,66.9,65.7,67.6,67.3,65.8
+E10000003,Cambridgeshire,Male,At age 65,10.5,11.1,11.0,11.1,11.1,10.2
+E10000003,Cambridgeshire,Male,At birth,64.4,65.0,66.3,65.8,65.7,65.2
+E10000006,Cumbria ,Female,At age 65,10.1,11.0,10.8,11.2,12.5,13.1
+E10000006,Cumbria ,Female,At birth,64.3,66.0,63.8,62.7,64.7,66.3
+E10000006,Cumbria ,Male,At age 65,9.2,9.3,9.9,9.9,10.4,10.9
+E10000006,Cumbria ,Male,At birth,61.4,61.6,62.9,62.6,62.6,63.2
+E10000007,Derbyshire,Female,At age 65,9.9,9.5,9.1,10.5,9.9,11.9
+E10000007,Derbyshire,Female,At birth,62.3,62.6,61.7,63.4,63.8,63.5
+E10000007,Derbyshire,Male,At age 65,9.4,10.3,9.2,9.2,9.6,11.1
+E10000007,Derbyshire,Male,At birth,62.6,64.1,62.6,63.0,63.5,63.9
+E10000008,Devon,Female,At age 65,12.9,13.2,12.4,12.3,12.9,12.9
+E10000008,Devon,Female,At birth,65.9,67.1,67.3,66.2,66.5,65.9
+E10000008,Devon,Male,At age 65,11.4,11.0,12.0,11.1,10.8,11.7
+E10000008,Devon,Male,At birth,66.1,65.4,66.0,65.2,65.3,66.7
+E10000009,Dorset,Female,At age 65,13.2,12.7,12.3,12.4,12.2,13.1
+E10000009,Dorset,Female,At birth,66.7,66.2,65.2,64.3,65.2,66.6
+E10000009,Dorset,Male,At age 65,11.9,12.3,11.9,12.8,12.4,11.2
+E10000009,Dorset,Male,At birth,67.0,67.2,66.9,68.9,68.0,64.8
+E10000011,East Sussex,Female,At age 65,13.2,12.6,12.2,11.4,11.1,11.5
+E10000011,East Sussex,Female,At birth,66.3,66.1,66.0,64.7,65.7,63.2
+E10000011,East Sussex,Male,At age 65,11.0,11.6,11.8,11.2,11.6,12.0
+E10000011,East Sussex,Male,At birth,62.3,63.1,63.6,62.5,64.1,65.1
+E10000012,Essex,Female,At age 65,12.4,12.5,11.4,11.7,11.5,12.0
+E10000012,Essex,Female,At birth,66.8,66.3,65.0,66.4,64.0,63.5
+E10000012,Essex,Male,At age 65,11.1,10.9,11.0,10.9,10.8,10.6
+E10000012,Essex,Male,At birth,64.9,64.7,64.5,65.4,65.8,64.6
+E10000013,Gloucestershire,Female,At age 65,13.0,12.6,11.7,12.1,12.2,12.1
+E10000013,Gloucestershire,Female,At birth,68.6,67.6,66.3,66.4,66.2,65.7
+E10000013,Gloucestershire,Male,At age 65,11.1,10.7,10.3,10.2,12.3,12.1
+E10000013,Gloucestershire,Male,At birth,65.1,64.5,63.5,63.6,66.2,66.1
+E10000014,Hampshire,Female,At age 65,13.7,13.6,12.2,12.9,12.8,13.7
+E10000014,Hampshire,Female,At birth,68.1,67.4,65.8,66.7,67.2,68.7
+E10000014,Hampshire,Male,At age 65,11.9,12.1,12.0,12.4,12.8,12.8
+E10000014,Hampshire,Male,At birth,67.1,66.5,65.5,67.3,67.2,67.5
+E10000015,Hertfordshire ,Female,At age 65,11.3,12.0,11.6,12.0,11.9,11.2
+E10000015,Hertfordshire ,Female,At birth,66.8,67.7,66.9,67.7,67.4,66.1
+E10000015,Hertfordshire ,Male,At age 65,10.2,10.0,10.3,10.8,10.3,11.9
+E10000015,Hertfordshire ,Male,At birth,65.6,65.4,65.5,65.4,64.3,66.1
+E10000016,Kent,Female,At age 65,11.6,11.7,11.4,12.1,12.2,11.6
+E10000016,Kent,Female,At birth,65.7,66.3,65.8,64.5,65.5,65.1
+E10000016,Kent,Male,At age 65,9.6,10.1,10.2,10.5,10.3,10.7
+E10000016,Kent,Male,At birth,63.4,63.3,62.8,63.6,63.8,64.2
+E10000017,Lancashire,Female,At age 65,11.2,10.7,11.2,10.4,11.0,10.7
+E10000017,Lancashire,Female,At birth,63.3,62.3,63.1,63.3,63.6,63.4
+E10000017,Lancashire,Male,At age 65,9.4,9.3,9.7,9.8,9.9,10.9
+E10000017,Lancashire,Male,At birth,62.3,62.1,61.3,61.2,61.8,62.5
+E10000018,Leicestershire,Female,At age 65,11.3,11.6,12.1,11.8,11.8,12.6
+E10000018,Leicestershire,Female,At birth,64.8,66.2,64.7,64.8,65.8,65.8
+E10000018,Leicestershire,Male,At age 65,10.3,11.0,10.1,10.3,10.7,11.1
+E10000018,Leicestershire,Male,At birth,64.3,64.9,63.9,64.8,63.6,65.2
+E10000019,Lincolnshire ,Female,At age 65,11.1,11.8,11.2,10.9,10.9,11.2
+E10000019,Lincolnshire ,Female,At birth,65.3,65.0,65.9,64.7,63.7,62.3
+E10000019,Lincolnshire ,Male,At age 65,10.5,10.7,10.2,10.7,10.1,9.6
+E10000019,Lincolnshire ,Male,At birth,64.5,64.5,64.1,63.3,62.9,61.1
+E10000020,Norfolk ,Female,At age 65,12.1,11.7,11.5,10.9,11.7,10.3
+E10000020,Norfolk ,Female,At birth,64.9,64.6,65.7,65.1,65.4,64.4
+E10000020,Norfolk ,Male,At age 65,10.3,10.6,11.2,10.7,10.6,10.8
+E10000020,Norfolk ,Male,At birth,63.4,63.5,64.2,64.7,64.5,64.7
+E10000021,Northamptonshire ,Female,At age 65,12.1,12.0,10.8,11.2,12.3,10.7
+E10000021,Northamptonshire ,Female,At birth,64.7,65.7,63.8,64.4,67.0,64.4
+E10000021,Northamptonshire ,Male,At age 65,10.7,11.1,11.3,11.0,11.4,10.3
+E10000021,Northamptonshire ,Male,At birth,64.6,64.8,64.4,63.9,65.5,64.8
+E10000023,North Yorkshire,Female,At age 65,11.6,11.9,12.1,12.6,14.0,12.9
+E10000023,North Yorkshire,Female,At birth,66.8,66.9,66.3,67.1,68.4,66.8
+E10000023,North Yorkshire,Male,At age 65,12.0,10.4,11.0,11.7,11.8,12.0
+E10000023,North Yorkshire,Male,At birth,65.2,64.7,63.3,65.6,67.3,66.8
+E10000024,Nottinghamshire,Female,At age 65,10.9,11.4,11.6,10.2,10.6,11.1
+E10000024,Nottinghamshire,Female,At birth,62.7,63.2,64.2,62.7,62.2,62.4
+E10000024,Nottinghamshire,Male,At age 65,9.1,9.6,9.6,9.3,9.6,9.2
+E10000024,Nottinghamshire,Male,At birth,60.9,61.2,62.0,62.4,61.1,61.7
+E10000025,Oxfordshire ,Female,At age 65,11.8,13.3,11.9,13.5,14.2,13.7
+E10000025,Oxfordshire ,Female,At birth,67.4,68.7,65.5,67.7,70.3,68.5
+E10000025,Oxfordshire ,Male,At age 65,11.4,10.7,11.2,12.5,11.7,11.2
+E10000025,Oxfordshire ,Male,At birth,67.0,66.1,66.6,68.6,68.7,67.1
+E10000027,Somerset ,Female,At age 65,11.4,12.1,13.9,12.4,14.4,13.9
+E10000027,Somerset ,Female,At birth,65.4,66.6,68.0,64.3,67.4,68.4
+E10000027,Somerset ,Male,At age 65,11.2,11.7,12.5,11.3,12.3,12.1
+E10000027,Somerset ,Male,At birth,65.2,66.2,67.2,66.3,65.4,64.8
+E10000028,Staffordshire,Female,At age 65,10.9,10.2,10.5,10.3,10.8,11.6
+E10000028,Staffordshire,Female,At birth,62.8,62.7,63.5,62.8,63.8,65.4
+E10000028,Staffordshire,Male,At age 65,9.6,9.7,9.4,9.6,9.8,10.6
+E10000028,Staffordshire,Male,At birth,64.3,64.0,62.7,63.7,64.4,64.9
+E10000029,Suffolk,Female,At age 65,12.0,12.6,10.6,11.8,12.7,12.6
+E10000029,Suffolk,Female,At birth,68.1,68.0,66.2,66.1,66.7,65.4
+E10000029,Suffolk,Male,At age 65,11.8,12.1,11.0,11.9,11.6,10.6
+E10000029,Suffolk,Male,At birth,65.3,66.1,64.5,65.8,65.1,63.6
+E10000030,Surrey,Female,At age 65,12.6,12.9,13.6,13.5,12.5,13.9
+E10000030,Surrey,Female,At birth,68.2,68.7,69.6,69.0,68.8,68.1
+E10000030,Surrey,Male,At age 65,11.7,12.1,12.2,12.7,13.6,13.3
+E10000030,Surrey,Male,At birth,67.6,68.2,68.0,67.4,68.6,68.9
+E10000031,Warwickshire,Female,At age 65,10.8,11.9,12.1,11.9,11.5,11.6
+E10000031,Warwickshire,Female,At birth,66.3,66.8,66.5,67.6,67.6,66.3
+E10000031,Warwickshire,Male,At age 65,11.8,11.9,12.5,11.8,12.3,11.8
+E10000031,Warwickshire,Male,At birth,66.3,65.6,67.3,67.6,68.0,66.2
+E10000032,West Sussex,Female,At age 65,13.5,12.7,13.5,15.3,13.5,12.4
+E10000032,West Sussex,Female,At birth,68.3,66.9,67.2,69.0,66.6,64.0
+E10000032,West Sussex,Male,At age 65,11.4,11.8,12.5,11.9,12.3,12.5
+E10000032,West Sussex,Male,At birth,66.2,66.1,66.8,66.3,64.6,65.4
+E10000034,Worcestershire,Female,At age 65,13.0,13.1,12.5,12.8,12.1,12.7
+E10000034,Worcestershire,Female,At birth,66.2,66.1,67.6,67.9,67.7,68.0
+E10000034,Worcestershire,Male,At age 65,10.9,10.4,11.4,11.7,11.5,11.9
+E10000034,Worcestershire,Male,At birth,65.0,64.8,66.0,66.6,65.6,66.7
+,,,,,,,,,
+Footnotes,,,,,,,,,
+Figures exclude deaths of non-residents,,,,,,,,,
+Figures are not available for City of London and Isles of Scilly due to small numbers of deaths and populations. ,,,,,,,,,
+Excludes residents of communal establishments except NHS housing and students in halls of residence where inclusion takes place at their parents' address.,,,,,,,,,
+Healthy life expectancy estimates are based on Upper Tier Local Authorities (UTLAs) in England.,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
