@@ -5,8 +5,8 @@
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
 
 <script src='//api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js'></script>
 
@@ -50,46 +50,68 @@ map.on('load', function() {
     }
     map.addLayer({
         'id': 'districts',
-        'type': 'line',
+        'type': 'fill',
         'source': 'district',
         'layout': {},
         'paint': {
-            'line-color': '#fff',
-            'line-opacity': 0.5,
-            'line-width': {
-              "stops": [[3, 0.5], [5, 1], [13, 3]]
-            }
+			'fill-color': 'rgba(0,0,0,0)',
+            'fill-opacity': 0.2,
+            'fill-outline-color': '#ccc'
         },
     }, 'admin-3-4-boundaries-bg');
-
-    var labels = { 'type': 'FeatureCollection', 'features':[] };
-    data.features.map(function(d) {
-      var pt = turf.pointOnSurface(d);
-      pt.properties = d.properties;
-      labels.features.push(pt);
+	
+	map.addLayer({
+        "id": "state-fills-hover",
+        "type": "fill",
+        "source": "district",
+        "layout": {},
+        "paint": {
+            'fill-color': '#627BC1',
+            'fill-opacity': 1
+        },
+        "filter": ["==", "GEOID", ""]
     });
-    console.log(labels);
 
-    map.addSource('district_labels', { 'type': 'geojson', 'data': labels });
-    for (var i = 0; i < 10; i ++) {
-      map.addLayer({
-          'id': 'district_labels' + i,
-          'type': 'symbol',
-          'source': 'district_labels',
-          'layout': {
-              "text-field": '{CD114FP}',
-              "text-font": ["DIN Offc Pro Medium","Arial Unicode MS Regular"],
-              "text-size": { "stops": [[2,8],[7,18]], "base": 0.9 }
-          },
-          'paint': {
-              "text-color": color(i),
-              "text-halo-color": "#fff",
-              "text-halo-width": 1,
-              "text-halo-blur": 1
-          },
-          'filter': ['==', 'fill', color(i)]
-      });
-    }
+
+//    var labels = { 'type': 'FeatureCollection', 'features':[] };
+//    data.features.map(function(d) {
+//      var pt = turf.pointOnSurface(d);
+//      pt.properties = d.properties;
+//      labels.features.push(pt);
+//    });
+//    console.log(labels);
+//
+//    map.addSource('district_labels', { 'type': 'geojson', 'data': labels });
+//    for (var i = 0; i < 10; i ++) {
+//      map.addLayer({
+//          'id': 'district_labels' + i,
+//          'type': 'symbol',
+//          'source': 'district_labels',
+//          'layout': {
+//              "text-field": '{CD114FP}',
+//              "text-font": ["DIN Offc Pro Medium","Arial Unicode MS Regular"],
+//              "text-size": { "stops": [[2,8],[7,18]], "base": 0.9 }
+//          },
+//          'paint': {
+//              "text-color": color(i),
+//              "text-halo-color": "#fff",
+//              "text-halo-width": 1,
+//              "text-halo-blur": 1
+//          },
+//          'filter': ['==', 'fill', color(i)]
+//      });
+//    }
+	
+	    map.on("mousemove", "districts", function(e) {
+			console.log(e);
+        	map.setFilter("state-fills-hover", ["==", "GEOID", e.features[0].properties.GEOID]);
+   		});
+
+    	// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
+    	map.on("mouseleave", "districts", function() {
+        	map.setFilter("state-fills-hover", ["==", "GEOID", ""]);
+    	});
+	
   });
 });
 
