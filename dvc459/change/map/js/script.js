@@ -1,19 +1,26 @@
 ﻿    // Copyright (c) 2013 Ryan Clark
     // https://gist.github.com/rclark/5779673
 
-      L.TopoJSON = L.GeoJSON.extend({
+//mapboxgl.accessToken = 'pk.eyJ1Ijoib25zZGF0YXZpcyIsImEiOiJjamMxdDduNnAwNW9kMzJyMjQ0bHJmMnI1In0.3PkmH-GL8jBbiWlFB1IQ7Q';
+//var map = new mapboxgl.Map({
+//    container: 'map',
+//    style: 'mapbox://styles/mapbox/streets-v9'
+//});
+
+      mapboxgl.TopoJSON = mapboxgl.GeoJSON.extend({
       addData: function(jsonData) {
         if (jsonData.type === "Topology") {
           for (key in jsonData.objects) {
             geojson = topojson.feature(jsonData, jsonData.objects[key]);
-            L.GeoJSON.prototype.addData.call(this, geojson);
+            mapboxgl.GeoJSON.prototype.addData.call(this, geojson);
           }
         }
         else {
-          L.GeoJSON.prototype.addData.call(this, jsonData);
+          mapboxgl.GeoJSON.prototype.addData.call(this, jsonData);
         }
       }
     });
+
 
   	//Set-up pym
 	pymChild = new pym.Child();
@@ -101,6 +108,18 @@
 	data.forEach(function(d) { rateById[d.AREACD] = +eval("d." + dvc.time); areaById[d.AREACD] = d.AREANM});
 
 
+		var mapzenTilesUrl = "https://tile.mapzen.com/mapzen/vector/v1/earth,landuse/{z}/{x}/{y}.mvt?api_key={apikey}";
+
+		var mapzenVectorTileOptions = {
+			rendererFactory: L.canvas.tile,
+			attribution: '<a href="https://mapzen.com/">&copy; MapZen</a>, <a href="http://www.openstreetmap.org/copyright">&copy; OpenStreetMap</a> contributors',
+			vectorTileLayerStyles: vectorTileStyling,
+			apikey: 'mapzen-KqfEaKy',
+		};
+
+		var mapzenTilesPbfLayer = L.vectorGrid.protobuf(mapzenTilesUrl, mapzenVectorTileOptions);
+
+
 	var layerx = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',{
 	  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB background</a> Contains OS data © Crown copyright 2016'
 	});
@@ -108,7 +127,7 @@
 		var map = L.map('map',{maxZoom:10,minZoom:3}),
 
 		//Set-up new Topojson layer
-		topoLayer = new L.TopoJSON();
+		//topoLayer = new L.TopoJSON();
 
 
 		//Set-up colour scale
@@ -117,7 +136,7 @@
 				.range(dvc.colour);
 
 		//Set initial centre view and zoom layer
-		map.setView(eval(config.ons.centre), config.ons.zoom).addLayer(layerx)
+		map.setView(eval(config.ons.centre), config.ons.zoom).addLayer(mapzenTilesPbfLayer)
 
 		map.on("zoomstart", leaveLayer)
 		map.on("zoomend", function(){setTimeout(function(){highlightArea()},50)})
@@ -126,14 +145,41 @@
 	createKey(config);
 
 			d3.select("#map").append("div").attr("id","time").text(config.ons.timelineLabelsDT[config.ons.timelineLabelsDT.length-1]);
+			
+			var geojson = new L.GeoJSON(null, {
+				 
+			onEachFeature: function (feature, layer) {
+				
+				
+				x = layer.feature.properties.AREACD;
+				
+				fillColor = color(rateById[x]);
+				
+				console.log(x);
+				layer.setStyle({
+				  fillColor: fillColor,
+				  fillOpacity: 0.8,
+				  color:'#ccc',
+				  weight:0.8,
+				  opacity:1,
+				  className:x
+				});
 
-			$.getJSON('map/data/geog.json').done(addTopoData);
+			}
+			});
+		
+			
+			var topoLayer = omnivore.topojson('map/data/geog.json',null, geojson).addTo(map);
+			//topoLayer.setStyle(handleLayer);
+			//topoLayer.addTo(map);
+
+			//$.getJSON('map/data/geog.json').done(addTopoData);
 
 
     function addTopoData(topoData){
-			  topoLayer.addData(topoData);
-			  topoLayer.eachLayer(handleLayer);
-			  topoLayer.addTo(map);
+	//		  topoLayer.addData(topoData);
+//			  topoLayer.eachLayer(handleLayer);
+//			  topoLayer.addTo(map);
 
 			  d3.select(".leaflet-overlay-pane").selectAll("path").attr("fill-opacity",0.8).attr("stroke-width",0.8);
 
