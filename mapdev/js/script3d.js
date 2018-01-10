@@ -32,6 +32,8 @@ if(Modernizr.webgl) {
 		  style: 'https://free.tilehosting.com/styles/positron/style.json?key=ZBXiR1SHvcgszCLwyOFe', //stylesheet location
 		  center: [-2.5, 54], // starting position
 		  zoom: 4.5, // starting zoom
+		  pitch: 40,
+   		  bearing: 20,
 		  maxBounds: bounds //set maximum boundaries
 		});
 		
@@ -65,7 +67,10 @@ if(Modernizr.webgl) {
 		
 		areas.features.map(function(d,i) {
 			
-		  d.properties.fill = color(rateById[d.properties.AREACD]) 
+		  d.properties.fill = color(rateById[d.properties.AREACD])
+		  d.properties.height = rateById[d.properties.AREACD]*1000;
+		   
+		  console.log(d.properties.height);
 		});
 
 		//cb(districts)
@@ -78,15 +83,22 @@ if(Modernizr.webgl) {
 			
 			  map.addLayer({
 				  'id': 'area',
-				  'type': 'fill',
+				  'type': 'fill-extrusion',
 				  'source': 'area',
 				  'layout': {},
 				  'paint': {
-					  'fill-color': {
-							type: 'identity',
-							property: 'fill',
-					   },
-					  'fill-opacity': 0.7
+					  	'fill-extrusion-color': {
+                // Get the fill-extrusion-color from the source 'color' property.
+							'property': 'fill',
+							'type': 'identity'
+						},
+						'fill-extrusion-height': {
+							// Get fill-extrusion-height from the source 'height' property.
+							'property': 'height',
+							'type': 'identity'
+						},
+						'fill-extrusion-base': 0,
+					    'fill-extrusion-opacity': 0.7
 				  }
 			  });
 			
@@ -114,25 +126,6 @@ if(Modernizr.webgl) {
 				},
 				"filter": ["==", "AREACD", ""]
 			});
-					
-			  map.addLayer({
-				  'id': 'area_labels',
-				  'type': 'symbol',
-				  'source': 'area',
-				  'minzoom': 10,
-				  'layout': {
-					  "text-field": '{AREANM}',
-					  "text-font": ["DIN Offc Pro Medium","Arial Unicode MS Regular"],
-					  "text-size": { "stops": [[2,8],[7,18]], "base": 0.9 }
-				  },
-				  'paint': {
-					  "text-color": "#666",
-					  "text-halo-color": "#fff",
-					  "text-halo-width": 1,
-					  "text-halo-blur": 1
-				  }
-			  });
-			
 		
 			//Highlight stroke on mouseover (and show area information)
 			map.on("mousemove", "areaOutline", function(e) {
@@ -155,6 +148,8 @@ if(Modernizr.webgl) {
 			console.log(rate);
 			d3.select("#header").text(name + ": " + rate)
 			
+			
+				
 		}
 		
 	}

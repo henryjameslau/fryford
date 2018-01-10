@@ -26,7 +26,7 @@
 	pymChild = new pym.Child();
 
 	//Check whether inline svg is supported
-	if(Modernizr.inlinesvg) {
+	if(Modernizr.webgl) {
 	d3.select("#graphic").remove();
 	dvc = {};
 
