@@ -16,6 +16,10 @@ if(Modernizr.webgl) {
 		//Set up global variables
 		dvc = {};
 		dvc.time = "yr1";
+		oldAREACD = "";
+		
+		//Fire design functions
+		selectlist(data);
 		
 		//Mapbox key (must hide)
 		//mapboxgl.accessToken = 'pk.eyJ1Ijoib25zZGF0YXZpcyIsImEiOiJjamMxdDduNnAwNW9kMzJyMjQ0bHJmMnI1In0.3PkmH-GL8jBbiWlFB1IQ7Q';
@@ -86,22 +90,11 @@ if(Modernizr.webgl) {
 							type: 'identity',
 							property: 'fill',
 					   },
-					  'fill-opacity': 0.7
+					  'fill-opacity': 0.7,
+					  'fill-outline-color': '#fff'
 				  }
 			  });
 			
-			
-			map.addLayer({
-				'id': 'areaOutline',
-				'type': 'fill',
-				'source': 'area',
-				'layout': {},
-				'paint': {
-					'fill-color': 'rgba(0,0,0,0)',
-					'fill-opacity': 0.2,
-					'fill-outline-color': '#ccc'
-				},
-			});
 			
 			map.addLayer({
 				"id": "state-fills-hover",
@@ -123,7 +116,7 @@ if(Modernizr.webgl) {
 				  'layout': {
 					  "text-field": '{AREANM}',
 					  "text-font": ["DIN Offc Pro Medium","Arial Unicode MS Regular"],
-					  "text-size": { "stops": [[2,8],[7,18]], "base": 0.9 }
+					  "text-size": 14
 				  },
 				  'paint': {
 					  "text-color": "#666",
@@ -135,15 +128,19 @@ if(Modernizr.webgl) {
 			
 		
 			//Highlight stroke on mouseover (and show area information)
-			map.on("mousemove", "areaOutline", function(e) {
+			map.on("mousemove", "area", function(e) {
 				console.log(e.features[0].properties.AREACD);
-				map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
-				showAreaInfo(e.features[0].properties.AREANM, rateById[e.features[0].properties.AREACD]);
+				newAREACD = e.features[0].properties.AREACD;
 				
+				if(newAREACD != oldAREACD) {
+					oldAREACD = e.features[0].properties.AREACD;
+					map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
+					showAreaInfo(e.features[0].properties.AREANM, rateById[e.features[0].properties.AREACD]);
+				}
 			});
 	
 			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-			map.on("mouseleave", "areaOutline", function() {
+			map.on("mouseleave", "area", function() {
 				map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
 			});
 		
@@ -153,9 +150,171 @@ if(Modernizr.webgl) {
 		
 		function showAreaInfo(name, rate) {
 			console.log(rate);
-			d3.select("#header").text(name + ": " + rate)
-			
+			d3.select("#rate").text(name + ": " + rate)
 		}
+		
+		function createKey(config){
+
+			keywidth = $("#keydiv").width();
+	
+			var svgkey = d3.select("#keydiv")
+				.append("svg")
+				.attr("id", "key")
+				.attr("width",keywidth);
+	
+			newbreaks = breaks;
+	
+			var color = d3.scaleThreshold()
+			   .domain(newbreaks)
+			   .range(dvc.colour);
+	
+			y = d3.scaleLinear()
+				.domain([newbreaks[0], breaks[4]]) /*range for data*/
+				.range([300, 0]); /*range for pixels*/
+	
+	
+	
+			x = d3.scaleLinear()
+				.domain([newbreaks[0], breaks[4]]) /*range for data*/
+				.range([0,keywidth-30]); /*range for pixels*/
+	
+			var xAxis = d3.svg.axis()
+				.scale(x)
+				.orient("bottom")
+				.tickSize(15)
+				.tickValues(color.domain())
+				.tickFormat(d3.format(".1f"));
+	
+	
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left")
+				.tickSize(15)
+				.tickValues(color.domain())
+				.tickFormat(d3.format(".0f"));
+	
+	
+			//horizontal key
+	
+			var g2 = svgkey.append("g").attr("id","horiz")
+				.attr("transform", "translate(15,30)");
+	
+	
+			keyhor = d3.select("#horiz");
+	
+			g2.selectAll("rect")
+				.data(color.range().map(function(d,i) {
+	
+				  return {
+					x0: i ? x(color.domain()[i+1]) : x.range()[0],
+					x1: i < color.domain().length ? x(color.domain()[i+1]) : x.range()[1],
+					z: d
+				  };
+				}))
+			  .enter().append("rect")
+				.attr("class", "blocks")
+				.attr("id", function(d,i){ return "pill"+config.ons.varcolour[a][i].replace(/#/g,"");
+											})
+				.attr("height", 8)
+				.attr("x", function(d) {
+					 return d.x0; })
+				.attr("width", function(d) {return d.x1 - d.x0; })
+				.style("opacity",0.8)
+				.style("fill", function(d) { return d.z; });
+	
+	
+			keyhor.selectAll("rect")
+				.data(color.range().map(function(d, i) {
+				  return {
+					x0: i ? x(color.domain()[i]) : x.range()[0],
+					x1: i < color.domain().length ? x(color.domain()[i+1]) : x.range()[1],
+					z: d
+				  };
+				}))
+				.attr("x", function(d) { return d.x0; })
+				.attr("width", function(d) { return d.x1 - d.x0; })
+				.style("fill", function(d) { return d.z; });
+	
+			keyhor.call(xAxis).append("text")
+				.attr("id", "caption")
+				.attr("x", -63)
+				.attr("y", -20)
+				.text("");
+	
+			keyhor.append("rect")
+				.attr("id","keybar")
+				.attr("width",8)
+				.attr("height",0)
+				.attr("transform","translate(15,0)")
+				.style("fill", "#ccc")
+				.attr("x",x(0));
+	
+	
+	
+			d3.select("#horiz").selectAll("text").attr("transform",function(d,i){// if there are more that 4 breaks, so > 5 ticks, then drop every other.
+																				if(i % 2 && dvc.jenksSteps > config.ons.dropXtick){return "translate(0,10)"
+																				} });
+	
+			g2.append("text").attr("id","keyunit").text(dvc.unittext).attr("transform","translate(0,-10)");
+
+	} // Ends create key
+		
+		function selectlist(datacsv) {
+
+			var areacodes =  datacsv.map(function(d) { return d.AREACD; });
+			var areanames =  datacsv.map(function(d) { return d.AREANM; });
+			var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
+
+			// Build option menu for occupations
+			var optns = d3.select("#selectNav").append("div").attr("id","sel").append("select")
+				.attr("id","areaselect")
+				.attr("style","width:98%")
+				.attr("class","chosen-select");
+
+
+			optns.append("option")
+				.attr("value","first")
+				.text("");
+
+			optns.selectAll("p").data(menuarea).enter().append("option")
+				.attr("value", function(d){ return d[1]})
+				.text(function(d){ return d[0]});
+
+			myId=null;
+
+			$('#areaselect').chosen({width: "98%", allow_single_deselect:true}).on('change',function(evt,params){
+
+					if(typeof params != 'undefined') {
+
+
+							/* identify the data-nm attribute of the polygon you've hovered over */
+//							indexarea = document.getElementById("occselect").selectedIndex;
+//							myId=params.selected;
+//							currclass=params.selected;
+//
+//							selected=true;
+//							leaveLayer();
+//							highlightArea();
+//
+//
+//							d3.select(".leaflet-overlay-pane").selectAll("path").on("mouseout",null).on("mouseover",null);
+//							pymChild.sendMessage('navigate', indexarea + " " + dvc.time);
+
+					}
+					else {
+							// Remove any selections
+//							indexarea ="0";
+//							myId=null;
+//							selected=false;
+//							leaveLayer();
+//							d3.select(".leaflet-overlay-pane").selectAll("path").on("mouseout",leaveLayer).on("mouseover",enterLayer);
+//							pymChild.sendMessage('navigate', indexarea + " " + dvc.time);
+
+					}
+
+			});
+
+	};
 		
 	}
 

@@ -7,19 +7,57 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet'/>
-
+  <link rel="stylesheet" href="css/style-chosen.css">
 
 <style>
-    body { margin:0; padding:0; }
-	#header{height:70px; width:100%}
-    #map { height:600px; width:100%; }
+    body { 
+		margin:0; 
+		padding:0; 
+		max-width:800px;
+		margin: 0px auto;
+	}
+	
+	#header{
+		height:70px; 
+		width:100%
+	}
+	
+    #map { 
+		height:500px; 
+		width:100%; 
+	}
+	
+	#selectNav {
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:30%;
+		height:40px;
+		background-color:rgba(255,255,255,0.8);
+		z-index:1;
+	}
+	
+	#rate {
+		position:absolute;
+		top:40px;
+		left:0px;
+		width:30%;
+		height:40px;
+		background-color:rgba(255,255,255,0.8);
+		z-index:1;
+	}
+	
+
+	
 </style>
 
 </head>
 <body>
 
-<div id='header'></div>
-<div id='map'></div>
+<div id='map'>
+	<div id='selectNav'></div>
+    <div id='rate'></div>
+</div>
 
 <!--<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>-->
@@ -29,6 +67,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.7/d3-queue.min.js"></script>
 <script src="http://colorbrewer2.org/export/colorbrewer.js"></script>
+<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/chosen.jquery.js"></script>
 
 
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
