@@ -26,7 +26,7 @@
 	pymChild = new pym.Child();
 
 	//Check whether inline svg is supported
-	if(Modernizr.webgl) {
+	if(Modernizr.inlinesvg) {
 	d3.select("#graphic").remove();
 	dvc = {};
 
@@ -820,6 +820,9 @@
 		d3.select("#horiz").selectAll("text").attr("transform",function(d,i){// if there are more that 4 breaks, so > 5 ticks, then drop every other.
 																			if(i % 2 && dvc.jenksSteps > config.ons.dropXtick){return "translate(0,10)"
 																			} });
+		
+		//Temporary																	
+		dvc.unittext = "change in life expectancy"															
 
 		g2.append("text").attr("id","keyunit").text(dvc.unittext).attr("transform","translate(0,-10)");
 

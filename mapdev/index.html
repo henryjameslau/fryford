@@ -7,12 +7,14 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet'/>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="css/style-chosen.css">
 
 <style>
     body { 
 		margin:0; 
 		padding:0; 
+		font-family: 'Open Sans', sans-serif;
 		max-width:800px;
 		margin: 0px auto;
 	}
@@ -37,12 +39,12 @@
 		z-index:1;
 	}
 	
-	#rate {
+	#keydiv {
 		position:absolute;
 		top:40px;
 		left:0px;
 		width:30%;
-		height:40px;
+		height:80px;
 		background-color:rgba(255,255,255,0.8);
 		z-index:1;
 	}
@@ -55,8 +57,10 @@
 <body>
 
 <div id='map'>
-	<div id='selectNav'></div>
-    <div id='rate'></div>
+	<div id='keydiv'></div>
+    <div id='selectNav'></div>
+    
+    
 </div>
 
 <!--<script src="http://d3js.org/d3.v3.min.js"></script>

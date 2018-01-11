@@ -21,6 +21,11 @@ if(Modernizr.webgl) {
 		//Fire design functions
 		selectlist(data);
 		
+		//Number format
+		displayformat = d3.format(".1f");
+		legendformat = d3.format(".0f");
+		
+		
 		//Mapbox key (must hide)
 		//mapboxgl.accessToken = 'pk.eyJ1Ijoib25zZGF0YXZpcyIsImEiOiJjamMxdDduNnAwNW9kMzJyMjQ0bHJmMnI1In0.3PkmH-GL8jBbiWlFB1IQ7Q';
 		
@@ -56,13 +61,20 @@ if(Modernizr.webgl) {
 		console.log(colorbrewer.YlGn[5]);
 		
 		color = d3.scaleThreshold()
-				.domain([0,10,20,30,40,50])
+				.domain([0, 10, 20, 30, 40])
 				.range(colorbrewer.YlGn[5]);
+				
+		console.log(color(14));
 				
 		rateById = {};
 		areaById = {};
 
 		data.forEach(function(d) { rateById[d.AREACD] = +eval("d." + dvc.time); areaById[d.AREACD] = d.AREANM});	
+		
+		//Now ranges are set we can call draw the key
+		
+		createKey(config);
+		
 						
 		//convert topojson to geojson
 		var areas = topojson.feature(geog, geog.objects.LA2014merc);
@@ -129,69 +141,81 @@ if(Modernizr.webgl) {
 		
 			//Highlight stroke on mouseover (and show area information)
 			map.on("mousemove", "area", function(e) {
-				console.log(e.features[0].properties.AREACD);
 				newAREACD = e.features[0].properties.AREACD;
 				
 				if(newAREACD != oldAREACD) {
 					oldAREACD = e.features[0].properties.AREACD;
 					map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
-					showAreaInfo(e.features[0].properties.AREANM, rateById[e.features[0].properties.AREACD]);
+					
+					selectArea(e.features[0].properties.AREACD);
+					setAxisVal(e.features[0].properties.AREACD);
 				}
 			});
 	
 			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
 			map.on("mouseleave", "area", function() {
 				map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
+				oldAREACD = "";
+				$("#areaselect").val("").trigger("chosen:updated");
+				hideaxisVal();
 			});
 		
 	
 		});
+	
+		function selectArea(code) {
+			$("#areaselect").val(code).trigger("chosen:updated");
+		}
 		
+		function setAxisVal(code) {
+			d3.select("#currLine")
+				.transition()
+				.duration(1000)
+				.attr("x1", x(rateById[code]))
+				.attr("x2", x(rateById[code]))
+				.style("opacity",1);
+				
+			d3.select("#currVal").text(displayformat(rateById[code]))
+				.transition()
+				.duration(1000)
+				.attr("x", x(rateById[code]))
+				.style("opacity",1);
+		}
 		
-		function showAreaInfo(name, rate) {
-			console.log(rate);
-			d3.select("#rate").text(name + ": " + rate)
+		function hideaxisVal() {
+			d3.select("#currLine")
+				.style("opacity",0)
+				
+			d3.select("#currVal").text("")
+				.style("opacity",0)
 		}
 		
 		function createKey(config){
 
-			keywidth = $("#keydiv").width();
-	
+			keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
+			
 			var svgkey = d3.select("#keydiv")
 				.append("svg")
 				.attr("id", "key")
-				.attr("width",keywidth);
-	
-			newbreaks = breaks;
+				.attr("width", keywidth)
+				.attr("height",65);
+			
+			breaks = [-10, 0, 10,20,30,40];
+			newbreaks = [-10, 0, 10, 20, 30, 40];
 	
 			var color = d3.scaleThreshold()
 			   .domain(newbreaks)
-			   .range(dvc.colour);
-	
-			y = d3.scaleLinear()
-				.domain([newbreaks[0], breaks[4]]) /*range for data*/
-				.range([300, 0]); /*range for pixels*/
-	
-	
+			   .range(colorbrewer.YlGn[5]);
 	
 			x = d3.scaleLinear()
-				.domain([newbreaks[0], breaks[4]]) /*range for data*/
+				.domain([breaks[0], breaks[5]]) /*range for data*/
 				.range([0,keywidth-30]); /*range for pixels*/
 	
-			var xAxis = d3.svg.axis()
-				.scale(x)
-				.orient("bottom")
+	
+			var xAxis = d3.axisBottom(x)
 				.tickSize(15)
 				.tickValues(color.domain())
-				.tickFormat(d3.format(".1f"));
-	
-	
-			var yAxis = d3.svg.axis()
-				.scale(y)
-				.orient("left")
-				.tickSize(15)
-				.tickValues(color.domain())
-				.tickFormat(d3.format(".0f"));
+				.tickFormat(legendformat);
 	
 	
 			//horizontal key
@@ -213,8 +237,6 @@ if(Modernizr.webgl) {
 				}))
 			  .enter().append("rect")
 				.attr("class", "blocks")
-				.attr("id", function(d,i){ return "pill"+config.ons.varcolour[a][i].replace(/#/g,"");
-											})
 				.attr("height", 8)
 				.attr("x", function(d) {
 					 return d.x0; })
@@ -222,6 +244,24 @@ if(Modernizr.webgl) {
 				.style("opacity",0.8)
 				.style("fill", function(d) { return d.z; });
 	
+	
+			g2.append("line")
+				.attr("id", "currLine")
+				.attr("x1", x(10))
+				.attr("x2", x(10))
+				.attr("y1", -10)
+				.attr("y2", 12)
+				.attr("stroke-width","2px")
+				.attr("stroke","#000");
+				
+			g2.append("text")
+				.attr("id", "currVal")
+				.attr("x", x(10))
+				.attr("y", -20)
+				.attr("fill","#000")
+				.text("44");
+			
+				
 	
 			keyhor.selectAll("rect")
 				.data(color.range().map(function(d, i) {
@@ -251,11 +291,14 @@ if(Modernizr.webgl) {
 	
 	
 	
-			d3.select("#horiz").selectAll("text").attr("transform",function(d,i){// if there are more that 4 breaks, so > 5 ticks, then drop every other.
-																				if(i % 2 && dvc.jenksSteps > config.ons.dropXtick){return "translate(0,10)"
-																				} });
-	
-			g2.append("text").attr("id","keyunit").text(dvc.unittext).attr("transform","translate(0,-10)");
+			d3.select("#horiz").selectAll("text").attr("transform",function(d,i){
+					// if there are more that 4 breaks, so > 5 ticks, then drop every other.
+					if(i % 2 && dvc.jenksSteps > config.ons.dropXtick){return "translate(0,10)"} }
+			);
+			//Temporary	hardcode unit text																
+			dvc.unittext = "change in life expectancy";
+			
+			d3.select("#keydiv").append("p").attr("id","keyunit").style("margin-top","-10px").style("margin-left","10px").text(dvc.unittext);
 
 	} // Ends create key
 		
