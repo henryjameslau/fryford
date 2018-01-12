@@ -15,7 +15,7 @@ if(Modernizr.webgl) {
 		
 		//Set up global variables
 		dvc = {};
-		dvc.time = "yr1";
+		dvc.curr = "yr1";
 		oldAREACD = "";
 		
 		//Fire design functions
@@ -30,18 +30,17 @@ if(Modernizr.webgl) {
 		//mapboxgl.accessToken = 'pk.eyJ1Ijoib25zZGF0YXZpcyIsImEiOiJjamMxdDduNnAwNW9kMzJyMjQ0bHJmMnI1In0.3PkmH-GL8jBbiWlFB1IQ7Q';
 		
 		//set max bounds (stops loading unnessary tiles
-		var bounds = [
-			[-19.8544921875, 40.82380908513249], // Southwest coordinates
-			[10.021484375, 68.478568831926395]  // Northeast coordinates
-		];
+//		var bounds = [
+//			[-19.8544921875, 40.82380908513249], // Southwest coordinates
+//			[10.021484375, 68.478568831926395]  // Northeast coordinates
+//		];
 		
 		//set up basemap
-		var map = new mapboxgl.Map({
+		map = new mapboxgl.Map({
 		  container: 'map', // container id
 		  style: 'https://free.tilehosting.com/styles/positron/style.json?key=ZBXiR1SHvcgszCLwyOFe', //stylesheet location
 		  center: [-2.5, 54], // starting position
-		  zoom: 4.5, // starting zoom
-		  maxBounds: bounds //set maximum boundaries
+		  zoom: 4.5 // starting zoom
 		});
 		
 		// Add zoom and rotation controls to the map.
@@ -57,33 +56,59 @@ if(Modernizr.webgl) {
 		
 		
 		//set up d3 color scales
-		
-		console.log(colorbrewer.YlGn[5]);
-		
-		color = d3.scaleThreshold()
-				.domain([0, 10, 20, 30, 40])
-				.range(colorbrewer.YlGn[5]);
 				
-		console.log(color(14));
+
+				
 				
 		rateById = {};
 		areaById = {};
 
-		data.forEach(function(d) { rateById[d.AREACD] = +eval("d." + dvc.time); areaById[d.AREACD] = d.AREANM});	
+		data.forEach(function(d) { rateById[d.AREACD] = +eval("d." + dvc.curr); areaById[d.AREACD] = d.AREANM});	
 		
-		//Now ranges are set we can call draw the key
 		
+		//Flatten data values and work out breaks
+		var values =  data.map(function(d) { return +eval("d." + dvc.curr); }).filter(function(d) {return !isNaN(d)}).sort(d3.ascending);
+		
+		if(config.ons.breaks =="jenks") {
+			breaks = ss.ckmeans(values, (config.ons.numberBreaks+1)).map(function(cluster) {
+			  return cluster[0];
+			});
+			console.log(breaks);
+		}
+		else if (config.ons.breaks == "equal") {
+			breaks = ss.equalIntervalBreaks(values, config.ons.numberBreaks);
+		}
+		else {breaks = config.ons.breaks[a];};
+		
+		//set up d3 color scales
+		color = d3.scaleThreshold()
+				.domain(breaks.slice(1))
+				.range(colorbrewer.YlGn[5]);
+		
+		//now ranges are set we can call draw the key
 		createKey(config);
 		
-						
 		//convert topojson to geojson
 		var areas = topojson.feature(geog, geog.objects.LA2014merc);
 		
+		console.log(turf.extent(areas));
+		
+		bounds = turf.extent(areas);
+		
+		setTimeout(function(){map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])},2000);
+		
+		//and add properties to the geojson based on the csv file we've read in
 		areas.features.map(function(d,i) {
 			
 		  d.properties.fill = color(rateById[d.properties.AREACD]) 
 		});
-
+		
+		
+		specificpolygon = areas.features.filter(function(d) {return d.properties.AREACD == "S12000028"})
+	
+		specific = turf.extent(specificpolygon[0].geometry);
+		
+		console.log(specific);
 		//cb(districts)
 		
 		map.on('load', function() {
@@ -140,7 +165,17 @@ if(Modernizr.webgl) {
 			
 		
 			//Highlight stroke on mouseover (and show area information)
-			map.on("mousemove", "area", function(e) {
+			map.on("mousemove", "area", onMove);
+	
+			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
+			map.on("mouseleave", "area", onLeave);
+			
+			//
+			map.on("click", "area", onClick);
+	
+		});
+		
+		function onMove(e) {
 				newAREACD = e.features[0].properties.AREACD;
 				
 				if(newAREACD != oldAREACD) {
@@ -150,34 +185,74 @@ if(Modernizr.webgl) {
 					selectArea(e.features[0].properties.AREACD);
 					setAxisVal(e.features[0].properties.AREACD);
 				}
-			});
-	
-			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-			map.on("mouseleave", "area", function() {
+		};
+		
+					
+		function onLeave() {
 				map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
 				oldAREACD = "";
 				$("#areaselect").val("").trigger("chosen:updated");
 				hideaxisVal();
-			});
+		};
+			
+		function onClick(e) {
+				disableMouseEvents();
+				newAREACD = e.features[0].properties.AREACD;
+				
+				if(newAREACD != oldAREACD) {
+					oldAREACD = e.features[0].properties.AREACD;
+					map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
+					
+					selectArea(e.features[0].properties.AREACD);
+					setAxisVal(e.features[0].properties.AREACD);
+				}
+		};	
+	
+		function disableMouseEvents() {
+				map.off("mousemove", "area", onMove);
+				map.off("mouseleave", "area", onLeave);	
+		}
 		
-	
-		});
-	
+		function enableMouseEvents() {
+				map.on("mousemove", "area", onMove);
+				map.on("click", "area", onClick);
+				map.on("mouseleave", "area", onLeave);	
+		}
+		
 		function selectArea(code) {
 			$("#areaselect").val(code).trigger("chosen:updated");
 		}
 		
+		function zoomToArea(code) {
+			
+			specificpolygon = areas.features.filter(function(d) {return d.properties.AREACD == code})
+		
+			specific = turf.extent(specificpolygon[0].geometry);
+			
+			map.fitBounds([[specific[0],specific[1]], [specific[2], specific[3]]], {
+  				padding: {top: 150, bottom:150, left: 100, right: 100}
+			});
+				
+		}
+		
+		function resetZoom() {
+			
+			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]]);
+				
+		}
+		
+		
 		function setAxisVal(code) {
 			d3.select("#currLine")
 				.transition()
-				.duration(1000)
+				.duration(400)
 				.attr("x1", x(rateById[code]))
 				.attr("x2", x(rateById[code]))
 				.style("opacity",1);
 				
 			d3.select("#currVal").text(displayformat(rateById[code]))
 				.transition()
-				.duration(1000)
+				.duration(400)
 				.attr("x", x(rateById[code]))
 				.style("opacity",1);
 		}
@@ -199,14 +274,13 @@ if(Modernizr.webgl) {
 				.attr("id", "key")
 				.attr("width", keywidth)
 				.attr("height",65);
-			
-			breaks = [-10, 0, 10,20,30,40];
-			newbreaks = [-10, 0, 10, 20, 30, 40];
+		
 	
 			var color = d3.scaleThreshold()
-			   .domain(newbreaks)
+			   .domain(breaks)
 			   .range(colorbrewer.YlGn[5]);
 	
+			// Set up scales for legend
 			x = d3.scaleLinear()
 				.domain([breaks[0], breaks[5]]) /*range for data*/
 				.range([0,keywidth-30]); /*range for pixels*/
@@ -216,9 +290,6 @@ if(Modernizr.webgl) {
 				.tickSize(15)
 				.tickValues(color.domain())
 				.tickFormat(legendformat);
-	
-	
-			//horizontal key
 	
 			var g2 = svgkey.append("g").attr("id","horiz")
 				.attr("transform", "translate(15,30)");
@@ -257,9 +328,9 @@ if(Modernizr.webgl) {
 			g2.append("text")
 				.attr("id", "currVal")
 				.attr("x", x(10))
-				.attr("y", -20)
+				.attr("y", -15)
 				.attr("fill","#000")
-				.text("44");
+				.text("");
 			
 				
 	
@@ -329,30 +400,21 @@ if(Modernizr.webgl) {
 
 					if(typeof params != 'undefined') {
 
-
-							/* identify the data-nm attribute of the polygon you've hovered over */
-//							indexarea = document.getElementById("occselect").selectedIndex;
-//							myId=params.selected;
-//							currclass=params.selected;
-//
-//							selected=true;
-//							leaveLayer();
-//							highlightArea();
-//
-//
-//							d3.select(".leaflet-overlay-pane").selectAll("path").on("mouseout",null).on("mouseover",null);
-//							pymChild.sendMessage('navigate', indexarea + " " + dvc.time);
-
+							disableMouseEvents();
+							
+							map.setFilter("state-fills-hover", ["==", "AREACD", params.selected]);
+					
+							selectArea(params.selected);
+							setAxisVal(params.selected);
+							
+							zoomToArea(params.selected);
+							
 					}
 					else {
-							// Remove any selections
-//							indexarea ="0";
-//							myId=null;
-//							selected=false;
-//							leaveLayer();
-//							d3.select(".leaflet-overlay-pane").selectAll("path").on("mouseout",leaveLayer).on("mouseover",enterLayer);
-//							pymChild.sendMessage('navigate', indexarea + " " + dvc.time);
-
+							enableMouseEvents();
+							hideaxisVal();
+							onLeave();
+							resetZoom();
 					}
 
 			});
