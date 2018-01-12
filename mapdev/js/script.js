@@ -57,9 +57,6 @@ if(Modernizr.webgl) {
 		
 		//set up d3 color scales
 				
-
-				
-				
 		rateById = {};
 		areaById = {};
 
@@ -323,7 +320,8 @@ if(Modernizr.webgl) {
 				.attr("y1", -10)
 				.attr("y2", 12)
 				.attr("stroke-width","2px")
-				.attr("stroke","#000");
+				.attr("stroke","#000")
+				.attr("opacity",0);
 				
 			g2.append("text")
 				.attr("id", "currVal")
