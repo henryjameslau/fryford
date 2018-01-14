@@ -40,7 +40,8 @@ if(Modernizr.webgl) {
 		  container: 'map', // container id
 		  style: 'https://free.tilehosting.com/styles/positron/style.json?key=ZBXiR1SHvcgszCLwyOFe', //stylesheet location
 		  center: [-2.5, 54], // starting position
-		  zoom: 4.5 // starting zoom
+		  zoom: 4.5, // starting zoom
+		  maxZoom: 13 //
 		});
 		
 		// Add zoom and rotation controls to the map.
@@ -70,7 +71,6 @@ if(Modernizr.webgl) {
 			breaks = ss.ckmeans(values, (config.ons.numberBreaks+1)).map(function(cluster) {
 			  return cluster[0];
 			});
-			console.log(breaks);
 		}
 		else if (config.ons.breaks == "equal") {
 			breaks = ss.equalIntervalBreaks(values, config.ons.numberBreaks);
@@ -88,12 +88,19 @@ if(Modernizr.webgl) {
 		//convert topojson to geojson
 		var areas = topojson.feature(geog, geog.objects.LA2014merc);
 		
-		console.log(turf.extent(areas));
-		
 		bounds = turf.extent(areas);
 		
-		setTimeout(function(){map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])},2000);
+	//	map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]]);
 		
+		setTimeout(function(){
+			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
+		},100);
+		
+		// Add some
+		setTimeout(function(){
+			map.setMaxBounds(map.getBounds());
+		},1000);
+				
 		//and add properties to the geojson based on the csv file we've read in
 		areas.features.map(function(d,i) {
 			
@@ -104,9 +111,6 @@ if(Modernizr.webgl) {
 		specificpolygon = areas.features.filter(function(d) {return d.properties.AREACD == "S12000028"})
 	
 		specific = turf.extent(specificpolygon[0].geometry);
-		
-		console.log(specific);
-		//cb(districts)
 		
 		map.on('load', function() {
 		  
@@ -234,7 +238,7 @@ if(Modernizr.webgl) {
 		
 		function resetZoom() {
 			
-			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]]);
+			map.fitBounds([[bounds[0], bounds[1]], [bounds[2], bounds[3]]]);
 				
 		}
 		
