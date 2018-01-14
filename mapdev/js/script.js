@@ -38,7 +38,7 @@ if(Modernizr.webgl) {
 		//set up basemap
 		map = new mapboxgl.Map({
 		  container: 'map', // container id
-		  style: 'https://free.tilehosting.com/styles/positron/style.json?key=ZBXiR1SHvcgszCLwyOFe', //stylesheet location
+		  //style: 'https://free.tilehosting.com/styles/positron/style.json?key=ZBXiR1SHvcgszCLwyOFe', //stylesheet location
 		  center: [-2.5, 54], // starting position
 		  zoom: 4.5, // starting zoom
 		  maxZoom: 13 //
@@ -427,6 +427,8 @@ if(Modernizr.webgl) {
 
 } else {
 	
-	//provide fallback for browsers that don't support webGL	
+	//provide fallback for browsers that don't support webGL
+	d3.select('#map').remove();
+	d3.select('body').append('p').html("Unfortunately your browser ")	
 
 }
