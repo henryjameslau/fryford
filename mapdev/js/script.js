@@ -86,8 +86,9 @@ if(Modernizr.webgl) {
 		createKey(config);
 		
 		//convert topojson to geojson
-		// Would love not to specify exact object - can we avoid?
-		var areas = topojson.feature(geog, geog.objects.LA2014merc);
+		for(key in geog.objects){
+			var areas = topojson.feature(geog, geog.objects[key])
+		}
 		
 		bounds = turf.extent(areas);
 		
@@ -165,10 +166,10 @@ if(Modernizr.webgl) {
 			
 		
 			//Highlight stroke on mouseover (and show area information)
-			map.on("mousemove", "area", onMove);
+			map.on("mousemove", "area", onMove.throttle(200));
 	
 			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-			map.on("mouseleave", "area", onLeave);
+			map.on("mouseleave", "area", onLeave.throttle(200));
 			
 			//
 			map.on("click", "area", onClick);
