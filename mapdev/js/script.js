@@ -166,11 +166,11 @@ if(Modernizr.webgl) {
 			
 		
 			//Highlight stroke on mouseover (and show area information)
-			map.on("mousemove", "area", onMove.debounce(200));
+			map.on("mousemove", "area", onMove.debounce(400));
 	
 			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-			map.on("mouseleave", "area", onLeave.debounce(200));
-			console.log("debounce");
+			map.on("mouseleave", "area", onLeave.debounce(400));
+			console.log("debounce500");
 			
 			//
 			map.on("click", "area", onClick);
