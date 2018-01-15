@@ -430,6 +430,6 @@ if(Modernizr.webgl) {
 	
 	//provide fallback for browsers that don't support webGL
 	d3.select('#map').remove();
-	d3.select('body').append('p').html("Unfortunately your browser ")	
+	d3.select('body').append('p').html("Unfortunately your browser does not support WebGL. If you're able to please upgrade to a modern browser - <a href='https://www.gov.uk/help/browsers' target='_blank'</a> ")	
 
 }
