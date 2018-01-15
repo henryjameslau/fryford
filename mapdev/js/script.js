@@ -177,10 +177,10 @@ if(Modernizr.webgl) {
 			//test whether ie11 or not
 			if(!!window.MSInputMethodContext && !!document.documentMode == true){
 				//Highlight stroke on mouseover (and show area information)
-				map.on("mousemove", "area", onMove.debounce(100));
+				map.on("mousemove", "area", onMove.debounce(50));
 	
 				// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-				map.on("mouseleave", "area", onLeave.debounce(100));
+				map.on("mouseleave", "area", onLeave.debounce(50));
 			} else {
 				//Highlight stroke on mouseover (and show area information)
 				map.on("mousemove", "area", onMove);
@@ -189,7 +189,7 @@ if(Modernizr.webgl) {
 				map.on("mouseleave", "area", onLeave);	
 			};
 			
-			console.log("debounce100");
+			console.log("debounce50");
 			
 			//
 			map.on("click", "area", onClick);
