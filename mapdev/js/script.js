@@ -166,7 +166,14 @@ if(Modernizr.webgl) {
 					  "text-halo-blur": 1
 				  }
 			  });
-			
+			  
+			 
+			//test whether ie11 or not
+			if(!!window.MSInputMethodContext && !!document.documentMode == true){
+				console.log("ie11");
+			} else {
+				console.log("notie11");	
+			};
 		
 			//Highlight stroke on mouseover (and show area information)
 			map.on("mousemove", "area", onMove.throttle(250));
