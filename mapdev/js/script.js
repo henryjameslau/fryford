@@ -91,8 +91,6 @@ if(Modernizr.webgl) {
 		
 		bounds = turf.extent(areas);
 		
-	//	map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]]);
-		
 		setTimeout(function(){
 			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
 		},100);
