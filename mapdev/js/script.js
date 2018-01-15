@@ -41,7 +41,8 @@ if(Modernizr.webgl) {
 		  style: 'https://free.tilehosting.com/styles/positron/style.json?key=ZBXiR1SHvcgszCLwyOFe', //stylesheet location
 		  center: [-2.5, 54], // starting position
 		  zoom: 4.5, // starting zoom
-		  maxZoom: 13 //
+		  maxZoom: 13, //
+		  attributionControl: false
 		});
 		
 		// Add zoom and rotation controls to the map.
@@ -53,6 +54,11 @@ if(Modernizr.webgl) {
 				enableHighAccuracy: true
 			},
 			trackUserLocation: true
+		}));
+		
+		//add compact attribution
+		map.addControl(new mapboxgl.AttributionControl({
+			compact: true
 		}));
 		
 		
@@ -170,16 +176,19 @@ if(Modernizr.webgl) {
 			 
 			//test whether ie11 or not
 			if(!!window.MSInputMethodContext && !!document.documentMode == true){
-				console.log("ie11");
-			} else {
-				console.log("notie11");	
-			};
-		
-			//Highlight stroke on mouseover (and show area information)
-			map.on("mousemove", "area", onMove.throttle(250));
+				//Highlight stroke on mouseover (and show area information)
+				map.on("mousemove", "area", onMove.throttle(250));
 	
-			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-			map.on("mouseleave", "area", onLeave.throttle(250));
+				// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
+				map.on("mouseleave", "area", onLeave.throttle(250));
+			} else {
+				//Highlight stroke on mouseover (and show area information)
+				map.on("mousemove", "area", onMove);
+	
+				// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
+				map.on("mouseleave", "area", onLeave);	
+			};
+			
 			console.log("throttle250");
 			
 			//
