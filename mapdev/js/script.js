@@ -96,10 +96,10 @@ if(Modernizr.webgl) {
 			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
 		},100);
 		
-		// Add some
-		setTimeout(function(){
-			map.setMaxBounds(map.getBounds());
-		},1000);
+//		// Add some
+//		setTimeout(function(){
+//			map.setMaxBounds(map.getBounds());
+//		},1000);
 				
 		//and add properties to the geojson based on the csv file we've read in
 		areas.features.map(function(d,i) {
@@ -133,6 +133,9 @@ if(Modernizr.webgl) {
 				  }
 			  });
 			
+			today = new Date();
+			copyYear = today.getFullYear();
+			map.style.sourceCaches['area']._source.attribution = "Contains OS data &copy; Crown copyright and database right " + copyYear;
 			
 			map.addLayer({
 				"id": "state-fills-hover",
@@ -166,11 +169,11 @@ if(Modernizr.webgl) {
 			
 		
 			//Highlight stroke on mouseover (and show area information)
-			map.on("mousemove", "area", onMove.debounce(400));
+			map.on("mousemove", "area", onMove.throttle(250));
 	
 			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-			map.on("mouseleave", "area", onLeave.debounce(400));
-			console.log("debounce500");
+			map.on("mouseleave", "area", onLeave.throttle(250));
+			console.log("throttle250");
 			
 			//
 			map.on("click", "area", onClick);
