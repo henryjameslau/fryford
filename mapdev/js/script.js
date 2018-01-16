@@ -3,6 +3,9 @@
 
 if(Modernizr.webgl) {
 	
+	//setup pymjs
+	var pymChild = new pym.Child();
+	
 	//Load data and config file
 	d3.queue()
 		.defer(d3.csv, "data/chnglem.csv")
@@ -13,28 +16,18 @@ if(Modernizr.webgl) {
 	
 	function ready (error, data, config, geog){
 		
-		//Set up global variables
-		dvc = {};
-		dvc.curr = "yr1";
+		//Set up global variables	
+		dvc = config.ons;
 		oldAREACD = "";
 		
 		//Fire design functions
 		selectlist(data);
 		
-		//Number format
-		displayformat = d3.format(".1f");
-		legendformat = d3.format(".0f");
+		//Set up number formats
+		displayformat = d3.format(dvc.displayformat);
+		legendformat = d3.format(dvc.legendformat);
 		
-		
-		//Mapbox key (must hide)
-		//mapboxgl.accessToken = 'pk.eyJ1Ijoib25zZGF0YXZpcyIsImEiOiJjamMxdDduNnAwNW9kMzJyMjQ0bHJmMnI1In0.3PkmH-GL8jBbiWlFB1IQ7Q';
-		
-		//set max bounds (stops loading unnessary tiles
-//		var bounds = [
-//			[-19.8544921875, 40.82380908513249], // Southwest coordinates
-//			[10.021484375, 68.478568831926395]  // Northeast coordinates
-//		];
-		
+
 		//set up basemap
 		map = new mapboxgl.Map({
 		  container: 'map', // container id
@@ -67,11 +60,11 @@ if(Modernizr.webgl) {
 		rateById = {};
 		areaById = {};
 
-		data.forEach(function(d) { rateById[d.AREACD] = +eval("d." + dvc.curr); areaById[d.AREACD] = d.AREANM});	
+		data.forEach(function(d) { rateById[d.AREACD] = +eval("d." + dvc.varname); areaById[d.AREACD] = d.AREANM});	
 		
 		
 		//Flatten data values and work out breaks
-		var values =  data.map(function(d) { return +eval("d." + dvc.curr); }).filter(function(d) {return !isNaN(d)}).sort(d3.ascending);
+		var values =  data.map(function(d) { return +eval("d." + dvc.varname); }).filter(function(d) {return !isNaN(d)}).sort(d3.ascending);
 		
 		if(config.ons.breaks =="jenks") {
 			breaks = ss.ckmeans(values, (config.ons.numberBreaks+1)).map(function(cluster) {
@@ -81,12 +74,18 @@ if(Modernizr.webgl) {
 		else if (config.ons.breaks == "equal") {
 			breaks = ss.equalIntervalBreaks(values, config.ons.numberBreaks);
 		}
-		else {breaks = config.ons.breaks[a];};
+		else {breaks = config.ons.breaks;};
+		
+		if(typeof dvc.varcolour === 'string') {
+			colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
+		} else {
+			colour = dvc.varcolour;
+		}
 		
 		//set up d3 color scales
 		color = d3.scaleThreshold()
 				.domain(breaks.slice(1))
-				.range(colorbrewer.YlGn[5]);
+				.range(colour);
 		
 		//now ranges are set we can call draw the key
 		createKey(config);
@@ -102,11 +101,6 @@ if(Modernizr.webgl) {
 			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
 		},100);
 		
-//		// Add some
-//		setTimeout(function(){
-//			map.setMaxBounds(map.getBounds());
-//		},1000);
-				
 		//and add properties to the geojson based on the csv file we've read in
 		areas.features.map(function(d,i) {
 			
@@ -120,10 +114,8 @@ if(Modernizr.webgl) {
 		
 		map.on('load', function() {
 		  
-		
 			map.addSource('area', { 'type': 'geojson', 'data': areas });
 		
-			
 			  map.addLayer({
 				  'id': 'area',
 				  'type': 'fill',
@@ -139,6 +131,7 @@ if(Modernizr.webgl) {
 				  }
 			  });
 			
+			//Get current year for copyright
 			today = new Date();
 			copyYear = today.getFullYear();
 			map.style.sourceCaches['area']._source.attribution = "Contains OS data &copy; Crown copyright and database right " + copyYear;
@@ -162,7 +155,7 @@ if(Modernizr.webgl) {
 				  'minzoom': 10,
 				  'layout': {
 					  "text-field": '{AREANM}',
-					  "text-font": ["DIN Offc Pro Medium","Arial Unicode MS Regular"],
+					  "text-font": ["Open Sans","Arial Unicode MS Regular"],
 					  "text-size": 14
 				  },
 				  'paint': {
@@ -189,9 +182,7 @@ if(Modernizr.webgl) {
 				map.on("mouseleave", "area", onLeave);	
 			};
 			
-			console.log("debounce50");
-			
-			//
+			//Add click event
 			map.on("click", "area", onClick);
 	
 		});
@@ -299,11 +290,11 @@ if(Modernizr.webgl) {
 	
 			var color = d3.scaleThreshold()
 			   .domain(breaks)
-			   .range(colorbrewer.YlGn[5]);
+			   .range(colorbrewer.YlGn[dvc.numberBreaks]);
 	
 			// Set up scales for legend
 			x = d3.scaleLinear()
-				.domain([breaks[0], breaks[5]]) /*range for data*/
+				.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
 				.range([0,keywidth-30]); /*range for pixels*/
 	
 	
@@ -383,15 +374,16 @@ if(Modernizr.webgl) {
 				.attr("x",x(0));
 	
 	
-	
-			d3.select("#horiz").selectAll("text").attr("transform",function(d,i){
-					// if there are more that 4 breaks, so > 5 ticks, then drop every other.
-					if(i % 2 && dvc.jenksSteps > config.ons.dropXtick){return "translate(0,10)"} }
-			);
+			if(dvc.dropticks) {
+				d3.select("#horiz").selectAll("text").attr("transform",function(d,i){
+						// if there are more that 4 breaks, so > 5 ticks, then drop every other.
+						if(i % 2){return "translate(0,10)"} }
+				);
+			}
 			//Temporary	hardcode unit text																
 			dvc.unittext = "change in life expectancy";
 			
-			d3.select("#keydiv").append("p").attr("id","keyunit").style("margin-top","-10px").style("margin-left","10px").text(dvc.unittext);
+			d3.select("#keydiv").append("p").attr("id","keyunit").style("margin-top","-10px").style("margin-left","10px").text(dvc.varunit);
 
 	} // Ends create key
 		
@@ -449,6 +441,6 @@ if(Modernizr.webgl) {
 	
 	//provide fallback for browsers that don't support webGL
 	d3.select('#map').remove();
-	d3.select('body').append('p').html("Unfortunately your browser does not support WebGL. If you're able to please upgrade to a modern browser - <a href='https://www.gov.uk/help/browsers' target='_blank'</a> ")	
+	d3.select('body').append('p').html("Unfortunately your browser does not support WebGL. <a href='https://www.gov.uk/help/browsers' target='_blank>'>If you're able to please upgrade to a modern browser</a>")	
 
 }

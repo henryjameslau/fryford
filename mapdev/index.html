@@ -6,7 +6,7 @@
   <title>Map title here</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet'/>
+  <link href='css/mapbox-gl.css' rel='stylesheet'/>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="css/chosen.css">
 
@@ -17,7 +17,7 @@
 		font-family: 'Open Sans', sans-serif;
 		max-width:800px;
 		margin: 0px auto;
-		height:auto;
+		display:block;
 	}
 	
 	#header{
@@ -59,6 +59,11 @@
 	}
 	
 	@media (max-width: 600px) {
+		
+		 body { 
+			height: 620px;
+		}
+		
 	    #map { 
 			position:absolute;
 			top:0px;
@@ -110,19 +115,21 @@
 <!--<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>-->
 
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.min.js"></script>
+<script src="js/topojson.v2.min.js"></script>
 <script src="js/simple-statistics.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.7/d3-queue.min.js"></script>
-<script src="http://colorbrewer2.org/export/colorbrewer.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/d3-queue.min.js"></script>
+<script src="js/colorbrewer.js"></script>
 <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/chosen.jquery.min.js"></script>
+<script src="js/chosen.jquery.js"></script>
 <script src="js/limit.js"></script>
+<script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js"></script>
 
 
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
-<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js'></script>
+
+<script src='js/mapbox-gl.js'></script>
+<script src='js/turf.min.js'></script>
 <script src="js/script.js"></script>
 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
