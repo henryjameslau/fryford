@@ -121,8 +121,7 @@ if(Modernizr.webgl) {
 			
 		  d.properties.fill = color(rateById[d.properties.AREACD]) 
 		});
-		
-		specific = turf.extent(specificpolygon[0].geometry);
+
 		
 		map.on('load', function() {
 		  
@@ -268,17 +267,19 @@ if(Modernizr.webgl) {
 		
 		function setAxisVal(code) {
 			d3.select("#currLine")
+				.style("opacity",1)
 				.transition()
 				.duration(400)
 				.attr("x1", x(rateById[code]))
-				.attr("x2", x(rateById[code]))
-				.style("opacity",1);
+				.attr("x2", x(rateById[code]));
+				
 				
 			d3.select("#currVal").text(displayformat(rateById[code]))
+				.style("opacity",1)
 				.transition()
 				.duration(400)
-				.attr("x", x(rateById[code]))
-				.style("opacity",1);
+				.attr("x", x(rateById[code]));
+				
 		}
 		
 		function hideaxisVal() {
