@@ -1,10 +1,11 @@
 {"ons":{
-"varcolour": "YlGn",
+"maptitle": "map about life expectancy",
+"varcolour": "PuBu",
 "varname": "yr1",
 "varload": "Change Male",
 "varunit": "change in months",
-"displayformat": ".1f",
-"legendformat": ".0f",
+"displaydecimals": 1,
+"legenddecimals": 0,
 "breaks": "jenks",
 "dropticks": false,
 "numberBreaks": 5

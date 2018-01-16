@@ -20,13 +20,16 @@ if(Modernizr.webgl) {
 		dvc = config.ons;
 		oldAREACD = "";
 		
+		//set title of page
+		//Need to test that this shows up in GA
+		document.title = dvc.maptitle;
+		
 		//Fire design functions
 		selectlist(data);
 		
 		//Set up number formats
-		displayformat = d3.format(dvc.displayformat);
-		legendformat = d3.format(dvc.legendformat);
-		
+		displayformat = d3.format("." + dvc.displaydecimals + "f");
+		legendformat = d3.format("." + dvc.legenddecimals + "f");
 
 		//set up basemap
 		map = new mapboxgl.Map({
@@ -67,14 +70,26 @@ if(Modernizr.webgl) {
 		var values =  data.map(function(d) { return +eval("d." + dvc.varname); }).filter(function(d) {return !isNaN(d)}).sort(d3.ascending);
 		
 		if(config.ons.breaks =="jenks") {
-			breaks = ss.ckmeans(values, (config.ons.numberBreaks+1)).map(function(cluster) {
-			  return cluster[0];
+			breaks = [];
+			
+			ss.ckmeans(values, (dvc.numberBreaks)).map(function(cluster,i) {
+				if(i<dvc.numberBreaks-1) {
+					breaks.push(cluster[0]);
+				} else {
+					breaks.push(cluster[0])
+					//if the last cluster take the last max value
+					breaks.push(cluster[cluster.length-1]);
+				}
 			});
 		}
 		else if (config.ons.breaks == "equal") {
-			breaks = ss.equalIntervalBreaks(values, config.ons.numberBreaks);
+			breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks);
 		}
 		else {breaks = config.ons.breaks;};
+		
+		breaks = breaks.map(function(each_element){
+			return Number(each_element.toFixed(dvc.legenddecimals));
+		});
 		
 		if(typeof dvc.varcolour === 'string') {
 			colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
@@ -107,9 +122,6 @@ if(Modernizr.webgl) {
 		  d.properties.fill = color(rateById[d.properties.AREACD]) 
 		});
 		
-		
-		specificpolygon = areas.features.filter(function(d) {return d.properties.AREACD == "S12000028"})
-	
 		specific = turf.extent(specificpolygon[0].geometry);
 		
 		map.on('load', function() {
@@ -290,7 +302,7 @@ if(Modernizr.webgl) {
 	
 			var color = d3.scaleThreshold()
 			   .domain(breaks)
-			   .range(colorbrewer.YlGn[dvc.numberBreaks]);
+			   .range(colour);
 	
 			// Set up scales for legend
 			x = d3.scaleLinear()
@@ -333,7 +345,7 @@ if(Modernizr.webgl) {
 				.attr("x1", x(10))
 				.attr("x2", x(10))
 				.attr("y1", -10)
-				.attr("y2", 12)
+				.attr("y2", 8)
 				.attr("stroke-width","2px")
 				.attr("stroke","#000")
 				.attr("opacity",0);
