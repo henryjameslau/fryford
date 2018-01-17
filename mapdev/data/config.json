@@ -6,7 +6,7 @@
 "varunit": "change in months",
 "displaydecimals": 1,
 "legenddecimals": 0,
-"breaks": "jenks",
+"breaks": "equal",
 "dropticks": false,
 "numberBreaks": 5
 }}

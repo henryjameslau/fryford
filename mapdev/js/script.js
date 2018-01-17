@@ -106,7 +106,6 @@ if(Modernizr.webgl) {
 		
 		//work out halfway point (for no data position)
 		midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0])/2)
-		console.log(midpoint);
 		
 		//Load colours
 		if(typeof dvc.varcolour === 'string') {
@@ -134,7 +133,7 @@ if(Modernizr.webgl) {
 		//set map to total extent
 		setTimeout(function(){
 			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
-		},100);
+		},1000);
 		
 		//and add properties to the geojson based on the csv file we've read in
 		areas.features.map(function(d,i) {
