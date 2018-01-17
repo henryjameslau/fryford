@@ -192,8 +192,8 @@ if(Modernizr.webgl) {
 			//test whether ie11 or not
 			if(!!window.MSInputMethodContext && !!document.documentMode == true){
 				isIE = true;
-				onMove = onMove.debounce(50);
-				onLeave = onLeave.debounce(50);
+				onMove = onMove.debounce(100);
+				onLeave = onLeave.debounce(100);
 			} else {
 				isIE = false;
 			}
@@ -256,8 +256,7 @@ if(Modernizr.webgl) {
 		function disableMouseEvents() {
 			if(isIE){
 				map.off("mousemove", "area", onMove);
-				map.off("mouseleave", "area", onLeave);
-				console.log("disabledIEn");	
+				map.off("mouseleave", "area", onLeave);	
 			} else {
 				map.off("mousemove", "area", onMove);
 				map.off("mouseleave", "area", onLeave);	
