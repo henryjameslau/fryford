@@ -40,16 +40,24 @@ if(Modernizr.webgl) {
 		  maxZoom: 13, //
 		  attributionControl: false
 		});
+		//add fullscreen option
+		map.addControl(new mapboxgl.FullscreenControl());
 		
 		// Add zoom and rotation controls to the map.
 		map.addControl(new mapboxgl.NavigationControl());
+		
+		// Disable map rotation using right click + drag
+		map.dragRotate.disable();
+		
+		// Disable map rotation using touch rotation gesture
+		map.touchZoomRotate.disableRotation();
+		
 		
 		// Add geolocation controls to the map.
 		map.addControl(new mapboxgl.GeolocateControl({
 			positionOptions: {
 				enableHighAccuracy: true
-			},
-			trackUserLocation: true
+			}
 		}));
 		
 		//add compact attribution
@@ -57,6 +65,9 @@ if(Modernizr.webgl) {
 			compact: true
 		}));
 		
+
+		
+		addFullscreen();
 		
 		//set up d3 color scales
 				
@@ -195,6 +206,9 @@ if(Modernizr.webgl) {
 			
 			//Add click event
 			map.on("click", "area", onClick);
+			
+			//get location on click
+			d3.select(".mapboxgl-ctrl-geolocate").on("click",geolocate);
 	
 		});
 		
@@ -399,6 +413,57 @@ if(Modernizr.webgl) {
 			d3.select("#keydiv").append("p").attr("id","keyunit").style("margin-top","-10px").style("margin-left","10px").text(dvc.varunit);
 
 	} // Ends create key
+	
+	function addFullscreen() {
+		
+		currentBody = d3.select("#map").style("height");
+		d3.select(".mapboxgl-ctrl-fullscreen").on("click", setbodyheight)	
+		
+	}
+	
+	function setbodyheight() {
+		d3.select("#map").style("height","100%");
+		
+		setTimeout(function(){d3.select(".mapboxgl-ctrl-shrink").on("click", shrinkbody)},1000);
+		
+	}
+	
+	function shrinkbody() {
+		d3.select("#map").style("height",currentBody);
+		pymChild.sendHeight(); 
+	}
+	
+	function geolocate() {
+		
+		var options = {
+		  enableHighAccuracy: true,
+		  timeout: 5000,
+		  maximumAge: 0
+		};
+		
+		navigator.geolocation.getCurrentPosition(success, error, options);	
+	}
+	
+	function success(pos) {
+	  crd = pos.coords;
+	  
+	  //go on to filter
+	  //Translate lng lat coords to point on screen
+	  point = map.project([crd.longitude,crd.latitude]);
+	  
+	  //then check what features are underneath
+	  var features = map.queryRenderedFeatures(point);
+	  
+	  //then select area
+	  disableMouseEvents();
+							
+	  map.setFilter("state-fills-hover", ["==", "AREACD", features[0].properties.AREACD]);
+	
+	  selectArea(features[0].properties.AREACD);
+	  setAxisVal(features[0].properties.AREACD);
+	  
+	  
+	};
 		
 		function selectlist(datacsv) {
 
