@@ -193,6 +193,7 @@ if(Modernizr.webgl) {
 			if(!!window.MSInputMethodContext && !!document.documentMode == true){
 				isIE = true;
 				onMove = onMove.debounce(50);
+				onLeave = onLeave.debounce(50);
 			} else {
 				isIE = false;
 			}
@@ -256,7 +257,7 @@ if(Modernizr.webgl) {
 			if(isIE){
 				map.off("mousemove", "area", onMove);
 				map.off("mouseleave", "area", onLeave);
-				console.log("disabledIE");	
+				console.log("disabledIEn");	
 			} else {
 				map.off("mousemove", "area", onMove);
 				map.off("mouseleave", "area", onLeave);	
