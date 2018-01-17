@@ -261,7 +261,7 @@ if(Modernizr.webgl) {
 			if(isIE){
 				map.off("mousemove", "area", onMovedebounce50);
 				map.off("mouseleave", "area", onLeavedebounce50);
-				console.log("disabledIE");	
+				console.log("disabledIEnew");	
 			} else {
 				map.off("mousemove", "area", onMove);
 				map.off("mouseleave", "area", onLeave);	
