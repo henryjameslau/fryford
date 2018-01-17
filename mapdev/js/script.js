@@ -34,7 +34,7 @@ if(Modernizr.webgl) {
 		//set up basemap
 		map = new mapboxgl.Map({
 		  container: 'map', // container id
-		  style: 'https://free.tilehosting.com/styles/positron/style.json?key=ZBXiR1SHvcgszCLwyOFe', //stylesheet location
+		  style: 'data/style.json', //stylesheet location
 		  center: [-2.5, 54], // starting position
 		  zoom: 4.5, // starting zoom
 		  maxZoom: 13, //
@@ -198,19 +198,11 @@ if(Modernizr.webgl) {
 				isIE = false;
 			}
 			
-			if(isIE) {
-				//Highlight stroke on mouseover (and show area information)
-				map.on("mousemove", "area", onMove);
+			//Highlight stroke on mouseover (and show area information)
+			map.on("mousemove", "area", onMove);
 	
-				// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-				map.on("mouseleave", "area", onLeave);
-			} else {
-				//Highlight stroke on mouseover (and show area information)
-				map.on("mousemove", "area", onMove);
-	
-				// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-				map.on("mouseleave", "area", onLeave);	
-			};
+			// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
+			map.on("mouseleave", "area", onLeave);
 			
 			//Add click event
 			map.on("click", "area", onClick);
@@ -298,15 +290,16 @@ if(Modernizr.webgl) {
 				.style("opacity",1)
 				.transition()
 				.duration(400)
-				.attr("x1", x(rateById[code]))
-				.attr("x2", x(rateById[code]));
+				.attr("x1", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{x(0)}})
+				.attr("x2", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{x(0)}});
 				
 				
-			d3.select("#currVal").text(displayformat(rateById[code]))
+			d3.select("#currVal")
+				.text(function(){if(!isNaN(rateById[code]))  {return displayformat(rateById[code])} else {return "Data unavailable"}})
 				.style("opacity",1)
 				.transition()
 				.duration(400)
-				.attr("x", x(rateById[code]));
+				.attr("x", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{x(0)}});
 				
 		}
 		
