@@ -98,10 +98,17 @@ if(Modernizr.webgl) {
 		}
 		else {breaks = config.ons.breaks;};
 		
+		
+		//round breaks to specified decimal places
 		breaks = breaks.map(function(each_element){
 			return Number(each_element.toFixed(dvc.legenddecimals));
 		});
 		
+		//work out halfway point (for no data position)
+		midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0])/2)
+		console.log(midpoint);
+		
+		//Load colours
 		if(typeof dvc.varcolour === 'string') {
 			colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
 		} else {
@@ -121,8 +128,10 @@ if(Modernizr.webgl) {
 			var areas = topojson.feature(geog, geog.objects[key])
 		}
 		
+		//Work out extend of loaded geography file so we can set map to fit total extent
 		bounds = turf.extent(areas);
 		
+		//set map to total extent
 		setTimeout(function(){
 			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
 		},100);
@@ -287,11 +296,11 @@ if(Modernizr.webgl) {
 		
 		function setAxisVal(code) {
 			d3.select("#currLine")
-				.style("opacity",1)
+				.style("opacity", function(){if(!isNaN(rateById[code])) {return 1} else{return 0}})
 				.transition()
 				.duration(400)
-				.attr("x1", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{x(0)}})
-				.attr("x2", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{x(0)}});
+				.attr("x1", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}})
+				.attr("x2", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}});
 				
 				
 			d3.select("#currVal")
@@ -299,7 +308,7 @@ if(Modernizr.webgl) {
 				.style("opacity",1)
 				.transition()
 				.duration(400)
-				.attr("x", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{x(0)}});
+				.attr("x", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}});
 				
 		}
 		
