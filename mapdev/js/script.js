@@ -196,10 +196,10 @@ if(Modernizr.webgl) {
 			
 			if(isIE) {
 				//Highlight stroke on mouseover (and show area information)
-				map.on("mousemove", "area", onMove.debounce(50));
+				map.on("mousemove", "area", onMovedebounce50);
 	
 				// Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-				map.on("mouseleave", "area", onLeave.debounce(50));
+				map.on("mouseleave", "area", onLeavedebounce50);
 			} else {
 				//Highlight stroke on mouseover (and show area information)
 				map.on("mousemove", "area", onMove);
@@ -215,6 +215,14 @@ if(Modernizr.webgl) {
 			d3.select(".mapboxgl-ctrl-geolocate").on("click",geolocate);
 	
 		});
+		
+		function onMovedebounce50() {
+			onMove.debounce(50);
+		}
+		
+		function onLeavedebounce50() {
+			onLeave.debounce(50);	
+		}
 		
 		function onMove(e) {
 				newAREACD = e.features[0].properties.AREACD;
@@ -251,8 +259,8 @@ if(Modernizr.webgl) {
 	
 		function disableMouseEvents() {
 			if(isIE){
-				map.off("mousemove", "area", onMove.debounce(50));
-				map.off("mouseleave", "area", onMove.debounce(50));
+				map.off("mousemove", "area", onMovedebounce50);
+				map.off("mouseleave", "area", onLeavedebounce50);
 				console.log("disabledIE");	
 			} else {
 				map.off("mousemove", "area", onMove);
