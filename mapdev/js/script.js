@@ -293,14 +293,8 @@ if(Modernizr.webgl) {
 		};	
 	
 		function disableMouseEvents() {
-			if(isIE){
 				map.off("mousemove", "area", onMove);
-				map.off("mouseleave", "area", onLeave);	
-			} else {
-				map.off("mousemove", "area", onMove);
-				map.off("mouseleave", "area", onLeave);	
-			}
-			
+				map.off("mouseleave", "area", onLeave);
 		}
 		
 		function enableMouseEvents() {
