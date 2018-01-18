@@ -1,0 +1,12 @@
+{"ons":{
+"maptitle": "map about life expectancy",
+"varcolour": "PuBu",
+"varname": "yr1",
+"varload": "Change Male",
+"varunit": "change in months",
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": "equal",
+"dropticks": false,
+"numberBreaks": 5
+}}
