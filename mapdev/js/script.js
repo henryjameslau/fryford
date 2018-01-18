@@ -472,9 +472,30 @@ if(Modernizr.webgl) {
 	function setbodyheight() {
 		d3.select("#map").style("height","100%");
 		
-		setTimeout(function(){d3.select(".mapboxgl-ctrl-shrink").on("click", shrinkbody)},1000);
+		document.addEventListener('webkitfullscreenchange', exitHandler, false);
+		document.addEventListener('mozfullscreenchange', exitHandler, false);
+		document.addEventListener('fullscreenchange', exitHandler, false);
+		document.addEventListener('MSFullscreenChange', exitHandler, false);
 		
 	}
+	
+	
+	function exitHandler() {
+		
+		console.log("shrink");
+			if (document.webkitIsFullScreen === false)
+			{
+				shrinkbody();
+			}
+			else if (document.mozFullScreen === false)
+			{
+				shrinkbody();
+			}
+			else if (document.msFullscreenElement === false)
+			{
+				shrinkbody();
+			}
+		}
 	
 	function shrinkbody() {
 		d3.select("#map").style("height",currentBody);
