@@ -55,7 +55,7 @@ if(Modernizr.webgl) {
 		  attributionControl: false
 		});
 		//add fullscreen option
-		map.addControl(new mapboxgl.FullscreenControl());
+		//map.addControl(new mapboxgl.FullscreenControl());
 		
 		// Add zoom and rotation controls to the map.
 		map.addControl(new mapboxgl.NavigationControl());
@@ -81,7 +81,7 @@ if(Modernizr.webgl) {
 		//get location on click
 		d3.select(".mapboxgl-ctrl-geolocate").on("click",geolocate);
 		
-		addFullscreen();
+		//addFullscreen();
 		
 		defineBreaks();
 		
@@ -142,7 +142,21 @@ if(Modernizr.webgl) {
 			.attr("for",function(d,i){return "button" + i})
 			.text(function(d,i){return dvc.varlabels[i]})
 			.on('click',function(d,i){onchange(i)})
-				
+			
+	
+		selectgroup = d3.select('#selectnav')
+						.append('select')
+						.attr('class','dropdown')
+						.on('change', onselect)
+						.selectAll("option")
+						.data(dvc.varlabels)
+						.enter()
+						.append('option')
+						.attr("value", function(d,i){return i})
+						.property("selected", function(d, i) {return i===dvc.varload;})
+						.text(function(d,i){return dvc.varlabels[i]});
+						
+						
 		}
 		
 		function defineBreaks(){
@@ -341,6 +355,13 @@ if(Modernizr.webgl) {
 			updateLayers();
 			
 		}
+		
+		function onselect() {
+			a = $(".dropdown").val();
+			onchange(a);
+			
+		}
+		
 		
 		function onMove(e) {
 				newAREACD = e.features[0].properties.AREACD;
