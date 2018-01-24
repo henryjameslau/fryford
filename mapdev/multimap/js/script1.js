@@ -15,19 +15,23 @@ if(Modernizr.webgl) {
 		
 	
 	function ready (error, data, config, geog){
-			
+		
 		//Set up global variables	
 		dvc = config.ons;
 		oldAREACD = "";
 		
-		
-		//get column name	
+		//Get column names
+		variables = [];
 		for (var column in data[0]) {
 			if (column == 'AREACD') continue;
 			if (column == 'AREANM') continue;
-			dvc.varname = column;
-		
+			variables.push(column);
 		}	
+		
+		a = dvc.varload;
+		
+		//BuildNavigation
+		buildNav();
 		
 		//set title of page
 		//Need to test that this shows up in GA
@@ -43,7 +47,7 @@ if(Modernizr.webgl) {
 		//set up basemap
 		map = new mapboxgl.Map({
 		  container: 'map', // container id
-		  style: 'data/style.json', //stylesheet location
+		  style: 'data/style.json', //stylesheet location //includes key for API
 		  center: [-2.5, 54], // starting position
 		  zoom: 4.5, // starting zoom
 		  maxZoom: 13, //
@@ -61,7 +65,6 @@ if(Modernizr.webgl) {
 		// Disable map rotation using touch rotation gesture
 		map.touchZoomRotate.disableRotation();
 		
-		
 		// Add geolocation controls to the map.
 		map.addControl(new mapboxgl.GeolocateControl({
 			positionOptions: {
@@ -74,59 +77,14 @@ if(Modernizr.webgl) {
 			compact: true
 		}));
 		
-
+		//get location on click
+		d3.select(".mapboxgl-ctrl-geolocate").on("click",geolocate);
 		
 		addFullscreen();
 		
-		//set up d3 color scales
-				
-		rateById = {};
-		areaById = {};
-
-		data.forEach(function(d) { rateById[d.AREACD] = +eval("d." + dvc.varname); areaById[d.AREACD] = d.AREANM});	
+		defineBreaks();
 		
-		
-		//Flatten data values and work out breaks
-		var values =  data.map(function(d) { return +eval("d." + dvc.varname); }).filter(function(d) {return !isNaN(d)}).sort(d3.ascending);
-		
-		if(config.ons.breaks =="jenks") {
-			breaks = [];
-			
-			ss.ckmeans(values, (dvc.numberBreaks)).map(function(cluster,i) {
-				if(i<dvc.numberBreaks-1) {
-					breaks.push(cluster[0]);
-				} else {
-					breaks.push(cluster[0])
-					//if the last cluster take the last max value
-					breaks.push(cluster[cluster.length-1]);
-				}
-			});
-		}
-		else if (config.ons.breaks == "equal") {
-			breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks);
-		}
-		else {breaks = config.ons.breaks;};
-		
-		
-		//round breaks to specified decimal places
-		breaks = breaks.map(function(each_element){
-			return Number(each_element.toFixed(dvc.legenddecimals));
-		});
-		
-		//work out halfway point (for no data position)
-		midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0])/2)
-		
-		//Load colours
-		if(typeof dvc.varcolour === 'string') {
-			colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
-		} else {
-			colour = dvc.varcolour;
-		}
-		
-		//set up d3 color scales
-		color = d3.scaleThreshold()
-				.domain(breaks.slice(1))
-				.range(colour);
+		setupScales();
 		
 		//now ranges are set we can call draw the key
 		createKey(config);
@@ -144,6 +102,8 @@ if(Modernizr.webgl) {
 			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
 		},1000);
 		
+		
+		
 		//and add properties to the geojson based on the csv file we've read in
 		areas.features.map(function(d,i) {
 			
@@ -151,7 +111,78 @@ if(Modernizr.webgl) {
 		});
 
 		
-		map.on('load', function() {
+		map.on('load', defineLayers);
+		
+		function buildNav() {
+						
+			var selectList = d3.select('#nav')
+			  .append('select')
+				.attr('class','select')
+				.on('change',onchange)
+			
+			selectList.selectAll('option')
+				.data(dvc.varlabels).enter()
+				.append('option')
+				.attr("value", function(d,i) { return i; })
+				.text(function (d) { return d; });	
+		}
+		
+		function defineBreaks(){
+							
+			rateById = {};
+			areaById = {};
+	
+			data.forEach(function(d) { rateById[d.AREACD] = +eval("d." + variables[a]); areaById[d.AREACD] = d.AREANM});	
+			
+			
+			//Flatten data values and work out breaks
+			var values =  data.map(function(d) { return +eval("d." + variables[a]); }).filter(function(d) {return !isNaN(d)}).sort(d3.ascending);
+			
+			if(config.ons.breaks =="jenks") {
+				breaks = [];
+				
+				ss.ckmeans(values, (dvc.numberBreaks)).map(function(cluster,i) {
+					if(i<dvc.numberBreaks-1) {
+						breaks.push(cluster[0]);
+					} else {
+						breaks.push(cluster[0])
+						//if the last cluster take the last max value
+						breaks.push(cluster[cluster.length-1]);
+					}
+				});
+			}
+			else if (config.ons.breaks == "equal") {
+				breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks);
+			}
+			else {breaks = config.ons.breaks;};
+			
+			
+			//round breaks to specified decimal places
+			breaks = breaks.map(function(each_element){
+				return Number(each_element.toFixed(dvc.legenddecimals));
+			});
+			
+			//work out halfway point (for no data position)
+			midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0])/2)
+			
+		}
+		
+		function setupScales() {
+			//set up d3 color scales
+			//Load colours
+			if(typeof dvc.varcolour === 'string') {
+				colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
+			} else {
+				colour = dvc.varcolour;
+			}
+			
+			//set up d3 color scales
+			color = d3.scaleThreshold()
+					.domain(breaks.slice(1))
+					.range(colour);	
+		}
+		
+		function defineLayers() {
 		  
 			map.addSource('area', { 'type': 'geojson', 'data': areas });
 		
@@ -163,7 +194,7 @@ if(Modernizr.webgl) {
 				  'paint': {
 					  'fill-color': {
 							type: 'identity',
-							property: 'fill',
+							property: 'fill'
 					   },
 					  'fill-opacity': 0.7,
 					  'fill-outline-color': '#fff'
@@ -208,43 +239,29 @@ if(Modernizr.webgl) {
 			 
 			//test whether ie or not
 			function detectIE() {
-			  var ua = window.navigator.userAgent;
-			
-			  // Test values; Uncomment to check result …
-			
-			  // IE 10
-			  // ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
-			
-			  // IE 11
-			  // ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
-			
-			  // Edge 12 (Spartan)
-			  // ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
-			
-			  // Edge 13
-			  // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
-			
-			  var msie = ua.indexOf('MSIE ');
-			  if (msie > 0) {
-				// IE 10 or older => return version number
-				return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-			  }
-			
-			  var trident = ua.indexOf('Trident/');
-			  if (trident > 0) {
-				// IE 11 => return version number
-				var rv = ua.indexOf('rv:');
-				return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-			  }
-			
-			  var edge = ua.indexOf('Edge/');
-			  if (edge > 0) {
-				// Edge (IE 12+) => return version number
-				return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-			  }
-			
-			  // other browser
-			  return false;
+				  var ua = window.navigator.userAgent;	
+				
+				  var msie = ua.indexOf('MSIE ');
+				  if (msie > 0) {
+					// IE 10 or older => return version number
+					return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+				  }
+				
+				  var trident = ua.indexOf('Trident/');
+				  if (trident > 0) {
+					// IE 11 => return version number
+					var rv = ua.indexOf('rv:');
+					return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+				  }
+				
+				  var edge = ua.indexOf('Edge/');
+				  if (edge > 0) {
+					// Edge (IE 12+) => return version number
+					return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+				  }
+				
+				  // other browser
+				  return false;
 			}
 			
 			
@@ -262,11 +279,58 @@ if(Modernizr.webgl) {
 			
 			//Add click event
 			map.on("click", "area", onClick);
-			
-			//get location on click
-			d3.select(".mapboxgl-ctrl-geolocate").on("click",geolocate);
 	
-		});
+	
+		
+		
+		}
+		
+		
+		function updateLayers() {
+			
+			//update properties to the geojson based on the csv file we've read in
+			areas.features.map(function(d,i) {
+				
+			  d.properties.fill = color(rateById[d.properties.AREACD]) 
+			});
+			
+			console.log(areas);
+		  
+			//map.addSource('area', { 'type': 'geojson', 'data': areas });
+			map.getSource('area').setData(areas);
+			
+	//		circle_radius_style = { "base": base_radius,
+//                              "stops": [
+//                                [radius_breaks[0], radius_values[0]],
+//                                [radius_breaks[1], radius_values[1]],
+//                                [radius_breaks[2], radius_values[2]],
+//                                [radius_breaks[3], radius_values[3]]
+//                               ]
+//                        };
+						
+			styleObject = { 'paint': {
+							  'fill-color': {
+									type: 'identity',
+									property: 'fill'
+							   }
+							}
+                        };
+			
+			map.setPaintProperty('area', 'fill-color', styleObject);
+			//map.setPaintProperty('area','fill-color', {type: 'identity', property: 'fill'});
+		
+		}
+		
+		
+		function onchange() {
+			console.log("changed");	
+			//map.removeLayer("area");
+
+			defineBreaks();
+			
+			updateLayers();
+			
+		}
 		
 		function onMove(e) {
 				newAREACD = e.features[0].properties.AREACD;

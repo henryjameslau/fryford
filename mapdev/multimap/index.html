@@ -29,10 +29,18 @@
 		display: none;
 	}
 	
+	#nav {
+		width:100%;
+		height:	50px;
+	}
+	
 	@media (min-width: 599px) {
 		#map { 
+			position:absolute;
+			top:50px;
 			height: 500px; 
-			width: 100%; 
+			width: 100%;
+			max-width:800px; 
 		}
 		
 		#selectNav {
@@ -69,7 +77,7 @@
 		
 	    #map { 
 			position:absolute;
-			top:0px;
+			top:50px;
 			margin-top:120px;
 			height: 500px; 
 			width: 100%;
@@ -105,13 +113,230 @@
 			display:none !important;	
 		}
 	}
+	
+	
+	/* Button group styles */
+
+          #primary {
+          }
+
+          .btn-form {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            font-family: 'Open Sans',Arial,sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 32px;
+          }
+
+          .form-group {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            cursor: pointer;
+            height: 40px;
+            box-sizing: border-box;
+            text-align: center;
+          }
+
+          .form-group:last-child {
+            border-right: solid 1px #A6A8AB;
+          }
+
+          /* Primary button group */
+
+          .label-primary {
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #333;
+            background: #F9F9F9;
+            width: 112px;
+            border-top: solid 1px #A6A8AB;
+            border-left: solid 1px #A6A8AB;
+            border-bottom: solid 1px #A6A8AB;
+          }
+
+          .label-primary:hover {
+            background: #003C57;
+            color: #fff;
+            border-color: #003C57;
+          }
+
+          .radio-primary {
+            display: none;
+          }
+
+          .radio-primary:checked + .label-primary {
+            background: #206095;
+            color: #fff;
+            border-color: #206095;
+            cursor: default;
+          }
+
+          [role="radio"]:focus {
+            outline: 3px solid #FF9933 !important;
+            outline-offset: -1px;
+            background-color:#003C57;
+            z-index: 1;
+          }
+
+          /* Secondary button group */
+
+          .label-secondary {
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #333;
+            background: #F9F9F9;
+            width: 112px;
+            border-top: solid 1px #A6A8AB;
+            border-left: solid 1px #A6A8AB;
+            border-bottom: solid 1px #A6A8AB;
+          }
+
+          .label-secondary:hover {
+            background: #45565E;
+            color: #fff;
+            border-color: #45565E;
+          }
+
+          .radio-secondary:checked + .label-secondary {
+            background: #5F7682;
+            color: #fff;
+            border-color: #5F7682;
+            cursor: default;
+          }
+
+          .radio-secondary {
+            display: none;
+          }
+
+          /* Neutral button group */
+
+          .label-neutral {
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #333;
+            background: #F9F9F9;
+            width: 112px;
+            border-top: solid 1px #A6A8AB;
+            border-left: solid 1px #A6A8AB;
+            border-bottom: solid 1px #A6A8AB;
+          }
+
+          .label-neutral:hover {
+            background: #D0D2D3;
+            color: #323132;
+          }
+
+          .radio-neutral:checked + .label-neutral {
+            background: #E5E6E7;
+            color: #323132;
+            cursor: default;
+          }
+
+          .radio-neutral {
+            display: none;
+          }
+
+          /* Teal button group */
+
+          .label-teal {
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #333;
+            background: #F9F9F9;
+            width: 112px;
+            border-top: solid 1px #A6A8AB;
+            border-left: solid 1px #A6A8AB;
+            border-bottom: solid 1px #A6A8AB;
+          }
+
+          .label-teal:hover {
+            background: #026A6E;
+            color: #FFF;
+            border-color: #026A6E;
+          }
+
+          .radio-teal:checked + .label-teal {
+            background: #008080;
+            color: #FFF;
+            border-color: #008080;
+            cursor: default;
+          }
+
+          .radio-teal {
+            display: none;
+          }
+
+          /* Full width */
+
+          .btn-form-fullwidth {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            font-family: 'Open Sans',Arial,sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 32px;
+            width: 100%;
+          }
+
+          .form-group-fullwidth {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            cursor: pointer;
+            height: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            width: 100%;
+          }
+
+          .form-group-fullwidth:last-child {
+            border-right: solid 1px #A6A8AB;
+          }
+
+          .label-primary-fullwidth {
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #333;
+            background: #F9F9F9;
+            border-top: solid 1px #A6A8AB;
+            border-left: solid 1px #A6A8AB;
+            border-bottom: solid 1px #A6A8AB;
+            width: 100%;
+          }
+
+          .label-primary-fullwidth:hover {
+            background: #003C57;
+            color: #fff;
+            border-color: #003C57;
+            width: 100%;
+          }
+
+          .radio-primary-fullwidth:checked + .label-primary-fullwidth {
+            background: #206095;
+            color: #fff;
+            border-color: #206095;
+            cursor: default;
+            width: 100%;
+          }
+
+          .radio-primary-fullwidth {
+            display: none;
+          }
 
 	
 </style>
 
 </head>
 <body>
+<div id='nav'>
 
+</div>
 <div id='map'>
 	<div id='keydiv'></div>
     <div id='selectNav'></div>
@@ -128,7 +353,7 @@
 <script src="js/modernizr.min.js"></script>
 <script src="js/d3-queue.min.js"></script>
 <script src="js/colorbrewer.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.slim.min.js"></script>
 <script src="js/chosen.jquery.js"></script>
 <script src="js/limit.js"></script>
 <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js"></script>

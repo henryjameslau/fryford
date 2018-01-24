@@ -1,8 +1,8 @@
 {"ons":{
-"maptitle": "map about life expectancy",
+"maptitle": "Multi Map about life expectancy",
 "varcolour": "PuBu",
-"varname": "yr1",
-"varload": "Change Male",
+"varlabels": ["Year 1 ","Year 2","Next One","Last One"],
+"varload": 2,
 "varunit": "change in months",
 "displaydecimals": 1,
 "legenddecimals": 0,
