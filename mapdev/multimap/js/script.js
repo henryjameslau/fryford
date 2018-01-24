@@ -299,8 +299,8 @@ if(Modernizr.webgl) {
 			
 			
 			if(detectIE()){
-				onMove = onMove.debounce(100);
-				onLeave = onLeave.debounce(100);
+				onMove = onMove.debounce(200);
+				onLeave = onLeave.debounce(200);
 				console.log("ie");
 			};
 			
@@ -670,6 +670,8 @@ if(Modernizr.webgl) {
 			$('#areaselect').chosen({width: "98%", allow_single_deselect:true}).on('change',function(evt,params){
 
 					if(typeof params != 'undefined') {
+						
+							d3.select("#map").node().focus();
 
 							disableMouseEvents();
 							

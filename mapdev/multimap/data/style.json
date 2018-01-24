@@ -75,7 +75,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "rgb(194, 200, 202)",
+        "fill-color": "rgb(220, 220, 220)",
         "fill-antialias": true
       }
     },
@@ -1501,7 +1501,8 @@
       ],
       "layout": {
         "line-cap": "round",
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgb(230, 204, 207)",
