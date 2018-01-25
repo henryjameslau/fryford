@@ -19,7 +19,6 @@ if(Modernizr.webgl) {
 		//Set up global variables	
 		dvc = config.ons;
 		oldAREACD = "";
-		selected = false;
 		
 		//Get column names
 		variables = [];
@@ -31,11 +30,9 @@ if(Modernizr.webgl) {
 		
 		a = dvc.varload;
 		
-		
 		//BuildNavigation
-		if(dvc.varlabels.length > 1)	{
-			buildNav();
-		}
+		buildNav();
+		
 		//set title of page
 		//Need to test that this shows up in GA
 		document.title = dvc.maptitle;
@@ -52,13 +49,12 @@ if(Modernizr.webgl) {
 		  container: 'map', // container id
 		  style: 'data/style.json', //stylesheet location //includes key for API
 		  center: [-2.5, 54], // starting position
-		  minZoom: 3.5,//
 		  zoom: 4.5, // starting zoom
 		  maxZoom: 13, //
 		  attributionControl: false
 		});
 		//add fullscreen option
-		//map.addControl(new mapboxgl.FullscreenControl());
+		map.addControl(new mapboxgl.FullscreenControl());
 		
 		// Add zoom and rotation controls to the map.
 		map.addControl(new mapboxgl.NavigationControl());
@@ -84,7 +80,7 @@ if(Modernizr.webgl) {
 		//get location on click
 		d3.select(".mapboxgl-ctrl-geolocate").on("click",geolocate);
 		
-		//addFullscreen();
+		addFullscreen();
 		
 		defineBreaks();
 		
@@ -118,48 +114,17 @@ if(Modernizr.webgl) {
 		map.on('load', defineLayers);
 		
 		function buildNav() {
-	
-		formgroup = d3.select('#nav')
-					.append('form')
-					.attr('class','btn-form-fullwidth')
-					.attr('role','radiogroup')
-					.selectAll('div')
-					.data(dvc.varlabels)
-					.enter()
-					.append('div')
-					.attr("class",'form-group-fullwidth')
-					.attr("role","radio")
-					.attr("tabindex", function(d,i){return i})
-								
-		formgroup.append('input')
-			.attr("id",function(d,i){return "button" + i})
-			.attr('class','radio-primary-fullwidth')
-			.attr("type","radio")
-			.attr("name","button")
-			.attr("value",function(d,i){return i})
-			.attr("aria-checked", function(d,i){if(i == dvc.varload){return true}})
-			.property("checked", function(d, i) {return i===dvc.varload;})
-			
-		formgroup.append('label')
-			.attr('class','label-primary-fullwidth')
-			.attr("for",function(d,i){return "button" + i})
-			.text(function(d,i){return dvc.varlabels[i]})
-			.on('click',function(d,i){onchange(i)})
-			
-	
-		selectgroup = d3.select('#selectnav')
-						.append('select')
-						.attr('class','dropdown')
-						.on('change', onselect)
-						.selectAll("option")
-						.data(dvc.varlabels)
-						.enter()
-						.append('option')
-						.attr("value", function(d,i){return i})
-						.property("selected", function(d, i) {return i===dvc.varload;})
-						.text(function(d,i){return dvc.varlabels[i]});
 						
-						
+			var selectList = d3.select('#nav')
+			  .append('select')
+				.attr('class','select')
+				.on('change',onchange)
+			
+			selectList.selectAll('option')
+				.data(dvc.varlabels).enter()
+				.append('option')
+				.attr("value", function(d,i) { return i; })
+				.text(function (d) { return d; });	
 		}
 		
 		function defineBreaks(){
@@ -215,7 +180,6 @@ if(Modernizr.webgl) {
 			color = d3.scaleThreshold()
 					.domain(breaks.slice(1))
 					.range(colour);	
-					
 		}
 		
 		function defineLayers() {
@@ -235,7 +199,7 @@ if(Modernizr.webgl) {
 					  'fill-opacity': 0.7,
 					  'fill-outline-color': '#fff'
 				  }
-			  }, 'place_city');
+			  });
 			
 			//Get current year for copyright
 			today = new Date();
@@ -252,7 +216,7 @@ if(Modernizr.webgl) {
 					"line-width": 2
 				},
 				"filter": ["==", "AREACD", ""]
-			}, 'place_city');
+			});
 					
 			  map.addLayer({
 				  'id': 'area_labels',
@@ -302,8 +266,8 @@ if(Modernizr.webgl) {
 			
 			
 			if(detectIE()){
-				onMove = onMove.debounce(200);
-				onLeave = onLeave.debounce(200);
+				onMove = onMove.debounce(100);
+				onLeave = onLeave.debounce(100);
 				console.log("ie");
 			};
 			
@@ -330,41 +294,43 @@ if(Modernizr.webgl) {
 			  d.properties.fill = color(rateById[d.properties.AREACD]) 
 			});
 			
-			//Reattach geojson data to area layer	  
+			console.log(areas);
+		  
+			//map.addSource('area', { 'type': 'geojson', 'data': areas });
 			map.getSource('area').setData(areas);
 			
-			//set up style object		
-			styleObject = {
+	//		circle_radius_style = { "base": base_radius,
+//                              "stops": [
+//                                [radius_breaks[0], radius_values[0]],
+//                                [radius_breaks[1], radius_values[1]],
+//                                [radius_breaks[2], radius_values[2]],
+//                                [radius_breaks[3], radius_values[3]]
+//                               ]
+//                        };
+						
+			styleObject = { 'paint': {
+							  'fill-color': {
 									type: 'identity',
 									property: 'fill'
-						}
-			//repaint area layer map usign the styles above
+							   }
+							}
+                        };
+			
 			map.setPaintProperty('area', 'fill-color', styleObject);
+			//map.setPaintProperty('area','fill-color', {type: 'identity', property: 'fill'});
 		
 		}
 		
 		
-		function onchange(i) {
-			
-			a = i;
+		function onchange() {
+			console.log("changed");	
+			//map.removeLayer("area");
 
 			defineBreaks();
-			setupScales();
-			createKey(config);
 			
-			if(selected) {
-				setAxisVal($("#areaselect").chosen().val());
-			}
 			updateLayers();
 			
 		}
-		
-		function onselect() {
-			a = $(".dropdown").val();
-			onchange(a);
-			
-		}
-		
 		
 		function onMove(e) {
 				newAREACD = e.features[0].properties.AREACD;
@@ -397,22 +363,17 @@ if(Modernizr.webgl) {
 					selectArea(e.features[0].properties.AREACD);
 					setAxisVal(e.features[0].properties.AREACD);
 				}
-				
 		};	
 	
 		function disableMouseEvents() {
 				map.off("mousemove", "area", onMove);
 				map.off("mouseleave", "area", onLeave);
-				
-				selected = true;
 		}
 		
 		function enableMouseEvents() {
 				map.on("mousemove", "area", onMove);
 				map.on("click", "area", onClick);
 				map.on("mouseleave", "area", onLeave);	
-				
-				selected = false;
 		}
 		
 		function selectArea(code) {
@@ -465,8 +426,6 @@ if(Modernizr.webgl) {
 		}
 		
 		function createKey(config){
-			
-			d3.select("#keydiv").selectAll("*").remove();
 
 			keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
 			
@@ -596,6 +555,7 @@ if(Modernizr.webgl) {
 	
 	function exitHandler() {
 		
+		console.log("shrink");
 			if (document.webkitIsFullScreen === false)
 			{
 				shrinkbody();
@@ -673,8 +633,6 @@ if(Modernizr.webgl) {
 			$('#areaselect').chosen({width: "98%", allow_single_deselect:true}).on('change',function(evt,params){
 
 					if(typeof params != 'undefined') {
-						
-							d3.select("#map").node().focus();
 
 							disableMouseEvents();
 							

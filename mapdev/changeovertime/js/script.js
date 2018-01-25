@@ -121,7 +121,7 @@ if(Modernizr.webgl) {
 	
 		formgroup = d3.select('#nav')
 					.append('form')
-					.attr('class','btn-form-fullwidth')
+					.attr('class','form-group-fullwidth')
 					.attr('role','radiogroup')
 					.selectAll('div')
 					.data(dvc.varlabels)
@@ -129,8 +129,8 @@ if(Modernizr.webgl) {
 					.append('div')
 					.attr("class",'form-group-fullwidth')
 					.attr("role","radio")
-					.attr("tabindex", function(d,i){return i})
-								
+					.attr("tabindex","1"); 
+			
 		formgroup.append('input')
 			.attr("id",function(d,i){return "button" + i})
 			.attr('class','radio-primary-fullwidth')
@@ -235,7 +235,7 @@ if(Modernizr.webgl) {
 					  'fill-opacity': 0.7,
 					  'fill-outline-color': '#fff'
 				  }
-			  }, 'place_city');
+			  });
 			
 			//Get current year for copyright
 			today = new Date();
@@ -252,7 +252,7 @@ if(Modernizr.webgl) {
 					"line-width": 2
 				},
 				"filter": ["==", "AREACD", ""]
-			}, 'place_city');
+			});
 					
 			  map.addLayer({
 				  'id': 'area_labels',
