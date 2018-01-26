@@ -673,18 +673,19 @@ if(Modernizr.webgl) {
 			//$('#areaselect').chosen({width: "98%", allow_single_deselect:true}).on('change',function(evt,params){
 			$('#areaselect').select2({placeholder:"Select an area",allowClear:true}).on('change',function(){
 
-					if(typeof params != 'undefined') {
+					if($('#areaselect').val() != "") {
+					//if(typeof params != 'undefined') {
 
 							d3.select("#map").node().focus();
 
 							disableMouseEvents();
 
-							map.setFilter("state-fills-hover", ["==", "AREACD", params.selected]);
+							map.setFilter("state-fills-hover", ["==", "AREACD", $('#areaselect').val()]);
 
-							selectArea(params.selected);
-							setAxisVal(params.selected);
+							selectArea($('#areaselect').val());
+							setAxisVal($('#areaselect').val());
 
-							zoomToArea(params.selected);
+							zoomToArea($('#areaselect').val());
 							console.log("selected")
 
 					}
