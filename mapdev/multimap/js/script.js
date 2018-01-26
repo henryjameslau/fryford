@@ -353,7 +353,7 @@ if(Modernizr.webgl) {
 			createKey(config);
 
 			if(selected) {
-				setAxisVal($("#areaselect").chosen().val());
+				setAxisVal($("#areaselect").val());
 			}
 			updateLayers();
 
@@ -367,6 +367,7 @@ if(Modernizr.webgl) {
 
 
 		function onMove(e) {
+			// console.log(e)
 				newAREACD = e.features[0].properties.AREACD;
 
 				if(newAREACD != oldAREACD) {
@@ -375,6 +376,7 @@ if(Modernizr.webgl) {
 
 					selectArea(e.features[0].properties.AREACD);
 					setAxisVal(e.features[0].properties.AREACD);
+
 				}
 		};
 
@@ -382,7 +384,7 @@ if(Modernizr.webgl) {
 		function onLeave() {
 				map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
 				oldAREACD = "";
-				$("#areaselect").val("").trigger("chosen:updated");
+				$("#areaselect").val(null).trigger("change");
 				hideaxisVal();
 		};
 
@@ -416,7 +418,7 @@ if(Modernizr.webgl) {
 		}
 
 		function selectArea(code) {
-			$("#areaselect").val(code).trigger("chosen:updated");
+			$("#areaselect").val(code).trigger("change");
 		}
 
 		function zoomToArea(code) {
@@ -666,38 +668,43 @@ if(Modernizr.webgl) {
 
 			optns.selectAll("p").data(menuarea).enter().append("option")
 				.attr("value", function(d){ return d[1]})
+				.attr("id",function(d){return d[1]})
 				.text(function(d){ return d[0]});
 
 			myId=null;
 
 			//$('#areaselect').chosen({width: "98%", allow_single_deselect:true}).on('change',function(evt,params){
-			$('#areaselect').select2({placeholder:"Select an area",allowClear:true}).on('change',function(){
+			 $('#areaselect').select2({placeholder:"Select an area",allowClear:true,dropdownParent:$('#sel')})
 
-					if($('#areaselect').val() != "") {
-					//if(typeof params != 'undefined') {
+			 $('#areaselect').on('input',function(){console.log("click")})
 
-							d3.select("#map").node().focus();
-
-							disableMouseEvents();
-
-							map.setFilter("state-fills-hover", ["==", "AREACD", $('#areaselect').val()]);
-
-							selectArea($('#areaselect').val());
-							setAxisVal($('#areaselect').val());
-
-							zoomToArea($('#areaselect').val());
-							console.log("selected")
-
-					}
-					else {
-							enableMouseEvents();
-							hideaxisVal();
-							onLeave();
-							resetZoom();
-							console.log("deselected")
-					}
-
-			});
+			//.on('change',function(){
+      //
+			// 		if($('#areaselect').val() != "") {
+			// 		//if(typeof params != 'undefined') {
+      //
+			// 				d3.select("#map").node().focus();
+      //
+			// 				disableMouseEvents();
+      //
+			// 				map.setFilter("state-fills-hover", ["==", "AREACD", $('#areaselect').val()]);
+      //
+			// 				selectArea($('#areaselect').val());
+			// 				setAxisVal($('#areaselect').val());
+      //
+			// 				zoomToArea($('#areaselect').val());
+			// 				console.log("selected")
+      //
+			// 		}
+			// 		else {
+			// 				enableMouseEvents();
+			// 				hideaxisVal();
+			// 				onLeave();
+			// 				resetZoom();
+			// 				console.log("deselected")
+			// 		}
+      //
+			// });
 
 	};
 
