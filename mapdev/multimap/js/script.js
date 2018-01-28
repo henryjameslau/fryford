@@ -384,7 +384,7 @@ if(Modernizr.webgl) {
 		function onLeave() {
 				map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
 				oldAREACD = "";
-				$("#areaselect").val(null).trigger("change");
+				$("#areaselect").val(null).trigger('change.select2');
 				hideaxisVal();
 		};
 
@@ -418,7 +418,8 @@ if(Modernizr.webgl) {
 		}
 
 		function selectArea(code) {
-			$("#areaselect").val(code).trigger("change");
+			$("#areaselect").val(code).trigger('change.select2');
+
 		}
 
 		function zoomToArea(code) {
@@ -655,12 +656,14 @@ if(Modernizr.webgl) {
 			var areanames =  datacsv.map(function(d) { return d.AREANM; });
 			var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
 
+			menuarea.shift();
+			menuarea.shift();
+
 			// Build option menu for occupations
 			var optns = d3.select("#selectNav").append("div").attr("id","sel").append("select")
 				.attr("id","areaselect")
 				.attr("style","width:98%")
 				.attr("class","chosen-select");
-
 
 			optns.append("option")
 				// .attr("value","first")
@@ -678,33 +681,33 @@ if(Modernizr.webgl) {
 
 			 $('#areaselect').on('input',function(){console.log("click")})
 
-			//.on('change',function(){
-      //
-			// 		if($('#areaselect').val() != "") {
-			// 		//if(typeof params != 'undefined') {
-      //
-			// 				d3.select("#map").node().focus();
-      //
-			// 				disableMouseEvents();
-      //
-			// 				map.setFilter("state-fills-hover", ["==", "AREACD", $('#areaselect').val()]);
-      //
-			// 				selectArea($('#areaselect').val());
-			// 				setAxisVal($('#areaselect').val());
-      //
-			// 				zoomToArea($('#areaselect').val());
-			// 				console.log("selected")
-      //
-			// 		}
-			// 		else {
-			// 				enableMouseEvents();
-			// 				hideaxisVal();
-			// 				onLeave();
-			// 				resetZoom();
-			// 				console.log("deselected")
-			// 		}
-      //
-			// });
+			$('#areaselect').on('change',function(){
+
+					if($('#areaselect').val() != "") {
+					//if(typeof params != 'undefined') {
+
+							d3.select("#map").node().focus();
+
+							disableMouseEvents();
+
+							map.setFilter("state-fills-hover", ["==", "AREACD", $('#areaselect').val()]);
+
+							selectArea($('#areaselect').val());
+							setAxisVal($('#areaselect').val());
+
+							zoomToArea($('#areaselect').val());
+
+
+					}
+					else {
+							enableMouseEvents();
+							hideaxisVal();
+							onLeave();
+							resetZoom();
+
+					}
+
+			});
 
 	};
 
