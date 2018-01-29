@@ -129,8 +129,8 @@ if(Modernizr.webgl) {
 					.append('div')
 					.attr("class",'form-group-fullwidth')
 					.attr("role","radio")
-					.attr("tabindex", function(d,i){return i})
-
+					.attr("tabindex", function(d,i){return i+1})
+						
 		formgroup.append('input')
 			.attr("id",function(d,i){return "button" + i})
 			.attr('class','radio-primary-fullwidth')
