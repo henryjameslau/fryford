@@ -1,9 +1,9 @@
 {"ons":{
 "maptitle": "Multi Map about life expectancy",
 "varcolour": "YlGnBu",
-"varlabels": ["Year 1 ","Year 2","Next One","Last One"],
+"varlabels": ["Male LE @ Birth","Female LE @ Birth","Male LE @ 65","Female LE @ 65"],
 "varload": 2,
-"varunit": "change in months",
+"varunit": "% change",
 "displaydecimals": 1,
 "legenddecimals": 0,
 "breaks": "jenks",
